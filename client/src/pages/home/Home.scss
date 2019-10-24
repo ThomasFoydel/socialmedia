@@ -1,0 +1,188 @@
+$break-medium: 665px;
+$break-small: 414px;
+
+.homeoutercontainer {
+  position: fixed;
+  width: 100%;
+  min-width: 31.5rem;
+}
+
+.homecontainer {
+  // min-width: 27rem;
+  margin: 0 3rem;
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(166, 247, 200, 0.603),
+      rgba(34, 97, 180, 0.8)
+    ),
+    url('../../imgs/clouds01.jpg');
+
+  background-size: cover;
+  background-position: absolute;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  color: #fff;
+  margin-top: 4rem;
+  padding: 0 3rem 0 3rem;
+  @media screen and (max-width: $break-medium) {
+    margin-top: 6rem;
+    // width: 88%;
+    text-align: center;
+    padding: 0 2.5rem 0 2.5rem;
+  }
+  @media screen and (max-width: $break-small) {
+    margin-top: 6rem;
+    text-align: center;
+    padding: 0 1rem 0 1rem;
+  }
+}
+
+.homecontainer-textbox {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  margin-top: 0.8rem;
+  width: 70%;
+  @media screen and (max-width: $break-small) {
+    width: 70vw;
+  }
+}
+
+.homecontainer__heading {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  margin-bottom: 6rem;
+}
+
+.homecontainer__heading--main {
+  display: block;
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+  margin-right: -3.5rem;
+  animation-name: slideInLeft;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-out;
+  // width: 100vw;
+  // margin-left: 50%;
+  // transform: translateX(-50%);
+  @media screen and (max-width: $break-small) {
+    font-size: 4rem;
+    font-weight: 700;
+  }
+}
+
+.homecontainer__heading--sub {
+  // width: 100vw;
+  display: block;
+  font-size: 2.1rem;
+  font-weight: 900;
+  letter-spacing: 1.3rem;
+  animation-name: slideInRight;
+  animation-duration: 0.8s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  @media screen and (min-width: $break-small) {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+}
+
+.homecontainer__heading--profilepicture {
+  height: 21rem;
+  width: 21rem !important;
+  border-radius: 9999px;
+  border: 1rem solid rgb(236, 236, 236);
+  position: relative;
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(10rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-10rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.homepagestatusfeedcontainer {
+  position: absolute;
+  top: 100%;
+  min-height: 100rem;
+  max-height: auto;
+  width: 100%;
+  margin-top: 8rem;
+  @media screen and (max-width: $break-small) {
+    width: 100vw;
+  }
+}
+
+.homestatusfeedtitle {
+  text-align: center;
+}
+
+.homeindividualstatus {
+  box-shadow: 0.7rem 0.7rem 0.7rem rgba(0, 0, 0, 0.123);
+  min-width: 44rem;
+  width: 50%;
+  background: rgb(231, 231, 231);
+  padding: 1.8rem;
+  border-radius: 0.1rem;
+  height: auto;
+  margin-bottom: 2rem;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  @media screen and (max-width: $break-small) {
+    width: 90vw;
+    min-width: 28rem;
+  }
+}
+.homeindividualstatusname {
+  margin-left: 0.5rem;
+  color: rgb(102, 150, 255);
+  &:hover {
+    color: rgb(37, 77, 255);
+  }
+}
+
+.homeindividualstatuscreatedat {
+  margin-left: 1rem;
+  margin-top: 0.35rem;
+  font-size: 1.1rem;
+}
+
+.homeindividualstatuscontent {
+  margin-left: 2rem;
+  margin-top: 1rem;
+  overflow: scroll;
+  min-height: 4rem;
+  max-height: 7.2rem;
+  width: 90%;
+  font-size: 1.8rem;
+  @media screen and (max-width: $break-small) {
+    width: 80vw;
+  }
+}
+
+.homeindividualstatuslikesdislikescounter {
+  font-size: 1.2rem;
+  height: 3rem !important;
+}

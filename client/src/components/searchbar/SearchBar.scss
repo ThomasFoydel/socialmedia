@@ -1,0 +1,18 @@
+$break-medium: 665px;
+$break-small: 414px;
+
+.searchbar {
+  height: 2.8rem;
+  border-radius: 0.15rem;
+  padding-left: 1rem;
+  border: none;
+  width: 30rem;
+  margin-top: -0.3rem;
+
+  @media screen and (max-width: $break-medium) {
+    width: 23.8rem;
+  }
+  @media screen and (max-width: $break-small) {
+    width: 15rem;
+  }
+}

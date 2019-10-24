@@ -1,0 +1,256 @@
+$break-medium: 850px;
+$break-small: 414px;
+
+.navbarcontainer {
+  position: fixed;
+  z-index: 3;
+  width: 100%;
+  top: 0;
+}
+
+.mainnavbar {
+  display: none;
+
+  @media screen and (min-width: $break-medium) {
+    padding-top: 0.3rem;
+    display: flex;
+    background: rgb(65, 116, 255);
+    color: white;
+    height: 4.7rem;
+    margin-bottom: 0;
+    a:hover {
+      color: rgb(196, 196, 255);
+    }
+  }
+}
+
+.mainnavbaritem {
+  margin-top: 0.4rem;
+  padding: 5px;
+  list-style: none;
+}
+
+.friendrequestopenbuttontrue {
+  white-space: nowrap;
+  color: rgb(128, 186, 253);
+  margin-top: 0.9rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  list-style: none;
+
+  transition: margin-top 0.4s ease-in-out;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.friendrequestopenbuttonfalse {
+  white-space: nowrap;
+  margin-top: 0.9rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  list-style: none;
+  &:hover {
+    cursor: pointer;
+    color: #c9c3ff;
+  }
+}
+
+.frobuttontrue {
+  &:hover {
+    color: #c9c3ff;
+  }
+}
+
+.navbarcloudicon {
+  margin: 0 1rem;
+}
+
+.mainnavbarlogout {
+  display: inline-block;
+  margin-left: 20rem;
+  position: absolute;
+  right: 1rem;
+  white-space: nowrap;
+}
+
+.navbarhomelink {
+  white-space: nowrap;
+}
+
+///////// MEDIUM
+///////// MEDIUM
+///////// MEDIUM
+///////// MEDIUM
+
+.mediumnavbarcontainer,
+.navbarmedium {
+  display: none;
+  @media screen and (min-width: $break-small) {
+    display: block;
+  }
+  @media screen and (min-width: $break-medium) {
+    display: none;
+  }
+  top: 0;
+}
+
+.mediumnavbarcontainer {
+  background: rgb(65, 116, 255);
+  font-size: 1.8rem;
+  position: fixed;
+  z-index: 6;
+  width: 100%;
+  min-width: 52.5rem;
+  padding-top: 1rem;
+  color: #fff;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none; /* Webkit */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE 10  */
+  -o-user-select: none;
+  user-select: none;
+}
+
+.closefullnavbarbutton,
+.openfullnavbarbutton {
+  right: 4rem;
+  top: 1.5rem;
+  float: right;
+  position: absolute;
+  &:hover {
+    cursor: pointer;
+    color: #0c59b1;
+  }
+}
+
+.mediumclosefullnavbarbutton,
+.mediumopenfullnavbarbutton {
+  // right: 1rem;
+  // top: 1.5rem;
+  // float: right;
+  // position: absolute;
+  margin-left: 3rem;
+  margin-top: 0.5rem;
+}
+
+.mediumnavbarhomelink {
+  margin-right: 0.2rem;
+  margin-left: 1rem;
+  white-space: nowrap;
+}
+.mediumnavbarcloudicon {
+  margin-right: 0.7rem;
+}
+
+.mediummainnavbarlogout {
+  margin-left: 3%;
+  margin-top: 0.5rem;
+  white-space: nowrap;
+}
+
+.mediumfriendreqs {
+  margin-left: 0.5rem;
+  margin-top: 0.5rem;
+  &:hover {
+    cursor: pointer;
+    color: #0a59b3;
+  }
+}
+
+.mediumarrow {
+  margin-right: 0.8rem;
+  margin-left: 0.5rem;
+}
+
+.mediumnavbarlogin {
+  margin-left: 0.5rem;
+}
+
+.mediummainnavbaritem {
+  padding: 0.5rem;
+  list-style: none;
+}
+
+.mediumsearchbar {
+  margin-top: 0.6rem;
+  margin-left: 4%;
+}
+
+///////// SMALL
+///////// SMALL
+///////// SMALL
+///////// SMALL
+
+.smallnavbarcontainer,
+.navbarsmall,
+.smallmainnavbarinnercontainer {
+  top: 0;
+  background: rgb(65, 116, 255);
+  color: #fff;
+  z-index: 6;
+  position: fixed;
+  width: 100%;
+  @media screen and (min-width: $break-small) {
+    display: none;
+  }
+}
+
+.smallmainnavbarinnercontainer {
+  height: 6rem;
+  z-index: 3;
+  font-size: 2.1rem;
+}
+
+.smallsearchbar {
+  width: 14rem;
+  margin-right: 1rem;
+}
+
+.smallnavbarhomelink {
+  margin-right: 1.5rem;
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+}
+
+.smallmainnavbaritem {
+  // margin-top: 1rem;
+}
+
+.smallnavbaropen {
+  height: auto;
+  background: rgb(65, 116, 255);
+  z-index: 2;
+  position: fixed;
+  width: 100%;
+}
+
+.smallopenfullnavbarbutton,
+.smallclosefullnavbarbutton {
+  position: absolute;
+  right: 2rem;
+  top: 1rem;
+}
+
+.smallsearchbar {
+  margin-top: 1rem;
+}
+
+.smallnavbarnotloggedin {
+  margin-top: 1rem;
+  margin-left: 0.4rem;
+}
+
+.smallnavbarlogin,
+.smallnavbarregister {
+  list-style: none;
+  margin-left: 1rem;
+}
+
+.mediumfrobuttontrue,
+.smallfrobuttontrue {
+  color: rgb(128, 186, 253);
+  &:hover {
+    color: rgba(128, 186, 253, 0.616);
+  }
+}

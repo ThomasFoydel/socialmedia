@@ -1,0 +1,111 @@
+.feedpostcomment {
+  background: rgba(196, 200, 221, 0.301);
+  margin: 14px;
+  padding: 10px;
+  border-radius: 1rem;
+  position: relative;
+  max-height: 13.6rem;
+}
+.feedpostcommentauthorpic {
+  height: 4rem;
+  width: 4rem;
+  border: 0.2rem solid white;
+  border-radius: 999px;
+}
+
+.commentuserresponsearea {
+  margin-top: 3rem;
+}
+
+.commentlikesdislikescounter {
+  height: 2rem;
+}
+
+.commenteditbutton {
+  margin-right: 1rem;
+  &:hover {
+    cursor: pointer;
+    color: rgb(82, 94, 255);
+  }
+}
+
+.commenteditbuttonopen {
+  margin-right: 1rem;
+  color: rgb(82, 94, 255);
+}
+
+.commentdeletebutton {
+  &:hover {
+    cursor: pointer;
+    color: rgb(255, 82, 82);
+  }
+}
+
+.commentdeletebuttonopen {
+  color: rgb(255, 82, 82);
+}
+
+.commentdeletebuttongrayedout {
+  color: rgb(165, 165, 165);
+}
+
+.commenteditbuttongrayedout {
+  margin-right: 1rem;
+  color: rgb(165, 165, 165);
+}
+
+.commentdeleteoptions {
+  position: absolute;
+  top: 3rem;
+  right: -9rem;
+  // left: 1rem;
+  background: rgb(240, 240, 240);
+  padding: 1rem;
+  border-radius: 0.4rem;
+  box-shadow: 1rem 0.8rem 3rem rgba(0, 0, 0, 0.349);
+}
+
+.editcommentcancelbutton,
+.commentdeleteconfirmbutton,
+.commentdeletebuttoncancel {
+  background: rgb(223, 223, 223);
+  width: 8rem;
+  text-align: center;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin-left: 1rem;
+  transition: color 0.2s, background-color 0.2s;
+  &:hover {
+    cursor: pointer;
+    color: rgb(255, 82, 82);
+    background: rgb(235, 235, 235);
+  }
+  &:active {
+    background: rgb(119, 119, 119);
+    color: rgb(238, 238, 238);
+  }
+}
+
+.commentauthorname {
+  font-size: 1.9rem;
+  margin-top: 0.35rem;
+  margin-left: 0.8rem;
+}
+
+.commentcontent {
+  margin-top: 1.5rem;
+  margin-left: 2rem;
+  max-height: 6.8rem;
+  margin-bottom: -1rem;
+  overflow: auto;
+}
+
+.commentauthorbuttons {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+}
+
+// .commentdeletesubmitbutton {
+
+// }

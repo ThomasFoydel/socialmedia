@@ -1,0 +1,33 @@
+.profileunfriendbuttoncontainer {
+  position: absolute;
+  top: 36.5rem !important;
+  left: 25rem;
+}
+
+.profileunfriendopenbutton,
+.profileunfriendcancelbutton,
+.profileunfriendconfirmbutton {
+  font-size: 1.2rem;
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.4rem;
+  width: 5.5rem;
+  text-align: center;
+  background: rgba(238, 238, 238, 0);
+  transition: color 0.2s, background-color 0.25s, transform 0.2s;
+  &:hover {
+    transform: translateY(-0.3rem);
+    cursor: pointer;
+    color: red;
+    background: rgb(206, 206, 206);
+  }
+  &:active {
+    transform: translateY(-0.1rem);
+    background: rgb(255, 0, 0);
+    color: rgb(206, 206, 206);
+  }
+}
+
+.profileunfriendopenbutton {
+  color: rgba(85, 85, 85, 0.805);
+  background: rgba(255, 255, 255, 0.178);
+}

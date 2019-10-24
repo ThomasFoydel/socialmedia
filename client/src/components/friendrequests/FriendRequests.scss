@@ -1,0 +1,63 @@
+.friendrequestcontainer {
+  width: 24rem;
+  z-index: 2;
+  position: absolute;
+  margin-top: 0.5rem;
+  margin-left: -0.8rem;
+  background: rgb(65, 116, 255);
+  padding: 1rem;
+  border-radius: 0 0 0.3rem 0.3rem;
+  &:hover {
+    cursor: default;
+  }
+}
+
+.friendrequestbuttonaccept {
+  margin-left: 2rem;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  &:hover {
+    cursor: pointer;
+    color: rgb(2, 89, 189);
+    background: rgba(255, 255, 255, 0.589);
+  }
+}
+
+.friendrequestbuttonreject {
+  margin-left: 2rem;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  &:hover {
+    cursor: pointer;
+    color: rgb(182, 22, 22);
+    background: rgba(255, 255, 255, 0.589);
+  }
+}
+
+.friendrequest {
+  color: white;
+  background: rgba(255, 255, 255, 0.082);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  height: 10rem;
+  &:hover {
+    cursor: default;
+  }
+}
+
+.friendrequestprofilepic {
+  height: 4rem;
+  width: 4rem;
+  border-radius: 9990rem;
+  border: 0.12rem solid white;
+
+  &:hover {
+    border-color: rgb(23, 131, 255);
+  }
+}
+
+.friendrequestname {
+  &:hover {
+    color: rgb(23, 131, 255);
+  }
+}

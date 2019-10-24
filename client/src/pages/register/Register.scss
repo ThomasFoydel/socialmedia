@@ -1,0 +1,82 @@
+$break-medium: 665px;
+$break-small: 414px;
+$break-small2: 413px;
+
+.registerform {
+  display: flex;
+  justify-content: center;
+}
+
+.titletext {
+  font-size: 6.8rem;
+}
+
+.registerforminsidecontainer {
+  margin-top: 12rem;
+  padding: 2rem 0 0 3rem;
+  min-width: 40rem;
+  max-width: 60rem;
+  border-radius: 1rem;
+  background: rgb(255, 255, 255);
+  box-shadow: 0.2rem 0.2rem 0.2rem #999;
+  @media screen and (max-width: $break-small) {
+    min-width: 20rem !important;
+    max-width: 25rem !important;
+  }
+  @media screen and (max-width: $break-medium) {
+    min-width: 34rem !important;
+    max-width: 37rem !important;
+  }
+}
+
+.registerforminput {
+  min-width: 50rem;
+  max-width: 50rem;
+  margin: 1rem auto;
+  display: block;
+  padding: 0.5rem;
+  border-width: 0 0 0.2rem 0;
+  border-color: rgb(78, 78, 78);
+  background: rgba(255, 255, 255, 0);
+  @media screen and (max-width: $break-small) {
+    min-width: 20rem !important;
+    max-width: 20rem !important;
+  }
+  @media screen and (max-width: $break-medium) {
+    min-width: 30rem !important;
+    max-width: 32rem !important;
+  }
+}
+
+.registerbutton {
+  display: block;
+  margin: 2rem auto;
+  color: rgb(82, 157, 250);
+  padding: 5px 10px !important;
+  border-radius: 8px;
+  width: 50%;
+  background: rgb(232, 239, 248) !important;
+  border: none;
+  box-shadow: 0.1rem 0.1rem 0.1rem rgba(153, 153, 153, 0.808);
+  transition: background 0.1s, transform 0.1s, color 0.1s;
+  @media screen and (min-width: $break-medium) {
+    &:hover {
+      background: rgb(160, 202, 253) !important;
+      transform: translateY(-0.2rem);
+      box-shadow: 0.2rem 0.2rem 0.2rem rgba(153, 153, 153, 0.568);
+      color: white;
+    }
+    &:active {
+      transform: translateY(0.1rem);
+      background: white !important;
+      color: rgb(70, 70, 70);
+      box-shadow: 0.14rem 0.14rem 0.14rem rgba(153, 153, 153, 0.808);
+    }
+  }
+  @media screen and (max-width: $break-medium) {
+    &:active {
+      background: rgb(160, 202, 253) !important;
+      color: white;
+    }
+  }
+}

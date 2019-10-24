@@ -1,0 +1,101 @@
+$break-medium: 665px;
+$break-small: 414px;
+
+.homestatuslikedislikebuttonscontainer {
+}
+.homestatuslikedislikebuttonsinnercontainer {
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.homestatuslikebutton,
+.homestatusdislikebutton,
+.homestatusremovelikebutton,
+.homestatusremovedislikebutton,
+.homestatuslikebuttongrayedout,
+.homestatusdislikebuttongrayedout {
+  height: 2.8rem;
+}
+
+.homestatuslikebuttonicon,
+.homestatusdislikebuttonicon,
+.homestatusremovelikebuttonicon,
+.homestatusremovedislikebuttonicon,
+.homestatuslikebuttongrayedouticon,
+.homestatusdislikebuttongrayedouticon {
+  margin-left: 50% !important;
+  transform: translateX(-50%);
+}
+
+.homestatuslikebutton,
+.homestatusdislikebutton,
+.homestatusremovelikebutton,
+.homestatusremovedislikebutton,
+.homestatuslikebuttongrayedout,
+.homestatusdislikebuttongrayedout {
+  margin: 0 0.5rem;
+  width: 16rem;
+  padding: 0.3rem 10rem;
+  border-radius: 0.4rem;
+  @media screen and (max-width: $break-small) {
+    width: 10rem !important;
+    padding: 0.3rem 6rem;
+  }
+}
+
+.homestatuslikebutton,
+.homestatusdislikebutton {
+  color: rgb(56, 56, 56);
+  background: rgb(216, 216, 216);
+  transition: color 0.2s;
+  &:hover {
+    cursor: pointer;
+    color: rgb(82, 94, 255);
+    background: rgb(220, 221, 224);
+  }
+}
+
+// .homestatusdislikebutton {
+//   color: rgb(56, 56, 56);
+//   background: rgb(216, 216, 216);
+//   transition: color 0.2s;
+//   &:hover {
+//     cursor: pointer;
+//     color: rgb(82, 94, 255);
+//     background: rgb(220, 221, 224);
+//   }
+// }
+
+.homestatusremovelikebutton,
+.homestatusremovedislikebutton {
+  color: rgb(82, 94, 255);
+  background: rgb(216, 216, 216);
+  transition: color 0.2s;
+  &:hover {
+    cursor: pointer;
+    color: rgb(255, 82, 82);
+    background: rgb(220, 221, 224);
+  }
+}
+
+// .homestatusremovedislikebutton {
+//   color: rgb(82, 94, 255);
+//   background: rgb(216, 216, 216);
+//   transition: color 0.2s;
+//   &:hover {
+//     cursor: pointer;
+//     color: rgb(255, 82, 82);
+//     background: rgb(220, 221, 224);
+//   }
+// }
+
+.homestatuslikebuttongrayedout,
+.homestatusdislikebuttongrayedout {
+  color: rgb(160, 160, 160);
+  background: rgb(216, 216, 216);
+}
+
+.homeindividualstatuslikesdislikescounter {
+  margin-top: -0.2rem;
+  margin-bottom: 0.2rem;
+}

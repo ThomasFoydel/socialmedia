@@ -1,0 +1,288 @@
+$break-large: 1150px;
+$break-medium: 1040px;
+$break-small: 880px;
+$break-xs: 485px;
+
+// .searchresulttotalcontainer {
+//   margin-top: 0rem;
+// }
+
+.searchresultusersorpostsbuttonoutercontainer {
+  margin-left: 50%;
+  transform: translateX(-41%);
+  // justify-items: center;
+  // justify-content: center;
+  // text-align: center;
+}
+
+.searchresultusersorpostsbuttoncontainer {
+  margin-top: 10rem;
+  text-align: center;
+  width: 100%;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  // border: 2px solid black;
+  align-content: center;
+  // @media screen and (max-width: $break-small) {
+  //   margin-left: 50%;
+  //   transform: translateX(-50%);
+  // }
+}
+
+.searchresultpostsbutton,
+.searchresultusersbutton,
+.searchresultusersbuttonselected,
+.searchresultpostsbuttonselected {
+  padding: 1rem;
+  width: 8rem;
+  border-radius: 0.2rem;
+}
+
+.searchresultpostsbutton,
+.searchresultusersbutton {
+  background: #fff;
+  box-shadow: 0.25rem 0.25rem 0.25rem rgba(46, 46, 46, 0.671);
+  // border-bottom: 1px solid black;
+  // border-left: 1px solid black;
+  &:hover {
+    cursor: pointer;
+    background: rgb(63, 130, 230);
+    color: white;
+  }
+}
+
+.searchresultusersbuttonselected,
+.searchresultpostsbuttonselected {
+  background: rgb(140, 186, 255);
+  color: rgb(255, 255, 255);
+  box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.671);
+  // border-top: 1px solid black;
+  // border-right: 1px solid black;
+  &:hover {
+    cursor: default;
+  }
+}
+
+.searchresultusersbutton,
+.searchresultusersbuttonselected {
+  margin-right: 0.5rem;
+}
+
+.searchresultpostsbutton,
+.searchresultpostsbuttonselected {
+  margin-left: 0.5rem;
+}
+
+.searchresultinnercontainer {
+  width: 100%;
+  min-width: 110rem;
+  position: relative;
+  margin-left: 50%;
+  transform: translateX(-50%);
+
+  @media screen and (max-width: $break-medium) {
+    min-width: 80rem;
+  }
+  @media screen and (max-width: $break-small) {
+    min-width: 0rem;
+  }
+}
+
+.searchresultuserscontainertitle,
+.searchresultpostscontainertitle {
+  position: absolute;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-top: 10rem;
+  margin-top: -4rem;
+}
+
+// .searchresultuserscontainertitle {
+//   top: -4rem;
+// }
+
+.searchresultpost {
+  max-width: 20rem;
+  min-width: 20rem;
+  height: 32rem;
+  margin: 1.4rem;
+  padding: 0.3rem;
+  background: rgb(248, 248, 248);
+  text-align: center;
+  transition: transform 0.4s, box-shadow 8s;
+
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  &::after {
+    content: '';
+    border-radius: 5px;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  &:hover {
+    cursor: pointer;
+    -webkit-transform: scale(1.15, 1.15);
+    transform: scale(1.15, 1.15);
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+  @media screen and (max-width: $break-xs) {
+    width: 30rem !important;
+    max-width: 30rem;
+    height: 30rem;
+  }
+}
+
+.searchresultpostscontainer {
+  padding: 0;
+  margin-top: 10rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: auto;
+  margin-bottom: 4rem;
+  box-sizing: border-box;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  justify-content: center;
+  justify-items: center;
+}
+
+// .searchresultposttitle {
+// }
+
+// .searchresultpostdate {
+// }
+
+// .searchresultpostcontent {
+// }
+
+// .searchresultusername {
+// }
+
+.searchresultpostimage {
+  width: 100%;
+  height: 12rem;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 0.8rem;
+  margin-top: 0.8rem;
+}
+
+.searchresultuserscontainer {
+  // padding: 0;
+  // margin-top: 10rem;
+  // display: grid;
+  // grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  // height: auto;
+  // margin-bottom: 4rem;
+  // box-sizing: border-box;
+  // margin-left: 50%;
+  // transform: translateX(-50%);
+  // justify-content: center;
+  // justify-items: center;
+  padding: 0;
+  margin-top: 10rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: auto;
+  margin-bottom: 4rem;
+  box-sizing: border-box;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  justify-content: center;
+  justify-items: center;
+}
+
+.searchresultuser {
+  min-width: 20rem;
+  max-width: 20rem;
+  margin: 1.4rem;
+  padding: 0.3rem;
+  background: rgb(248, 248, 248);
+  text-align: center;
+  height: 25rem;
+
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  &::after {
+    content: '';
+    border-radius: 5px;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  &:hover {
+    cursor: pointer;
+    -webkit-transform: scale(1.15, 1.15);
+    transform: scale(1.15, 1.15);
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+  @media screen and (max-width: $break-xs) {
+    width: 30rem !important;
+    max-width: 30rem;
+    height: 30rem;
+  }
+}
+
+.searchresultuserpic {
+  width: 100%;
+  height: 80%;
+}
+
+.searchresultuserscontainer,
+.searchresultpostscontainer {
+  @media screen and (min-width: $break-large) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  @media screen and (max-width: $break-medium) {
+    grid-template-columns: repeat(3, 1fr);
+    width: 90rem;
+  }
+  @media screen and (max-width: $break-small) {
+    grid-template-columns: repeat(2, 1fr);
+    width: 50rem;
+  }
+  @media screen and (max-width: $break-xs) {
+    grid-template-columns: repeat(1, 1fr);
+    width: 50rem;
+    margin-left: 52%;
+  }
+}
+
+.nopostsfound,
+.nousersfound {
+  margin-top: 15rem;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.searchresultnoimageblankspace {
+  height: 13.6rem;
+}

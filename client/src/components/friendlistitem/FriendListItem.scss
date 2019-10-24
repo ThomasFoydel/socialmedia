@@ -1,0 +1,68 @@
+.friendlistitem {
+  padding: 1.5rem;
+  background: rgb(238, 238, 238);
+  width: 18rem;
+  margin: 0.3rem;
+  width: 16rem;
+  height: 14rem;
+  line-height: 1rem;
+  box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.096);
+  white-space: nowrap;
+  text-align: center;
+}
+
+.friendlistprofilepic {
+  width: 6.4rem;
+  height: 6.4rem;
+  border-radius: 10rem;
+  border: 0.2rem solid white;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.friendlistname {
+  font-size: 1.35rem;
+  margin-top: 0.3rem;
+}
+
+.friendlistprofilecity,
+.friendlistprofileemail {
+  font-size: 1.2rem;
+}
+
+.friendlistprofileemail {
+  margin-top: 0.4rem;
+}
+
+.unfriendbuttoncancel {
+  font-size: 1.2rem;
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.4rem;
+  // margin: 0.2rem;
+  margin-bottom: -1rem;
+  width: 5.5rem;
+  text-align: center;
+  background: rgb(238, 238, 238);
+  transition: color 0.2s, background-color 0.25s;
+  &:hover {
+    cursor: pointer;
+    color: red;
+    background: rgb(206, 206, 206);
+  }
+}
+
+.unfriendbutton {
+  font-size: 1.2rem;
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.4rem;
+  margin: 0 auto;
+  width: 5.5rem;
+  text-align: center;
+  background: rgb(226, 226, 226);
+  transition: color 0.2s, background-color 0.25s;
+  &:hover {
+    cursor: pointer;
+    color: red;
+    background: rgb(206, 206, 206);
+  }
+}

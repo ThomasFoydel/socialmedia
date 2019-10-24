@@ -1,0 +1,81 @@
+$break-medium: 850px;
+$break-small: 414px;
+
+.statuslikedislikebuttonscontainer {
+}
+.statuslikedislikebuttonsinnercontainer {
+  // margin-left: 50%;
+  // transform: translateX(-50%);
+}
+
+.statuslikebuttonicon,
+.statusdislikebuttonicon,
+.statusremovelikebuttonicon,
+.statusremovedislikebuttonicon,
+.statuslikebuttongrayedouticon,
+.statusdislikebuttongrayedouticon {
+  margin-left: 50% !important;
+  transform: translateX(-50%);
+}
+
+.statuslikebutton,
+.statusdislikebutton,
+.statusremovelikebutton,
+.statusremovedislikebutton {
+  @media screen and (max-width: $break-small) {
+    width: 10rem !important;
+    padding: 0.3rem 8.9rem;
+  }
+}
+
+.statuslikebutton,
+.statusdislikebutton,
+.statusremovelikebutton,
+.statusremovedislikebutton,
+.statuslikebuttongrayedout,
+.statusdislikebuttongrayedout {
+  width: 15rem;
+  margin: 0 0.5rem;
+  padding: 0.3rem 8rem;
+  border-radius: 0.4rem;
+  height: 2.8rem;
+  @media screen and (max-width: $break-medium) {
+    padding: 0.3rem 11rem;
+  }
+}
+
+.statuslikebutton,
+.statusdislikebutton {
+  color: rgb(56, 56, 56);
+  background: rgb(216, 216, 216);
+  transition: color 0.2s;
+  &:hover {
+    cursor: pointer;
+    color: rgb(82, 94, 255);
+    background: rgb(220, 221, 224);
+  }
+}
+
+.statusremovelikebutton,
+.statusremovedislikebutton {
+  color: rgb(82, 94, 255);
+  background: rgb(216, 216, 216);
+  transition: color 0.2s;
+  &:hover {
+    cursor: pointer;
+    color: rgb(255, 82, 82);
+    background: rgb(220, 221, 224);
+  }
+}
+
+.statuslikebuttongrayedout,
+.statusdislikebuttongrayedout {
+  color: rgb(160, 160, 160);
+  background: rgb(216, 216, 216);
+  border-radius: 0.4rem;
+}
+
+.individualstatuslikesdislikescounter {
+  margin-top: -0.2rem;
+  margin-bottom: 0.2rem;
+}

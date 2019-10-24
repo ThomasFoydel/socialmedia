@@ -1,0 +1,80 @@
+$break-medium: 665px;
+$break-small: 414px;
+
+.commentlikedislikeinnercontainer {
+  display: flex;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.commentlikebutton,
+.commentdislikebutton {
+  color: rgb(56, 56, 56);
+  width: 20rem;
+  background: rgb(209, 209, 209);
+  padding: 0.3rem 10rem;
+  border-radius: 0.4rem;
+  transition: color 0.2s;
+  &:hover {
+    cursor: pointer;
+    color: rgb(82, 94, 255);
+    background: rgb(220, 221, 224);
+  }
+}
+
+.commentremovelikebutton,
+.commentremovedislikebutton {
+  width: 20rem;
+  background: rgb(216, 216, 216);
+  padding: 0.3rem 10rem;
+  border-radius: 0.4rem;
+  transition: color 0.2s;
+  color: rgb(82, 94, 255);
+  &:hover {
+    cursor: pointer;
+    color: rgb(255, 82, 82);
+    background: rgb(220, 221, 224);
+  }
+}
+
+.commentdislikebuttongrayedout,
+.commentlikebuttongrayedout {
+  color: rgb(160, 160, 160);
+  width: 20rem;
+  background: rgb(216, 216, 216);
+  text-align: center;
+  padding: 0.3rem 10rem;
+  border-radius: 0.4rem;
+}
+
+.commentdislikebutton,
+.commentremovedislikebutton,
+.commentdislikebuttongrayedout {
+  margin-left: 1rem;
+}
+
+.commentdislikebutton i,
+.commentlikebutton i,
+.commentremovelikebutton i,
+.commentremovedislikebutton i,
+.commentdislikebuttongrayedout i,
+.commentlikebuttongrayedout i {
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.commentdislikebutton,
+.commentlikebutton,
+.commentremovelikebutton,
+.commentremovedislikebutton,
+.commentdislikebuttongrayedout,
+.commentlikebuttongrayedout {
+  @media screen and (max-width: $break-medium) {
+    padding: 0.3rem 6rem;
+    width: 7rem;
+  }
+  @media screen and (max-width: $break-small) {
+    padding: 0.3rem 5rem;
+    width: 5rem;
+  }
+}

@@ -1,0 +1,180 @@
+$break-medium: 665px;
+$break-small: 414px;
+
+.feedpost {
+  margin: 4rem auto 0 auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.185);
+  border-radius: 0.1rem;
+  border: 1px solid #bfbfbf;
+  box-shadow: 10px 10px 5px #aaaaaa;
+  min-width: 50rem;
+  max-width: 65rem;
+  @media screen and (max-width: $break-medium) {
+    min-width: 38rem;
+    max-width: 40rem;
+  }
+  @media screen and (max-width: $break-small) {
+    min-width: 30rem;
+    max-width: 35rem;
+  }
+}
+
+.feedpostauthortab {
+  display: flex;
+}
+
+.feedpostauthorpic {
+  width: 5.5rem !important;
+  height: 5.5rem;
+  border-radius: 999px;
+  border: 0.3rem solid white;
+  transition: border 0.3s ease-in-out;
+  &:hover {
+    border: 0rem solid white;
+  }
+}
+
+.feedpostauthorname {
+  color: rgb(51, 133, 255);
+  margin-top: 1.3rem;
+  letter-spacing: 0.3rem;
+  margin-left: 0.8rem;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.feedpostauthornamelink {
+  font-size: 2.4rem;
+  transition: color 0.2s;
+  &:hover {
+    color: rgb(14, 85, 192);
+  }
+  @media screen and (max-width: $break-medium) {
+    font-size: 2.1rem;
+  }
+  @media screen and (max-width: $break-small) {
+    font-size: 1.9rem;
+  }
+}
+
+.feedpostcontentpic {
+  width: 100%;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.feedposttopbuttons {
+  position: relative;
+  width: 100%;
+}
+
+.feedposteditbutton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: color 0.2s;
+  &:hover {
+    cursor: pointer;
+    color: rgb(82, 94, 255);
+  }
+}
+
+.feedposteditbuttontrue {
+  color: rgb(144, 148, 201);
+}
+
+.feedpostdeletebutton {
+  margin-top: 0.2rem !important;
+  margin-right: 1rem !important;
+  &:hover {
+    cursor: pointer;
+    color: rgb(255, 82, 82);
+  }
+}
+
+.feedposttitle {
+  font-size: 5.5rem;
+  letter-spacing: 1.1rem;
+  text-align: center;
+  @media screen and (max-width: $break-medium) {
+    font-size: 3.4rem;
+    width: 100%;
+    overflow: hidden;
+  }
+  @media screen and (max-width: $break-small) {
+    font-size: 2.7rem;
+  }
+}
+
+.postlikesdislikescounter {
+  margin-top: 1.5rem;
+  height: 4rem;
+}
+
+.feedpostuserresponsearea {
+  margin-top: 2rem;
+}
+
+.feedpostcontent {
+  min-height: 18rem;
+  border-radius: 1rem;
+  font-size: 2.4rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.185);
+  width: 95%;
+  margin: 0 auto;
+  @media screen and (max-width: $break-medium) {
+    font-size: 2.2rem;
+  }
+  @media screen and (max-width: $break-small) {
+    font-size: 2rem;
+  }
+}
+
+.feedpostupdatedat {
+  color: #999;
+  margin-left: 1rem;
+  @media screen and (max-width: $break-medium) {
+    font-size: 1.3rem;
+  }
+  @media screen and (max-width: $break-small) {
+    font-size: 1.1rem;
+  }
+}
+
+.feedpostcreatedat {
+  color: rgba(51, 133, 255, 0.801);
+  transition: color 0.2s;
+  &:hover {
+    color: rgb(38, 117, 236);
+  }
+  @media screen and (max-width: $break-medium) {
+    font-size: 1.3rem;
+  }
+  @media screen and (max-width: $break-small) {
+    font-size: 1.1rem;
+  }
+}
+
+// .commentsarray {
+//   margin-top: -3rem;
+// }
+
+.feedposthiddenimage {
+  height: 0.1px;
+  width: 100%;
+  opacity: 0;
+}
+
+.feedpostcloudloader {
+  width: 50%;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}

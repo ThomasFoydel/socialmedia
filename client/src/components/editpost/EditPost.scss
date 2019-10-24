@@ -1,0 +1,189 @@
+$break-medium: 665px;
+$break-small: 440px;
+
+.editpostform {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: -20rem;
+  height: 32rem;
+  z-index: 1;
+
+  @media screen and (max-width: $break-medium) {
+    left: -27rem;
+  }
+  @media screen and (max-width: $break-small) {
+    left: -23rem;
+  }
+}
+
+.editpostforminsidecontainer {
+  margin-top: 3rem;
+  padding: 3rem 4rem 0 4rem;
+  min-width: 40rem;
+  max-width: 43rem;
+  border: 0.2rem solid #bfbfbf;
+  box-shadow: 1rem 1rem 2.5rem #000000a6;
+  border-radius: 1rem;
+  background: rgb(235, 235, 235);
+  @media screen and (max-width: $break-small) {
+    min-width: 25rem;
+    max-width: 31rem;
+  }
+}
+
+.editpostformbuttons {
+  display: block;
+  padding: 0.5rem;
+  @media screen and (max-width: $break-small) {
+    min-width: 6rem;
+  }
+}
+
+.editpostforminput {
+  min-width: 34rem;
+  max-width: 50rem;
+  border: 0.2rem solid rgb(82, 143, 255);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  @media screen and (max-width: $break-small) {
+    min-width: 23rem;
+    max-width: 27rem;
+  }
+}
+
+.editpostformpost {
+  overflow: scroll;
+  min-height: 7.7rem;
+  max-height: 7.7rem;
+  resize: none;
+}
+
+.editpostformtags {
+  margin-top: 0 !important;
+}
+
+.submitbutton {
+  width: 8.6rem;
+  text-align: center;
+  border-radius: 0.3rem;
+  bottom: 1.6rem;
+  left: 69%;
+  position: absolute;
+  background: rgb(207, 207, 207);
+  padding: 0.5rem 1.5rem;
+  transition: background 0.2s, color 0.2s;
+  &:hover {
+    cursor: pointer;
+    background: rgb(34, 122, 255);
+    color: rgb(250, 250, 250);
+  }
+  &:active {
+    color: rgb(255, 255, 255);
+    background: rgb(158, 158, 158);
+  }
+  @media screen and (max-width: $break-small) {
+    width: 7rem;
+    padding: 0.5rem 0rem;
+  }
+}
+
+.editpostopendeletebutton {
+  width: 8.6rem;
+  text-align: center;
+  border-radius: 0.3rem;
+  bottom: 1.6rem;
+  position: absolute;
+  background: rgb(207, 207, 207);
+  padding: 0.58rem 1.5rem;
+  &:hover {
+    cursor: pointer;
+    background: rgb(255, 82, 82);
+    color: rgb(250, 250, 250);
+  }
+  &:active {
+    color: rgb(255, 255, 255);
+    background: rgb(158, 158, 158);
+  }
+  @media screen and (max-width: $break-small) {
+    width: 8rem;
+    left: 2rem;
+  }
+}
+
+.editpostfileinput {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.selectedfiletrue {
+  background: rgb(82, 243, 255) !important;
+}
+
+.editpostfileinputlabel {
+  text-align: center;
+}
+
+.editpostfileinput + label {
+  width: 11.4rem;
+  color: rgb(7, 9, 24);
+  background: rgb(207, 207, 207);
+  margin-top: 1.5rem;
+  display: inline-block;
+  padding: 0.58rem 1.4rem;
+  border-radius: 0.3rem;
+  margin-left: 33%;
+  transition: color 0.2s, background 0.2s;
+  @media screen and (max-width: $break-small) {
+    width: 10.5rem;
+  }
+}
+
+.editpostfileinput:focus + label,
+.editpostfileinput + label:hover {
+  background-color: rgb(82, 94, 255);
+  color: white;
+  cursor: pointer;
+}
+
+.editpostformclosebutton {
+  color: rgb(80, 80, 80);
+  float: right;
+  margin-top: -2.2rem;
+  margin-right: -2.8rem;
+  transition: color 0.2s;
+  &:hover {
+    color: red;
+    cursor: pointer;
+  }
+}
+
+.editpostcanceldelete {
+  color: rgb(34, 122, 255);
+  width: 6rem;
+  border-radius: 0.3rem;
+  bottom: 1.6rem;
+  left: 2.4rem;
+  position: absolute;
+  background: rgb(207, 207, 207);
+  text-align: center;
+  padding: 0.6rem 0;
+  transition: background 0.2s, color 0.2s;
+  &:hover {
+    cursor: pointer;
+    background: rgb(34, 122, 255);
+    color: rgb(250, 250, 250);
+  }
+  &:active {
+    color: rgb(255, 255, 255);
+    background: rgb(158, 158, 158);
+  }
+  @media screen and (max-width: $break-small) {
+    width: 4.3rem;
+    left: 1rem;
+  }
+}

@@ -1,0 +1,105 @@
+$break-medium: 665px;
+$break-small: 414px;
+
+.postlikebutton {
+  margin-right: 1rem;
+  max-width: 27rem;
+  background: rgb(216, 216, 216);
+  text-align: center;
+  padding: 0.8rem 10rem;
+  border-radius: 0.4rem;
+  transition: color 0.2s;
+  color: rgb(56, 56, 56);
+  &:hover {
+    cursor: pointer;
+    color: rgb(82, 94, 255);
+    background: rgb(220, 221, 224);
+  }
+}
+
+.postdislikebutton {
+  margin-left: 1rem;
+  max-width: 27rem;
+  background: rgb(216, 216, 216);
+  text-align: center;
+  padding: 0.8rem 10rem;
+  border-radius: 0.4rem;
+  transition: color 0.2s;
+  color: rgb(56, 56, 56);
+  &:hover {
+    cursor: pointer;
+    color: rgb(82, 94, 255);
+    background: rgb(220, 221, 224);
+  }
+}
+
+.postremovelikebutton {
+  margin-right: 1rem;
+  color: rgb(82, 94, 255);
+  max-width: 27rem;
+  background: rgb(216, 216, 216);
+  text-align: center;
+  padding: 0.8rem 10rem;
+  border-radius: 0.4rem;
+  transition: color 0.2s;
+  &:hover {
+    cursor: pointer;
+    color: rgb(255, 82, 82);
+    background: rgb(220, 221, 224);
+  }
+}
+
+.postremovedislikebutton {
+  margin-left: 1rem;
+  color: rgb(82, 94, 255);
+  max-width: 27rem;
+  background: rgb(216, 216, 216);
+  text-align: center;
+  padding: 0.8rem 10rem;
+  border-radius: 0.4rem;
+  transition: color 0.2s;
+  &:hover {
+    cursor: pointer;
+    color: rgb(255, 82, 82);
+    background: rgb(220, 221, 224);
+  }
+}
+
+.postlikedislikebuttonscontainer {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: -0.5rem;
+}
+
+.postlikebuttongrayedout,
+.postdislikebuttongrayedout {
+  color: rgb(160, 160, 160);
+  max-width: 27rem;
+  background: rgb(216, 216, 216);
+  text-align: center;
+  padding: 0.8rem 10rem;
+  border-radius: 0.4rem;
+}
+
+.postdislikebuttongrayedout {
+  margin-left: 1rem;
+}
+
+.postlikebuttongrayedout {
+  margin-right: 1rem;
+}
+
+.postlikebutton,
+.postdislikebutton,
+.postremovelikebutton,
+.postremovedislikebutton,
+.postdislikebuttongrayedout,
+.postlikebuttongrayedout {
+  @media screen and (max-width: $break-medium) {
+    padding: 0.8rem 7rem;
+  }
+  @media screen and (max-width: $break-small) {
+    padding: 0.8rem 4.5rem;
+  }
+}

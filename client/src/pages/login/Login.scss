@@ -1,0 +1,104 @@
+$break-medium: 665px;
+$break-small: 414px;
+$break-small2: 413px;
+
+.loginform {
+  display: flex;
+  justify-content: center;
+}
+
+.titletext {
+  text-align: center;
+  font-size: 6.8rem;
+}
+
+.loginforminsidecontainer {
+  margin-top: 12rem;
+  padding: 2rem 0 0 3rem !important;
+  min-width: 50rem !important;
+  max-width: 60rem;
+  height: 30rem;
+  border-radius: 10px;
+  background: rgb(255, 255, 255);
+  box-shadow: 0.2rem 0.2rem 0.2rem #999;
+  @media screen and (max-width: $break-small) {
+    max-width: 40rem !important;
+    min-width: 32rem !important;
+    margin: 8rem 2rem 0 2rem;
+  }
+  @media screen and (max-width: $break-medium) {
+    max-width: 50rem !important;
+    min-width: 40rem !important;
+    margin: 8rem 2rem 0 2rem;
+  }
+}
+
+.loginform input {
+  max-width: 26rem;
+  margin: 1rem auto;
+  display: block;
+  padding: 0.5rem;
+  border-width: 0 0 2px 0;
+  border-color: rgb(78, 78, 78);
+  background: rgb(255, 255, 255);
+  &:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 3rem white inset !important;
+  }
+  @media screen and (max-width: $break-medium) {
+    margin-left: 50% !important;
+    transform: translateX(-50%);
+    max-width: 30rem;
+  }
+}
+.loginforminput {
+  min-width: 41.5rem;
+  margin: 1rem 1rem !important;
+  @media screen and (max-width: $break-small) {
+    min-width: 24rem;
+  }
+  @media screen and (max-width: $break-medium) {
+    min-width: 30rem;
+  }
+}
+
+.loginbutton {
+  margin-top: 4rem !important;
+  color: rgb(82, 157, 250);
+  padding: 0.5rem 1rem !important;
+  border-radius: 0.8rem;
+  width: 50%;
+  background: rgb(232, 239, 248) !important;
+  border: none;
+  box-shadow: 0.1rem 0.1rem 0.1rem rgba(153, 153, 153, 0.808);
+  transition: background 0.1s, transform 0.1s, color 0.1s;
+  @media screen and (min-width: $break-medium) {
+    &:hover {
+      background: rgb(160, 202, 253) !important;
+      transform: translateY(-0.2rem);
+      box-shadow: 0.2rem 0.2rem 0.2rem rgba(153, 153, 153, 0.568);
+      color: white;
+    }
+    &:active {
+      transform: translateY(0.1rem);
+      background: white !important;
+      color: rgb(70, 70, 70);
+      box-shadow: 0.14rem 0.14rem 0.14rem rgba(153, 153, 153, 0.808);
+    }
+  }
+  @media screen and (max-width: $break-medium) {
+    &:active {
+      background: rgb(160, 202, 253) !important;
+      color: white;
+    }
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+}

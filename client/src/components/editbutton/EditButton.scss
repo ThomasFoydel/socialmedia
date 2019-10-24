@@ -1,0 +1,9 @@
+.editbutton {
+  position: absolute;
+  right: 4.5rem;
+  top: -0.3rem;
+  &:hover {
+    cursor: pointer;
+    color: rgb(82, 94, 255);
+  }
+}

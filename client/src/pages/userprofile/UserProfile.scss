@@ -1,0 +1,329 @@
+$break-medium: 850px;
+$break-small: 414px;
+
+.profilepicture {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 999px;
+  position: absolute;
+  border: 0.6rem solid rgb(243, 242, 242);
+  margin-top: 22rem;
+  margin-left: 4rem;
+}
+
+.fixedcontainer {
+  width: 100%;
+  position: fixed;
+}
+
+.coverpicture {
+  width: 100%;
+  min-width: 97rem;
+  height: 350px;
+  position: absolute;
+  background-size: cover;
+  @media screen and (max-width: $break-medium) {
+    min-width: 61rem;
+  }
+  @media screen and (max-width: $break-small) {
+    min-width: 52rem;
+  }
+}
+
+.profilepagename {
+  color: white;
+  position: absolute;
+  margin-top: 30rem;
+  margin-left: 26rem;
+  z-index: 1;
+  font-size: 3.4rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.profilepageaddoredit {
+  position: absolute;
+  margin-top: 40rem;
+  margin-left: 20rem;
+  z-index: 2;
+}
+
+.profileunfriendbutton {
+  position: absolute;
+  right: 75rem;
+  top: 39.3rem;
+  opacity: 0.8;
+}
+
+.userprofilefriendrequestbutton {
+  color: rgb(30, 99, 163);
+  background: rgb(233, 233, 233);
+  position: absolute;
+  bottom: 0rem;
+  left: 3.5rem;
+  width: 10rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  text-align: center;
+  transition: box-shadow 0.2s, color 0.2s, transform 0.2s, background 0.2s;
+  // z-index: 1;
+  &:hover {
+    cursor: pointer;
+    color: white;
+    box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.171);
+    transform: translateY(-0.2rem);
+    background: rgba(170, 194, 231, 0.308);
+  }
+  &:active {
+    box-shadow: 0.22rem 0.22rem 0.2rem rgba(0, 0, 0, 0.171);
+    transform: translateY(-0.1rem);
+  }
+}
+
+.linktoeditprofile {
+  color: rgb(30, 99, 163);
+  position: absolute;
+  bottom: 0rem;
+  left: 3.5rem;
+  width: 10rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  text-align: center;
+  transition: box-shadow 0.2s, color 0.2s, transform 0.2s, background 0.2s;
+  &:hover {
+    color: white;
+    box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.171);
+    transform: translateY(-0.2rem);
+    background: rgba(170, 194, 231, 0.308);
+  }
+}
+
+.profilepageinfobox {
+  padding: 1rem;
+  text-align: center;
+  background: rgb(238, 238, 238);
+  margin-left: 2.5rem;
+  height: 20.5rem;
+  box-shadow: 0.7rem 0.7rem 0.7rem rgba(0, 0, 0, 0.123);
+  @media screen and (max-width: $break-medium) {
+    width: 80%;
+    // min-width: 50rem;
+    text-align: center;
+    font-size: 1.7rem;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 5rem;
+  }
+  @media screen and (max-width: $break-small) {
+    // min-width: 40rem;
+    // margin-left: 12%;
+  }
+}
+
+.profilepageemail,
+.profilepageage {
+  margin-bottom: 0.2rem;
+}
+
+.profilepagefriendlist {
+  background: rgba(105, 175, 255, 0.062);
+  border-radius: 0.2rem;
+  overflow-y: auto;
+  margin-top: -10.8rem;
+  margin-left: 1.8rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  justify-items: center;
+  min-height: 31rem !important;
+  max-height: 33rem;
+  min-width: 34rem;
+  padding: 0.4rem;
+  box-sizing: border-box;
+  @media screen and (max-width: $break-medium) {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 5rem;
+    min-width: 50rem;
+    margin-top: 0rem;
+  }
+  @media screen and (max-width: $break-small) {
+    // margin-left: 12%;
+    // min-width: 40rem;
+  }
+}
+
+.userprofilepostlist {
+  overflow-y: auto;
+  margin-top: -43.5rem;
+  margin-left: 1.8rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  justify-items: center;
+  min-height: 31rem !important;
+  max-height: 33rem;
+  min-width: 34rem;
+  padding: 0.4rem;
+  resize: none;
+  border-radius: 0.2rem;
+  background: rgba(105, 175, 255, 0.062);
+  box-sizing: border-box;
+  @media screen and (max-width: $break-medium) {
+    margin-bottom: 8rem;
+    margin-top: 0;
+    min-width: 50rem;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+  @media screen and (max-width: $break-small) {
+    // margin-left: 12%;
+    // min-width: 40rem;
+  }
+}
+
+.profilestatusinnercontainer {
+  // overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-around;
+  min-width: 34rem;
+  box-sizing: border-box;
+  @media screen and (max-width: $break-medium) {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 8rem;
+    margin-top: 0;
+    min-width: 50rem;
+  }
+}
+
+.userprofilepost {
+  margin: 0.4rem;
+  background: rgb(245, 245, 245);
+  width: 16rem;
+  height: 16rem;
+  box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.096);
+}
+
+.userprofileposttitle {
+  text-align: center;
+}
+
+.userprofilepostimage {
+  margin-top: 0.25rem;
+  height: 12rem;
+  width: 15.3rem;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.userprofilepostemptyspace {
+  height: 12.3rem;
+}
+
+.nofriendsmessage {
+  // border: 1px solid rgb(182, 182, 182);
+  display: grid;
+  margin-left: 0.4rem;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-around;
+  min-height: 31rem !important;
+  max-height: 33rem;
+  min-width: 32.5rem;
+  padding: 1.4rem;
+  box-sizing: border-box;
+}
+
+.profilepagebio {
+  margin-top: 2rem;
+  text-align: center;
+  overflow-x: auto;
+  // @media screen and (min-width: $break-medium) {
+  //   max-width: 30rem;
+  // }
+}
+
+.userprofilefriendlisttitle {
+  width: 20%;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+  text-align: center;
+  // color: #5a5a5a;
+  text-shadow: 3px 5px 2px #47474723;
+  z-index: 1;
+  color: white;
+  // background: rgb(255, 255, 255);
+  // border-radius: 4rem;
+  // padding: 0.3rem 0rem;
+  @media screen and (min-width: $break-medium) {
+    top: -10.5rem;
+  }
+  @media screen and (max-width: $break-medium) {
+    top: -0.5rem;
+  }
+}
+
+.userprofilepostlisttitle {
+  position: relative;
+  top: -44.5rem;
+  // color: #5a5a5a;
+  color: white;
+  text-shadow: 3px 5px 2px #47474723;
+  z-index: 1;
+  text-align: center;
+  @media screen and (max-width: $break-medium) {
+    top: -0.5rem;
+  }
+}
+
+.profilegrid {
+  position: absolute;
+  margin-top: 45rem;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 10px;
+  height: 190rem;
+  box-sizing: border-box;
+  // overflow: hidden;
+  max-width: 100%;
+
+  @media screen and (max-width: $break-medium) {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  // @media screen and (max-width: $break-small) {
+  //   width: 70%;
+  // }
+}
+
+.profileinfobox {
+  grid-area: 1 / 1 / 2 / 3;
+  @media screen and (max-width: $break-medium) {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+}
+.profilefriends {
+  grid-area: 2 / 1 / 4 / 3;
+  @media screen and (max-width: $break-medium) {
+    grid-area: 2 / 1 / 3 / 2;
+  }
+}
+.profileposts {
+  grid-area: 4 / 1 / 6 / 3;
+  @media screen and (max-width: $break-medium) {
+    grid-area: 3 / 1 / 4 / 2;
+  }
+}
+.profilestatusbox {
+  grid-area: 1 / 3 / 6 / 5;
+  @media screen and (max-width: $break-medium) {
+    grid-area: 4 / 1 / 5 / 2;
+  }
+}
