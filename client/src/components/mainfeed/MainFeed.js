@@ -42,7 +42,9 @@ const MainFeed = ({ setReduxPosts, reduxPosts, token, isLoggedIn }) => {
       Axios.get(`/post/scrollposts?count=${count}&start=${result}`).then(
         result => {
           console.log('axios call to scroll post result: ', result);
+          console.log('redux posts: ', reduxPosts);
           // setReduxPosts(reduxPosts.concat(result.data));
+          setReduxPosts([...reeduxPosts, ...result.data]);
         }
       );
     });
