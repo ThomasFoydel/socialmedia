@@ -35,7 +35,7 @@ const App = ({
       return;
     } else if (token) {
       const setAuthInfo = async () => {
-        Axios.get(`http://localhost:8000/user/getauth/`, {
+        Axios.get(`/user/getauth/`, {
           headers: { 'x-auth-token': token }
         })
           .then(result => {

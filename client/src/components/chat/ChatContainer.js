@@ -14,7 +14,7 @@ const ChatContainer = ({ isLoggedIn, token, userName, friendList }) => {
   const [messages, setMessages] = useState([]);
   const [updatedFriendList, setUpdatedFriendList] = useState([]);
 
-  const ENDPOINT = `localhost:8000?token=${token}`;
+  const ENDPOINT = `?token=${token}`;
 
   socket = io(ENDPOINT);
 
@@ -49,7 +49,7 @@ const ChatContainer = ({ isLoggedIn, token, userName, friendList }) => {
     if (newUser) {
       setCurrentFriend(newUser);
       const foundMessages = await Axios.get(
-        `http://localhost:8000/message/getmessages/${newUser.friendId}`,
+        `/message/getmessages/${newUser.friendId}`,
         {
           headers: { 'x-auth-token': token }
         }
