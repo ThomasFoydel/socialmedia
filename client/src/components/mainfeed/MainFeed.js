@@ -39,12 +39,12 @@ const MainFeed = ({ setReduxPosts, reduxPosts, token, isLoggedIn }) => {
     });
 
     updateStartPromise.then(result => {
-      Axios.get(
-        `http://localhost:8000/post/scrollposts?count=${count}&start=${result}`
-      ).then(result => {
-        setReduxPosts(reduxPosts.concat(result.data));
-        console.log('fetch more posts. result: ', result);
-      });
+      Axios.get(`/post/scrollposts?count=${count}&start=${result}`).then(
+        result => {
+          setReduxPosts(reduxPosts.concat(result.data));
+          console.log('fetch more posts. result: ', result);
+        }
+      );
     });
   };
   console.log('reduxPosts: ', reduxPosts);
@@ -80,7 +80,6 @@ const MainFeed = ({ setReduxPosts, reduxPosts, token, isLoggedIn }) => {
           )}
         </>
       )}
-      {/* <div style={{ height: '30rem' }} /> */}
     </>
   );
 };
