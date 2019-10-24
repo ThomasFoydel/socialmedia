@@ -21,7 +21,7 @@ const UserProfileStatusContainer = ({
 
     const getStatuses = async () => {
       const foundStatuses = await Axios.get(
-        `http://localhost:8000/status/getuserstatuses/${userid}`
+        `/status/getuserstatuses/${userid}`
       );
       if (isSubscribed) {
         setStatusesArray(foundStatuses.data);

@@ -18,7 +18,7 @@ const MainFeed = ({ setReduxPosts, reduxPosts, token, isLoggedIn }) => {
   useEffect(() => {
     const getPosts = async () => {
       const fetchedPosts = await Axios.get(
-        `http://localhost:8000/post/scrollposts?count=${count}&start=${start}`,
+        `/post/scrollposts?count=${count}&start=${start}`,
 
         {
           headers: { 'x-auth-token': token }
@@ -39,11 +39,11 @@ const MainFeed = ({ setReduxPosts, reduxPosts, token, isLoggedIn }) => {
     });
 
     updateStartPromise.then(result => {
-      Axios.get(
-        `http://localhost:8000/post/scrollposts?count=${count}&start=${result}`
-      ).then(result => {
-        setReduxPosts(reduxPosts.concat(result.data));
-      });
+      Axios.get(`/post/scrollposts?count=${count}&start=${result}`).then(
+        result => {
+          setReduxPosts(reduxPosts.concat(result.data));
+        }
+      );
     });
   };
 

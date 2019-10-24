@@ -41,7 +41,7 @@ function Login({
   const handleSubmit = async e => {
     e.preventDefault();
     Axios.post(
-      'http://localhost:8000/user/login',
+      '/user/login',
       {
         email: emailValue,
         password: passwordValue

@@ -8,7 +8,7 @@ const SearchResultUser = ({ user }) => {
         <img
           alt={`${user.name} profile`}
           className='searchresultuserpic'
-          src={`http://localhost:8000/user/image/${user.profilePicId}`}
+          src={`/user/image/${user.profilePicId}`}
         />
         <div>{user.name}</div>
         <div className='searchresultusercity'>{user.city}</div>

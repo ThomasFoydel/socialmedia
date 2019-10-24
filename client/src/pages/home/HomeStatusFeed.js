@@ -8,7 +8,7 @@ const HomeStatusFeed = ({ token, friendList }) => {
   useEffect(() => {
     const getStatuses = async () => {
       const foundStatuses = await Axios.post(
-        `http://localhost:8000/status/getfriendstatuses/`,
+        `/status/getfriendstatuses/`,
         { friendList },
         {
           headers: { 'x-auth-token': token }

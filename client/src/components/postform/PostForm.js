@@ -58,16 +58,12 @@ function PostForm({
         fd.append('hasImage', true);
         fd.append('tags', tagsValue);
 
-        const createdPost = await Axios.post(
-          'http://localhost:8000/post/createpost',
-          fd,
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              'x-auth-token': token
-            }
+        const createdPost = await Axios.post('/post/createpost', fd, {
+          headers: {
+            'Content-Type': 'application/json',
+            'x-auth-token': token
           }
-        );
+        });
 
         // SEND POST TO REDUX
         pushToReduxPosts(createdPost.data);
@@ -79,7 +75,7 @@ function PostForm({
         setPostFormOpen(false);
       } else if (selectedFile === null) {
         const createdPost = await Axios.post(
-          'http://localhost:8000/post/createpost',
+          '/post/createpost',
           {
             title: titleValue,
             content: postValue,

@@ -33,7 +33,7 @@ const PrivateMessageForm = ({
         });
       } else if (!currentFriendIsOnline) {
         const offlineMessage = await Axios.post(
-          `http://localhost:8000/message/messagetoofflineuser/${currentFriend.friendId}`,
+          `/message/messagetoofflineuser/${currentFriend.friendId}`,
           { message: messageInput },
           { headers: { 'x-auth-token': token } }
         );

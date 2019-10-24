@@ -16,9 +16,7 @@ const ChatFriendListIndividual = ({
     if (isOnline) {
     }
     const getFriend = async () => {
-      const foundFriend = await Axios.get(
-        `http://localhost:8000/user/getuser/${id}`
-      );
+      const foundFriend = await Axios.get(`/user/getuser/${id}`);
       setFriend(foundFriend.data);
     };
     getFriend();
@@ -36,7 +34,7 @@ const ChatFriendListIndividual = ({
         <div onClick={updateCurrentFriendOpenForPrivateMessage}>
           <div className='flex'>
             <img
-              src={`http://localhost:8000/user/image/${friend.profilePicId}`}
+              src={`/user/image/${friend.profilePicId}`}
               alt='friend profile'
               className='chatfriendlistprofilepic'
             />

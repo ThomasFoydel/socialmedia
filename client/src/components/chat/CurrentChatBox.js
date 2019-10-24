@@ -18,7 +18,7 @@ const CurrentChatBox = ({
     const setProfilePic = async () => {
       if (currentFriend) {
         const foundFriend = await Axios.get(
-          `http://localhost:8000/user/getuser/${currentFriend.friendId}`
+          `/user/getuser/${currentFriend.friendId}`
         );
         setCurrentFriendProfilePicId(foundFriend.data.profilePicId);
       }

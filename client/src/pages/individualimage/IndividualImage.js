@@ -5,7 +5,7 @@ const IndividualImage = ({ match }) => {
   return (
     <div className='individualimagecontainer'>
       <img
-        src={`http://localhost:8000/post/contentimage/${match.params.id}`}
+        src={`/post/contentimage/${match.params.id}`}
         alt='single'
         className='individualimage'
       />

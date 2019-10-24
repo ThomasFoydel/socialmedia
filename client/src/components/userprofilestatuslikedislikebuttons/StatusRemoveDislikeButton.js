@@ -9,7 +9,7 @@ const StatusRemoveDislikeButton = ({
 }) => {
   const removeDislikeHandler = () => {
     Axios.post(
-      `http://localhost:8000/status/removedislikestatus/${statusId}`,
+      `/status/removedislikestatus/${statusId}`,
       { dislikeAuthorId: userId },
       {
         headers: { 'x-auth-token': token }

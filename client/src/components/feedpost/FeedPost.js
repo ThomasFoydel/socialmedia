@@ -32,7 +32,7 @@ const FeedPost = ({ post, token, userId, profilePicId, page }) => {
   } = currentPost;
   useEffect(() => {
     let isSubscribed = true;
-    Axios.get(`http://localhost:8000/user/getuser/${authorId}`, {
+    Axios.get(`/user/getuser/${authorId}`, {
       headers: { 'x-auth-token': token }
     }).then(result => {
       if (isSubscribed) {
@@ -58,7 +58,7 @@ const FeedPost = ({ post, token, userId, profilePicId, page }) => {
             <img
               alt="original poster's profile"
               className='feedpostauthorpic'
-              src={`http://localhost:8000/user/image/${postAuthorProfilePicId}`}
+              src={`/user/image/${postAuthorProfilePicId}`}
             ></img>
           </Link>
         )}
@@ -191,7 +191,7 @@ const FeedPost = ({ post, token, userId, profilePicId, page }) => {
               imageLoading ? 'feedposthiddenimage' : 'feedpostcontentpic'
             }
             onLoad={() => setImageLoading(false)}
-            src={`http://localhost:8000/post/contentimage/${contentImageId}`}
+            src={`/post/contentimage/${contentImageId}`}
           ></img>
         </Link>
       )}
@@ -239,7 +239,7 @@ const FeedPost = ({ post, token, userId, profilePicId, page }) => {
         <img
           alt='your profile'
           className='commentformprofilepic'
-          src={`http://localhost:8000/user/image/${profilePicId}`}
+          src={`/user/image/${profilePicId}`}
         ></img>
         <CommentForm setCommentsArray={updateCommentsArray} postId={_id} />
       </div>

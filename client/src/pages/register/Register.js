@@ -48,7 +48,7 @@ export default function Register() {
   const handleSubmit = async e => {
     e.preventDefault();
     Axios.post(
-      'http://localhost:8000/user/register',
+      '/user/register',
       {
         name: nameValue,
         email: emailValue,

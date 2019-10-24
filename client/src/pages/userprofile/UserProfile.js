@@ -27,9 +27,7 @@ const UserProfile = ({ match, userId, token, isLoggedIn, friendList }) => {
     if (isSubscribed) {
       // sets if this the current user
       const getProfileUser = async () => {
-        const foundUser = await Axios.get(
-          `http://localhost:8000/user/getuser/${profileUserId}`
-        );
+        const foundUser = await Axios.get(`/user/getuser/${profileUserId}`);
         setProfileUser(foundUser.data);
         if (foundUser.data._id === userId) {
           setIsCurrentUser(true);
@@ -46,7 +44,7 @@ const UserProfile = ({ match, userId, token, isLoggedIn, friendList }) => {
       // sets if add already existing
       const getExistingAdd = async () => {
         const existingFriendRequest = await Axios.get(
-          `http://localhost:8000/user/getfriendrequest/`,
+          `/user/getfriendrequest/`,
           {
             params: { userId, profileUserId },
             headers: { 'x-auth-token': token }
@@ -62,7 +60,7 @@ const UserProfile = ({ match, userId, token, isLoggedIn, friendList }) => {
 
   const sendFriendRequest = () => {
     Axios.post(
-      `http://localhost:8000/user/sendfriendrequest`,
+      `/user/sendfriendrequest`,
       { recipientId: profileUserId },
       { headers: { 'x-auth-token': token } }
     );
@@ -79,7 +77,7 @@ const UserProfile = ({ match, userId, token, isLoggedIn, friendList }) => {
               style={{
                 backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.000)), url('${
                   profileUser.coverPicId
-                    ? `http://localhost:8000/user/image/${profileUser.coverPicId}`
+                    ? `/user/image/${profileUser.coverPicId}`
                     : 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/healthiest-dog-breeds-1569423729.jpg?crop=0.548xw:0.822xh;0.115xw,0.0577xh'
                 }')`
               }}
@@ -87,7 +85,7 @@ const UserProfile = ({ match, userId, token, isLoggedIn, friendList }) => {
             <h1 className='profilepagename'>{profileUser.name}</h1>
 
             <img
-              src={`http://localhost:8000/user/image/${profileUser.profilePicId}`}
+              src={`/user/image/${profileUser.profilePicId}`}
               alt='profile'
               className='profilepicture'
             />

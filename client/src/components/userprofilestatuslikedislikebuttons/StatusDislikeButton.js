@@ -4,7 +4,7 @@ import Axios from 'axios';
 const StatusDislikeButton = ({ statusId, token, userId, setDislikes }) => {
   const dislikeHandler = () => {
     Axios.post(
-      `http://localhost:8000/status/dislikestatus/${statusId}`,
+      `/status/dislikestatus/${statusId}`,
       { likeAuthorId: userId },
       {
         headers: { 'x-auth-token': token }

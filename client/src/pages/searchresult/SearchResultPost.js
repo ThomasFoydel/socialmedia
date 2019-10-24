@@ -10,7 +10,7 @@ const SearchResultPost = ({ post }) => {
         {post.hasImage ? (
           <img
             className='searchresultpostimage'
-            src={`http://localhost:8000/post/contentimage/${post.contentImageId}`}
+            src={`/post/contentimage/${post.contentImageId}`}
             alt='search result post'
           />
         ) : (

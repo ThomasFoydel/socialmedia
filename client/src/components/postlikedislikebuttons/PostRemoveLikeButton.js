@@ -4,7 +4,7 @@ import Axios from 'axios';
 const PostRemoveLikeButton = ({ token, userId, postId, setLikes }) => {
   const removeLikeHandler = () => {
     Axios.post(
-      `http://localhost:8000/post/removelikepost/${postId}`,
+      `/post/removelikepost/${postId}`,
       { likeAuthorId: userId },
       {
         headers: { 'x-auth-token': token }

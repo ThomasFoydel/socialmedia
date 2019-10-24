@@ -15,7 +15,7 @@ const SearchResult = ({ match, token }) => {
   useEffect(() => {
     const getSearchResult = async () => {
       const searchResult = await Axios.post(
-        `http://localhost:8000/search/mainsearch/${match.params.searchinput}`,
+        `/search/mainsearch/${match.params.searchinput}`,
         {
           searchinput: match.params.searchinput
         },

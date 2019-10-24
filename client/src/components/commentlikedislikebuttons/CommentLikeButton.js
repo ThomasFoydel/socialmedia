@@ -4,7 +4,7 @@ import Axios from 'axios';
 const CommentLikeButton = ({ commentId, token, userId, setLikes }) => {
   const likeHandler = () => {
     Axios.post(
-      `http://localhost:8000/comment/likecomment/${commentId}`,
+      `/comment/likecomment/${commentId}`,
       { likeAuthorId: userId },
       {
         headers: { 'x-auth-token': token }

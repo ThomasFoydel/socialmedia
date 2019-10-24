@@ -18,14 +18,12 @@ const FriendListItem = ({
   useEffect(() => {
     if (friend) {
       const getFriend = async () => {
-        Axios.get(`http://localhost:8000/user/getuser/${friend}`).then(
-          result => {
-            setFriendInfo(result.data);
-            if (result.data._id === userId) {
-              setIsCurrentUser(true);
-            }
+        Axios.get(`/user/getuser/${friend}`).then(result => {
+          setFriendInfo(result.data);
+          if (result.data._id === userId) {
+            setIsCurrentUser(true);
           }
-        );
+        });
       };
       getFriend();
     }
@@ -34,7 +32,7 @@ const FriendListItem = ({
     <div className='friendlistitem'>
       <Link to={`/userprofile/${friendInfo._id}`}>
         <img
-          src={`http://localhost:8000/user/image/${friendInfo.profilePicId}`}
+          src={`/user/image/${friendInfo.profilePicId}`}
           alt="friend's profile"
           className='friendlistprofilepic'
         />

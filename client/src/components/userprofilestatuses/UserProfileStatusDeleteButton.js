@@ -10,7 +10,7 @@ const UserProfileStatusDeleteButton = ({
   const [deleteOpen, setDeleteOpen] = useState(false);
   const deleteStatus = () => {
     Axios.post(
-      'http://localhost:8000/status/deletestatus',
+      '/status/deletestatus',
       { statusId: status._id },
       { headers: { 'x-auth-token': token } }
     ).then(result => {

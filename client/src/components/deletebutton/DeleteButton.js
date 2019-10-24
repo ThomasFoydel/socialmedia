@@ -10,7 +10,7 @@ function DeleteButton({ postId, userId, userName, token, deletePost }) {
   // const deleteLink = `/deletepost/${postId}`;
   const sendDeleteToBackEnd = async postId => {
     const deletedPost = await Axios.post(
-      `http://localhost:8000/post/deletepost/${postId}`,
+      `/post/deletepost/${postId}`,
       {
         postId,
         userId: userId,

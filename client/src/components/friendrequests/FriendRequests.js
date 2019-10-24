@@ -13,7 +13,7 @@ const FriendRequests = ({ token, userId, addFriendToFriendList }) => {
   const [requests, setRequests] = useState([]);
   useEffect(() => {
     Axios.get(
-      `http://localhost:8000/user/getfriendrequests/${userId}`,
+      `/user/getfriendrequests/${userId}`,
       {},
       { headers: { 'x-auth-token': token } }
     ).then(result => {

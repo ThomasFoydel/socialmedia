@@ -25,7 +25,7 @@ const CommentForm = ({
     }
     //send to backend
     Axios.post(
-      `http://localhost:8000/comment/newcomment`,
+      `/comment/newcomment`,
       { commentContent, postId, authorName: userName },
       {
         headers: { 'x-auth-token': token }

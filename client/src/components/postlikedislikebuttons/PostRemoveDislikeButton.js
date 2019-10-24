@@ -4,7 +4,7 @@ import Axios from 'axios';
 const PostRemoveDislikeButton = ({ token, userId, postId, setDislikes }) => {
   const removeDislikeHandler = () => {
     Axios.post(
-      `http://localhost:8000/post/removedislikepost/${postId}`,
+      `/post/removedislikepost/${postId}`,
       { dislikeAuthorId: userId },
       {
         headers: { 'x-auth-token': token }

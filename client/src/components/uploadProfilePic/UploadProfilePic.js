@@ -23,7 +23,7 @@ const UploadProfilePic = ({
     // fires while selectedProfileFile is null
     const fd = new FormData();
     fd.append('image', selectedProfileFile, selectedProfileFile.name);
-    Axios.post(`http://localhost:8000/user/editprofilepic`, fd, {
+    Axios.post(`/user/editprofilepic`, fd, {
       onUploadProgress: progressEvent => {
         console.log(
           'Upload progress: ',
@@ -45,7 +45,7 @@ const UploadProfilePic = ({
     <div className='edituserprofileupload'>
       <img
         className='edituserprofileuploadimage'
-        src={`http://localhost:8000/user/image/${profilePicId}`}
+        src={`/user/image/${profilePicId}`}
         alt='profile'
       />
 

@@ -29,7 +29,7 @@ const EditCommentForm = ({
   const handleSubmit = async () => {
     if (newContentEntered) {
       Axios.post(
-        `http://localhost:8000/comment/editcomment/${foundComment._id}`,
+        `/comment/editcomment/${foundComment._id}`,
         { newContent, commentId },
         { headers: { 'x-auth-token': token } }
       ).then(result => {

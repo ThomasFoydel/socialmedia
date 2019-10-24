@@ -8,9 +8,7 @@ const UserProfilePosts = ({ userid }) => {
 
   useEffect(() => {
     const getPosts = async () => {
-      const foundPosts = await Axios.get(
-        `http://localhost:8000/post/getpostsbyuser/${userid}`
-      );
+      const foundPosts = await Axios.get(`/post/getpostsbyuser/${userid}`);
       setPostsArray(foundPosts.data);
     };
     getPosts();

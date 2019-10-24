@@ -8,7 +8,7 @@ const DeleteCommentButton = ({
   setCommentsArray
 }) => {
   const handleDeleteComment = () => {
-    Axios.delete(`http://localhost:8000/comment/deletecomment/${commentId}`, {
+    Axios.delete(`/comment/deletecomment/${commentId}`, {
       data: { postId: postId }
     }).then(result => {
       if (result.status === 200) {

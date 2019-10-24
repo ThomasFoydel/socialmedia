@@ -9,7 +9,7 @@ const UserProfilePost = ({ post }) => {
           <img
             alt='post'
             className='userprofilepostimage'
-            src={`http://localhost:8000/post/contentimage/${post.contentImageId}`}
+            src={`/post/contentimage/${post.contentImageId}`}
           />
         ) : (
           <div className='userprofilepostemptyspace' />

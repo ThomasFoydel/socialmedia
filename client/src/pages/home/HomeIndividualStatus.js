@@ -13,9 +13,7 @@ const HomeIndividualStatus = ({ status }) => {
 
   useEffect(() => {
     const getUser = async () => {
-      const foundUser = await Axios.get(
-        `http://localhost:8000/user/getuser/${authorId}`
-      );
+      const foundUser = await Axios.get(`/user/getuser/${authorId}`);
       setAuthorUser(foundUser.data);
     };
     getUser();

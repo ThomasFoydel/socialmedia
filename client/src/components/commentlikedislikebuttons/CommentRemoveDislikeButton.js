@@ -8,7 +8,7 @@ const CommentRemoveDislikeButton = ({
 }) => {
   const removeDislikeHandler = () => {
     Axios.post(
-      `http://localhost:8000/comment/removedislikecomment/${commentId}`,
+      `/comment/removedislikecomment/${commentId}`,
       { dislikeAuthorId: userId },
       {
         headers: { 'x-auth-token': token }

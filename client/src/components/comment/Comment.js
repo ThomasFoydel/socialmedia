@@ -28,18 +28,14 @@ const Comment = ({
   useEffect(() => {
     let isSubscribed = true;
     const getUserProfilePicAndName = async authorId => {
-      const foundUser = await Axios.get(
-        `http://localhost:8000/user/getuser/${authorId}`
-      );
+      const foundUser = await Axios.get(`/user/getuser/${authorId}`);
       if (isSubscribed) {
         setCommentProfilePicId(foundUser.data.profilePicId);
         setFoundUserName(foundUser.data.name);
       }
     };
     const getComment = async () => {
-      const response = await Axios.get(
-        `http://localhost:8000/comment/getcomment/${comment}`
-      );
+      const response = await Axios.get(`/comment/getcomment/${comment}`);
       if (isSubscribed) {
         setFoundComment(response.data);
         getUserProfilePicAndName(response.data.authorId);
@@ -68,7 +64,7 @@ const Comment = ({
               <img
                 alt="original poster's profile"
                 className='feedpostcommentauthorpic'
-                src={`http://localhost:8000/user/image/${commentProfilePicId}`}
+                src={`/user/image/${commentProfilePicId}`}
               ></img>
             )}
 

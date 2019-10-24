@@ -9,12 +9,9 @@ const IndividualPost = ({ match, token }) => {
 
   useEffect(() => {
     const getPost = async () => {
-      const post = await Axios.get(
-        `http://localhost:8000/post/post/${match.params.id}`,
-        {
-          headers: { 'x-auth-token': token }
-        }
-      );
+      const post = await Axios.get(`/post/post/${match.params.id}`, {
+        headers: { 'x-auth-token': token }
+      });
       setFoundPost(post.data);
       setLoading(false);
     };

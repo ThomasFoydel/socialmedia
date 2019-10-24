@@ -67,7 +67,7 @@ function EditUser({
   const handleSubmit = async e => {
     e.preventDefault();
     Axios.post(
-      'http://localhost:8000/user/edituser',
+      '/user/edituser',
       {
         name: nameInput,
         email: emailInput,

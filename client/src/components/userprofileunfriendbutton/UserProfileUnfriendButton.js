@@ -14,7 +14,7 @@ const UserProfileUnfriendButton = ({
   const unfriendHandler = async () => {
     let deletedFriendship = null;
     deletedFriendship = await Axios.post(
-      'http://localhost:8000/user/unfriend',
+      '/user/unfriend',
       { friendId: friendId },
       { headers: { 'x-auth-token': token } }
     );

@@ -23,7 +23,7 @@ const IndividualPrivateMessage = ({
             ) : (
               <>
                 <img
-                  src={`http://localhost:8000/user/image/${currentFriendProfilePicId}`}
+                  src={`/user/image/${currentFriendProfilePicId}`}
                   alt='friend profile'
                   className='privatemessagefriendporfilepic'
                 />

@@ -24,12 +24,9 @@ function EditPost({
 
   useEffect(() => {
     const getPost = async () => {
-      const fetchedPost = await Axios.get(
-        `http://localhost:8000/post/post/${postId}`,
-        {
-          headers: { 'x-auth-token': token }
-        }
-      );
+      const fetchedPost = await Axios.get(`/post/post/${postId}`, {
+        headers: { 'x-auth-token': token }
+      });
       setTitleValue(fetchedPost.data.title);
       setPostValue(fetchedPost.data.content);
       setTagsValue(fetchedPost.data.tags);
@@ -62,7 +59,7 @@ function EditPost({
     e.preventDefault();
     if (selectedFile === null) {
       Axios.post(
-        `http://localhost:8000/post/editpost/${postId}`,
+        `/post/editpost/${postId}`,
         {
           authorId: userId,
           authorName: userName,
@@ -98,7 +95,7 @@ function EditPost({
       fd.append('tags', tagsValue);
 
       e.preventDefault();
-      Axios.post(`http://localhost:8000/post/editpostwithimage/${postId}`, fd, {
+      Axios.post(`/post/editpostwithimage/${postId}`, fd, {
         headers: {
           'Content-Type': 'application/json',
           'x-auth-token': token

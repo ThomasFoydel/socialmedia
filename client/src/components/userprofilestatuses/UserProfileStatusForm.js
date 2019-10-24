@@ -11,7 +11,7 @@ const UserProfileStatusForm = ({ token, setStatusesArray, statusesArray }) => {
   const handleSubmit = () => {
     if (statusValue) {
       Axios.post(
-        'http://localhost:8000/status/poststatus',
+        '/status/poststatus',
         { statusContent: statusValue },
         { headers: { 'x-auth-token': token } }
       ).then(result => {

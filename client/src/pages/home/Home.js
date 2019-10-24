@@ -22,7 +22,7 @@ const Home = ({ userName, profilePicId, isLoggedIn, token, friendList }) => {
                 {profilePicId ? (
                   // <ParallaxLayer offset={0} speed={-1}>
                   <img
-                    src={`http://localhost:8000/user/image/${profilePicId}`}
+                    src={`/user/image/${profilePicId}`}
                     alt='your profilepic'
                     className='homecontainer__heading--profilepicture'
                   ></img>

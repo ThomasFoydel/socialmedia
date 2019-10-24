@@ -8,7 +8,7 @@ import './UnfriendButton.scss';
 const UnfriendButton = ({ friendId, token, setFriendInfo, setFriendList }) => {
   const unfriendHandler = async () => {
     const deletedFriendship = await Axios.post(
-      'http://localhost:8000/user/unfriend',
+      '/user/unfriend',
       { friendId: friendId },
       { headers: { 'x-auth-token': token } }
     );

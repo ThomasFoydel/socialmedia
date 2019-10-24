@@ -13,9 +13,7 @@ const IndividualFriendRequest = ({
 
   useEffect(() => {
     const getUser = async () => {
-      const foundUser = await Axios.get(
-        `http://localhost:8000/user/getuser/${info.sender}`
-      );
+      const foundUser = await Axios.get(`/user/getuser/${info.sender}`);
       setSender(foundUser.data);
     };
     getUser();
@@ -23,7 +21,7 @@ const IndividualFriendRequest = ({
 
   const acceptHandler = async () => {
     Axios.post(
-      `http://localhost:8000/user/acceptfriendrequest/`,
+      `/user/acceptfriendrequest/`,
       {
         sender: sender
       },
@@ -38,7 +36,7 @@ const IndividualFriendRequest = ({
 
   const rejectHandler = async () => {
     Axios.post(
-      `http://localhost:8000/user/rejectfriendrequest`,
+      `/user/rejectfriendrequest`,
       {
         sender: sender
       },
@@ -57,7 +55,7 @@ const IndividualFriendRequest = ({
               <img
                 alt="friend request sender's profile"
                 className='friendrequestprofilepic'
-                src={`http://localhost:8000/user/authorprofilepic/${sender._id}`}
+                src={`/user/authorprofilepic/${sender._id}`}
               />
             </Link>
 

@@ -15,7 +15,7 @@ const UploadCoverPic = ({ setCurrentUserCoverPic, coverPicId, token }) => {
   const fileUploadHandler = () => {
     const fd = new FormData();
     fd.append('image', selectedCoverFile, selectedCoverFile.name);
-    Axios.post(`http://localhost:8000/user/editcoverpic`, fd, {
+    Axios.post(`/user/editcoverpic`, fd, {
       onUploadProgress: progressEvent => {
         console.log(
           'Upload progress: ',
@@ -39,7 +39,7 @@ const UploadCoverPic = ({ setCurrentUserCoverPic, coverPicId, token }) => {
       {coverPicId ? (
         <img
           className='editusercoveruploadimage'
-          src={`http://localhost:8000/user/image/${coverPicId}`}
+          src={`/user/image/${coverPicId}`}
           alt='cover'
         />
       ) : (
