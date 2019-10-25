@@ -101,88 +101,92 @@ function EditUser({
   };
 
   return (
-    <div className='edituserformcontainer'>
-      <form
-        className='edituserform'
-        onSubmit={handleSubmit}
-        // enctype="multipart/form-data"
-      >
-        <h1 className='titletext'>edit your info</h1>
-        <div className='form-group'>
-          <div className='editusercurrentvaluelabel'>name:</div>
-          <input
-            className='edituserforminput'
-            type='text'
-            value={nameInput}
-            name='name'
-            onChange={handleChange}
-          />
-        </div>
-        <div className='form-group'>
-          <div className='editusercurrentvaluelabel'>email:</div>
-          <input
-            className='edituserforminput'
-            type='email'
-            value={emailInput}
-            name='email'
-            onChange={handleChange}
-          />
-        </div>
-        <div className='form-group'>
-          <div className='editusercurrentvaluelabel'>city: </div>
-          <input
-            className='edituserforminput'
-            type='text'
-            value={cityInput}
-            name='city'
-            onChange={handleChange}
-          />
-        </div>
-        <div className='form-group'>
-          <div className='editusercurrentvaluelabel'>age:</div>
-          <input
-            className='edituserforminput'
-            type='number'
-            value={ageInput}
-            name='age'
-            onChange={handleChange}
-          />
-        </div>
-        <div className='form-group'>
-          <div className='editusercurrentvaluelabel'>bio:</div>
-          <input
-            className='edituserforminput'
-            type='text'
-            name='bio'
-            value={bioInput}
-            onChange={handleChange}
-            maxLength='160'
-          />
-        </div>
-        <div>
-          <div className='editusercurrentvaluelabel'>
-            enter password to confirm changes:
+    <div className='edituserformoutsidecontainer'>
+      <div className='edituserformcontainer'>
+        <form
+          className='edituserform'
+          onSubmit={handleSubmit}
+          // enctype="multipart/form-data"
+        >
+          <h1 className='editusertitletext'>edit your info</h1>
+          <div className='form-group'>
+            <div className='editusercurrentvaluelabel'>name:</div>
+            <input
+              className='edituserforminput'
+              type='text'
+              value={nameInput}
+              name='name'
+              onChange={handleChange}
+            />
           </div>
-          <input
-            className='edituserforminput'
-            type='password'
-            name='password'
-            value={passwordInput}
-            onChange={handleChange}
-          ></input>
+          <div className='form-group'>
+            <div className='editusercurrentvaluelabel'>email:</div>
+            <input
+              className='edituserforminput'
+              type='email'
+              value={emailInput}
+              name='email'
+              onChange={handleChange}
+            />
+          </div>
+          <div className='form-group'>
+            <div className='editusercurrentvaluelabel'>city: </div>
+            <input
+              className='edituserforminput'
+              type='text'
+              value={cityInput}
+              name='city'
+              onChange={handleChange}
+            />
+          </div>
+          <div className='form-group'>
+            <div className='editusercurrentvaluelabel'>age:</div>
+            <input
+              className='edituserforminput'
+              type='number'
+              value={ageInput}
+              name='age'
+              onChange={handleChange}
+            />
+          </div>
+          <div className='form-group'>
+            <div className='editusercurrentvaluelabel'>bio:</div>
+            <input
+              className='edituserforminput'
+              type='text'
+              name='bio'
+              value={bioInput}
+              onChange={handleChange}
+              maxLength='160'
+            />
+          </div>
+          <div>
+            <div className='editusercurrentvaluelabel'>
+              enter password to confirm changes:
+            </div>
+            <input
+              className='edituserforminput'
+              type='password'
+              name='password'
+              value={passwordInput}
+              onChange={handleChange}
+            ></input>
+          </div>
+          <div className='edituserformbuttoncontainer'>
+            <button type='submit' value='submit' className='edituserformbutton'>
+              submit
+            </button>
+          </div>
+          {authError ? (
+            <h3 className='incorrectpassworderrormessage'>
+              incorrect password
+            </h3>
+          ) : null}
+        </form>
+        <div className='edituserpicturesection flex'>
+          <UploadProfilePic />
+          <UploadCoverPic />
         </div>
-        <div className='edituserformbuttoncontainer'>
-          <button type='submit' value='submit' className='edituserformbutton'>
-            submit
-          </button>
-        </div>
-        {authError ? (
-          <h3 className='incorrectpassworderrormessage'>incorrect password</h3>
-        ) : null}
-      </form>
-      <div className='edituserpicturesection flex'>
-        <UploadProfilePic />
-        <UploadCoverPic />
       </div>
     </div>
   );

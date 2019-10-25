@@ -10,7 +10,6 @@ import { setPosts } from '../../redux/posts/postActions';
 import './MainFeed.scss';
 
 const MainFeed = ({ setReduxPosts, reduxPosts, token, isLoggedIn }) => {
-  console.log('is logged in: ', isLoggedIn);
   const [postFormOpen, setPostFormOpen] = useState(false);
   const [count, setCount] = useState(5);
   const [start, setStart] = useState(1);
@@ -48,7 +47,6 @@ const MainFeed = ({ setReduxPosts, reduxPosts, token, isLoggedIn }) => {
       );
     });
   };
-  console.log('reduxPosts: ', reduxPosts);
   return (
     <>
       <div className='mainfeedcontainer'>
