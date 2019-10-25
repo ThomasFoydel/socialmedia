@@ -1,6 +1,5 @@
 $break-medium: 665px;
 $break-small: 414px;
-$break-small2: 413px;
 
 .loginform {
   display: flex;
@@ -14,21 +13,23 @@ $break-small2: 413px;
 
 .loginforminsidecontainer {
   margin-top: 12rem;
-  padding: 2rem 0 0 3rem !important;
-  min-width: 50rem !important;
+  padding: 2rem 3rem 0 3rem;
+  min-width: 50rem;
   max-width: 60rem;
   height: 30rem;
   border-radius: 10px;
   background: rgb(255, 255, 255);
   box-shadow: 0.2rem 0.2rem 0.2rem #999;
-  @media screen and (max-width: $break-small) {
-    max-width: 40rem !important;
-    min-width: 32rem !important;
+
+  @media screen and (max-width: $break-medium) {
+    padding: 2rem 0;
+    max-width: 50rem;
+    min-width: 40rem;
     margin: 8rem 2rem 0 2rem;
   }
-  @media screen and (max-width: $break-medium) {
-    max-width: 50rem !important;
-    min-width: 40rem !important;
+  @media screen and (max-width: $break-small) {
+    max-width: 30rem;
+    min-width: 30rem;
     margin: 8rem 2rem 0 2rem;
   }
 }
@@ -53,11 +54,12 @@ $break-small2: 413px;
 .loginforminput {
   min-width: 41.5rem;
   margin: 1rem 1rem !important;
-  @media screen and (max-width: $break-small) {
-    min-width: 24rem;
-  }
+
   @media screen and (max-width: $break-medium) {
     min-width: 30rem;
+  }
+  @media screen and (max-width: $break-small) {
+    min-width: 24rem;
   }
 }
 

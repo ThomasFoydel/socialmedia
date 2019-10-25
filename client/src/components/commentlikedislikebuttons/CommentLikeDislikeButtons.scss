@@ -13,7 +13,7 @@ $break-small: 414px;
 .commentdislikebutton {
   width: 20rem;
   color: rgb(10, 125, 255);
-  background: rgba(255, 255, 255, 0.2);
+  background: rgb(255, 255, 255);
   padding: 0.3rem 10rem;
   border-radius: 0.4rem;
   transition: color 0.2s, background 0.2s;
@@ -27,15 +27,15 @@ $break-small: 414px;
 .commentremovelikebutton,
 .commentremovedislikebutton {
   width: 20rem;
-  color: rgb(10, 125, 255);
-  background: rgb(238, 238, 238);
+  color: rgb(235, 247, 255);
+  background: rgb(10, 125, 255);
   padding: 0.3rem 10rem;
   border-radius: 0.4rem;
   transition: color 0.2s, background 0.2s;
   &:hover {
     cursor: pointer;
-    color: rgba(10, 124, 255, 0.466);
-    background: rgb(220, 221, 224);
+    color: rgb(220, 221, 224);
+    background: rgba(10, 124, 255, 0.466);
   }
 }
 

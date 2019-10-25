@@ -6,7 +6,7 @@ const FeedPostCommentSection = ({ commentsArray, _id, setCommentsArray }) => {
   const transition = useTransition(commentsArray, comment => comment, {
     from: { opacity: 0, marginTop: -100 },
     enter: { opacity: 1, marginTop: 0 },
-    leave: { opacity: 0, marginTop: -184 },
+    leave: { opacity: 0, marginTop: -204 },
     config: config.wobbly
   });
   return (

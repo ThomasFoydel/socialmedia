@@ -6,10 +6,15 @@ $break-small: 414px;
   padding: 20px;
   background: rgba(255, 255, 255, 0.185);
   border-radius: 0.1rem;
-  border: 1px solid #bfbfbf;
-  box-shadow: 10px 10px 5px #aaaaaa;
+  box-shadow: 1rem 1rem 2.5rem #33333362;
   min-width: 50rem;
   max-width: 65rem;
+  background: linear-gradient(
+    180deg,
+    rgba(224, 251, 255, 1) 0%,
+    rgba(173, 245, 255, 1) 34%,
+    rgba(46, 197, 255, 1) 100%
+  );
   @media screen and (max-width: $break-medium) {
     min-width: 38rem;
     max-width: 40rem;
@@ -125,9 +130,10 @@ $break-small: 414px;
 .feedpostcontent {
   min-height: 18rem;
   border-radius: 1rem;
+  border: 0.1rem solid rgba(255, 255, 255, 0.301);
   font-size: 2.4rem;
   padding: 2rem;
-  background: rgba(255, 255, 255, 0.185);
+  background: rgba(248, 248, 248, 0.5);
   width: 95%;
   margin: 0 auto;
   @media screen and (max-width: $break-medium) {

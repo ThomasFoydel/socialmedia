@@ -66,6 +66,10 @@ $break-small: 414px;
   margin: 0 1rem;
 }
 
+.smallnavbarcloudicon {
+  color: white;
+}
+
 .mainnavbarlogout {
   display: inline-block;
   margin-left: 20rem;
@@ -118,9 +122,11 @@ $break-small: 414px;
   top: 1.5rem;
   float: right;
   position: absolute;
-  &:hover {
-    cursor: pointer;
-    color: #0c59b1;
+  @media screen and (max-width: $break-small) {
+    &:hover {
+      cursor: pointer;
+      color: #0c59b1;
+    }
   }
 }
 
@@ -219,7 +225,7 @@ $break-small: 414px;
 
 .smallnavbaropen {
   height: auto;
-  background: rgb(65, 116, 255);
+  background: rgb(10, 125, 255);
   z-index: 2;
   position: fixed;
   width: 100%;
@@ -230,6 +236,10 @@ $break-small: 414px;
   position: absolute;
   right: 2rem;
   top: 1rem;
+}
+
+.smallclosefullnavbarbutton {
+  color: #7eb8fa;
 }
 
 .smallsearchbar {

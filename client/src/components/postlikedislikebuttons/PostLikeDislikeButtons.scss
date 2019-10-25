@@ -17,7 +17,7 @@ $break-small: 414px;
 .postlikebutton,
 .postdislikebutton {
   color: rgb(10, 125, 255);
-  background: rgba(101, 173, 241, 0);
+  background: rgb(255, 255, 255);
   transition: color 0.2s, background 0.2s;
   &:hover {
     cursor: pointer;
@@ -28,13 +28,13 @@ $break-small: 414px;
 
 .postremovelikebutton,
 .postremovedislikebutton {
-  color: rgb(10, 125, 255);
-  background: rgb(238, 238, 238);
+  color: rgb(235, 247, 255);
+  background: rgb(10, 125, 255);
   transition: color 0.2s, background 0.2s;
   &:hover {
     cursor: pointer;
-    color: rgba(10, 124, 255, 0.466);
-    background: rgb(220, 221, 224);
+    color: rgb(220, 221, 224);
+    background: rgba(10, 124, 255, 0.466);
   }
 }
 
@@ -48,7 +48,7 @@ $break-small: 414px;
 .postlikebuttongrayedout,
 .postdislikebuttongrayedout {
   color: rgb(160, 160, 160);
-  background: rgb(221, 221, 221);
+  background: rgba(221, 221, 221, 0.288);
   margin: 0 0.5rem;
 }
 

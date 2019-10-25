@@ -89,32 +89,33 @@ const UserProfile = ({ match, userId, token, isLoggedIn, friendList }) => {
               alt='profile'
               className='profilepicture'
             />
+
+            <>
+              {isFriend && !isCurrentUser && (
+                <UserProfileUnfriendButton
+                  page='UserProfile'
+                  token={token}
+                  friendId={profileUser._id}
+                  setIsFriend={setIsFriend}
+                  setExistingAdd={setExistingAdd}
+                />
+              )}
+              <div className='profilepageaddoredit'>
+                {isCurrentUser ? (
+                  <Link className='linktoeditprofile' to='/edituser'>
+                    edit profile
+                  </Link>
+                ) : !existingAdd && isLoggedIn && !isFriend ? (
+                  <div
+                    className='userprofilefriendrequestbutton'
+                    onClick={sendFriendRequest}
+                  >
+                    add
+                  </div>
+                ) : null}
+              </div>
+            </>
           </div>
-          <>
-            {isFriend && !isCurrentUser && (
-              <UserProfileUnfriendButton
-                page='UserProfile'
-                token={token}
-                friendId={profileUser._id}
-                setIsFriend={setIsFriend}
-                setExistingAdd={setExistingAdd}
-              />
-            )}
-            <div className='profilepageaddoredit'>
-              {isCurrentUser ? (
-                <Link className='linktoeditprofile' to='/edituser'>
-                  edit profile
-                </Link>
-              ) : !existingAdd && isLoggedIn && !isFriend ? (
-                <div
-                  className='userprofilefriendrequestbutton'
-                  onClick={sendFriendRequest}
-                >
-                  add
-                </div>
-              ) : null}
-            </div>
-          </>
 
           <div className='profilegrid'>
             <div className='profileinfobox'>
