@@ -80,7 +80,7 @@ $break-small: 414px;
   transition: color 0.2s;
   &:hover {
     cursor: pointer;
-    color: rgb(82, 94, 255);
+    color: rgb(10, 125, 255);
   }
 }
 
@@ -112,7 +112,9 @@ $break-small: 414px;
 }
 
 .postlikesdislikescounter {
-  margin-top: 1.5rem;
+  display: inline-block;
+  float: right;
+  margin-right: 0rem;
   height: 4rem;
 }
 
@@ -177,4 +179,16 @@ $break-small: 414px;
   transform: translateX(-50%);
   margin-top: 3rem;
   margin-bottom: 3rem;
+}
+
+.postlikedislikescontainer {
+  margin-top: 2rem;
+  margin-bottom: 8rem;
+}
+
+.tagsandlikes {
+  height: 2rem;
+  // display: block;
+  margin-bottom: 1rem;
+  position: default;
 }

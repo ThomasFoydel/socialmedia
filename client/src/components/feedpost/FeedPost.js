@@ -199,31 +199,35 @@ const FeedPost = ({ post, token, userId, profilePicId, page }) => {
         <h1 className='feedposttitle'>{title}</h1>
       </>
       <p className='feedpostcontent'>{content}</p>
-      {currentPost.tags &&
-        currentPost.tags[0] !== '' &&
-        currentPost.tags.map((tag, i) => (
-          <Link key={i} to={`/searchresult/${tag}`}>
-            <span className='feedposttags'>#{tag} </span>
-          </Link>
-        ))}
-      {likes && (
-        <>
-          <div className='flex postlikesdislikescounter'>
-            {likes.length > 0 && (
-              <span className='postlikescounter'>
-                {likes.length} {likes.length > 1 ? <>likes</> : <>like</>}
-              </span>
-            )}
-            {dislikes.length > 0 && (
-              <span className='postdislikescounter'>
-                {dislikes.length}
-                {dislikes.length > 1 ? <> dislikes</> : <> dislike</>}
-              </span>
-            )}
-          </div>
-
+      <div className='tagsandlikes'>
+        {currentPost.tags &&
+          currentPost.tags[0] !== '' &&
+          currentPost.tags.map((tag, i) => (
+            <Link key={i} to={`/searchresult/${tag}`}>
+              <span className='feedposttags'>#{tag} </span>
+            </Link>
+          ))}
+        {likes && (
+          <>
+            <div className='flex postlikesdislikescounter'>
+              {likes.length > 0 && (
+                <span className='postlikescounter'>
+                  {likes.length} {likes.length > 1 ? <>likes</> : <>like</>}
+                </span>
+              )}{' '}
+              {dislikes.length > 0 && (
+                <span className='postdislikescounter'>
+                  {dislikes.length}
+                  {dislikes.length > 1 ? <> dislikes</> : <> dislike</>}
+                </span>
+              )}
+            </div>
+          </>
+        )}
+      </div>
+      {authorId !== userId && (
+        <div className='postlikedislikescontainer'>
           <PostLikeDislikeButtons
-            className='postlikedislikescontainer'
             likes={likes}
             dislikes={dislikes}
             authorId={authorId}
@@ -233,21 +237,26 @@ const FeedPost = ({ post, token, userId, profilePicId, page }) => {
             setLikes={setLikes}
             setDislikes={setDislikes}
           />
-        </>
+        </div>
       )}
+
+      <div className='commentsarray'>
+        <FeedPostCommentSection
+          commentsArray={commentsArray}
+          _id={_id}
+          setCommentsArray={updateCommentsArray}
+        />
+      </div>
       <div className='flex feedpostcommentformandpic'>
         <img
           alt='your profile'
           className='commentformprofilepic'
           src={`/user/image/${profilePicId}`}
         ></img>
-        <CommentForm setCommentsArray={updateCommentsArray} postId={_id} />
-      </div>
-      <div className='commentsarray'>
-        <FeedPostCommentSection
-          commentsArray={commentsArray}
-          _id={_id}
+        <CommentForm
           setCommentsArray={updateCommentsArray}
+          postId={_id}
+          page={page}
         />
       </div>
     </div>

@@ -2,11 +2,15 @@
   border-radius: 2rem;
   padding: 0.2rem;
   padding-left: 1rem;
+  width: 30rem;
 }
 
 .editcommentformclosebutton {
-  margin-left: 0.8rem;
-  //   margin-top: 0.1rem;
+  // margin-right: 0.2rem;
+  position: absolute;
+  right: 0.4rem;
+  top: 0.4rem;
+  transition: color 0.2s;
   &:hover {
     color: rgb(255, 82, 82);
     cursor: pointer;
@@ -15,6 +19,9 @@
 
 .editcommentform {
   position: absolute;
-  top: 9rem;
-  right: 1.4rem;
+  top: 4rem;
+  right: -2rem;
+  background: #f3f3f3d2;
+  border-radius: 0.4rem;
+  padding: 2rem;
 }

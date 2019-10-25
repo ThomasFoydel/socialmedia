@@ -19,6 +19,7 @@ const IndividualPost = ({ match, token }) => {
   }, [match.params.id, token]);
   return (
     <div>
+      <div style={{ height: '10rem' }} />
       {loading ? (
         <h1>loading</h1>
       ) : (

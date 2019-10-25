@@ -45,54 +45,32 @@ $break-small: 414px;
 
 .homestatuslikebutton,
 .homestatusdislikebutton {
-  color: rgb(56, 56, 56);
-  background: rgb(216, 216, 216);
-  transition: color 0.2s;
+  color: rgb(10, 125, 255);
+  background: rgba(255, 255, 255, 0.2);
+  transition: color 0.2s, background 0.2s;
   &:hover {
     cursor: pointer;
-    color: rgb(82, 94, 255);
-    background: rgb(220, 221, 224);
+    color: rgb(235, 237, 243);
+    background: rgb(91, 168, 245);
   }
 }
-
-// .homestatusdislikebutton {
-//   color: rgb(56, 56, 56);
-//   background: rgb(216, 216, 216);
-//   transition: color 0.2s;
-//   &:hover {
-//     cursor: pointer;
-//     color: rgb(82, 94, 255);
-//     background: rgb(220, 221, 224);
-//   }
-// }
 
 .homestatusremovelikebutton,
 .homestatusremovedislikebutton {
-  color: rgb(82, 94, 255);
-  background: rgb(216, 216, 216);
-  transition: color 0.2s;
+  color: rgb(10, 125, 255);
+  background: rgb(238, 238, 238);
+  transition: color 0.2s, background 0.2s;
   &:hover {
     cursor: pointer;
-    color: rgb(255, 82, 82);
+    color: rgba(10, 124, 255, 0.466);
     background: rgb(220, 221, 224);
   }
 }
-
-// .homestatusremovedislikebutton {
-//   color: rgb(82, 94, 255);
-//   background: rgb(216, 216, 216);
-//   transition: color 0.2s;
-//   &:hover {
-//     cursor: pointer;
-//     color: rgb(255, 82, 82);
-//     background: rgb(220, 221, 224);
-//   }
-// }
 
 .homestatuslikebuttongrayedout,
 .homestatusdislikebuttongrayedout {
   color: rgb(160, 160, 160);
-  background: rgb(216, 216, 216);
+  background: rgba(221, 221, 221, 0.288);
 }
 
 .homeindividualstatuslikesdislikescounter {

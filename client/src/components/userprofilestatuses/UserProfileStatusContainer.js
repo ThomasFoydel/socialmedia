@@ -35,7 +35,7 @@ const UserProfileStatusContainer = ({
   const transition = useTransition(statusesArray, status => status._id, {
     from: { opacity: 0, marginTop: -100 },
     enter: { opacity: 1, marginTop: 0 },
-    leave: { opacity: 0, marginTop: -164 },
+    leave: { opacity: 0, marginTop: -180 },
     config: config.wobbly
   });
 

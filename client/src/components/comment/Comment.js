@@ -157,7 +157,7 @@ const Comment = ({
                 <p>
                   {likes.length} {likes.length > 1 ? <>likes</> : <>like</>}
                 </p>
-              )}
+              )}{' '}
               {dislikes.length > 0 && (
                 <p>
                   {dislikes.length}{' '}

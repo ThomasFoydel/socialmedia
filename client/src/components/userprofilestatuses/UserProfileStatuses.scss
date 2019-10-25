@@ -59,7 +59,7 @@ $break-small: 414px;
   transform: translateX(-50%);
   position: relative;
   height: 3rem;
-  background: rgb(71, 123, 201);
+  background: rgb(10, 125, 255);
   padding: 0.2rem 1.5rem;
   transition: background 0.25s, color 0.25s, top 0.25s;
   color: white;
@@ -92,7 +92,7 @@ $break-small: 414px;
   background: rgb(231, 231, 231);
   padding: 1.8rem;
   border-radius: 0.1rem;
-  height: auto;
+  height: 16rem;
   margin-bottom: 2rem;
 }
 .individualstatusname {
@@ -124,6 +124,7 @@ $break-small: 414px;
   position: absolute;
   right: 0.8rem;
   top: -2rem;
+  transition: color 0.2s;
   &:hover {
     cursor: pointer;
     color: rgb(255, 82, 82);
@@ -140,7 +141,7 @@ $break-small: 414px;
 .userprofilestatusdeleteoptions {
   position: absolute;
   top: 1.8rem;
-  right: -8.1rem;
+  right: -1.6rem;
   background: rgb(240, 240, 240);
   padding: 1.4rem 1rem;
   border-radius: 0.4rem;

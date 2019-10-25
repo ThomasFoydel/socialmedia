@@ -22,7 +22,7 @@ $break-small: 440px;
   padding: 3rem 4rem 0 4rem;
   min-width: 40rem;
   max-width: 43rem;
-  border: 0.2rem solid #bfbfbf;
+  border: 0.2rem solid rgb(10, 125, 255);
   box-shadow: 1rem 1rem 2.5rem #000000a6;
   border-radius: 1rem;
   background: rgb(235, 235, 235);
@@ -43,7 +43,7 @@ $break-small: 440px;
 .editpostforminput {
   min-width: 34rem;
   max-width: 50rem;
-  border: 0.2rem solid rgb(82, 143, 255);
+  border: 0.2rem solid rgb(10, 125, 255);
   border-radius: 0.5rem;
   padding: 1rem;
   @media screen and (max-width: $break-small) {
@@ -53,7 +53,7 @@ $break-small: 440px;
 }
 
 .editpostformpost {
-  overflow: scroll;
+  overflow: auto;
   min-height: 7.7rem;
   max-height: 7.7rem;
   resize: none;
@@ -75,7 +75,7 @@ $break-small: 440px;
   transition: background 0.2s, color 0.2s;
   &:hover {
     cursor: pointer;
-    background: rgb(34, 122, 255);
+    background: rgb(10, 125, 255);
     color: rgb(250, 250, 250);
   }
   &:active {

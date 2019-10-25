@@ -1,66 +1,39 @@
 $break-medium: 665px;
 $break-small: 414px;
 
-.postlikebutton {
-  margin-right: 1rem;
+.postlikebutton,
+.postdislikebutton,
+.postremovelikebutton,
+.postremovedislikebutton,
+.postlikebuttongrayedout,
+.postdislikebuttongrayedout {
+  margin: 0 0.5rem;
   max-width: 27rem;
-  background: rgb(216, 216, 216);
-  text-align: center;
   padding: 0.8rem 10rem;
   border-radius: 0.4rem;
-  transition: color 0.2s;
-  color: rgb(56, 56, 56);
-  &:hover {
-    cursor: pointer;
-    color: rgb(82, 94, 255);
-    background: rgb(220, 221, 224);
-  }
+  text-align: center;
 }
 
+.postlikebutton,
 .postdislikebutton {
-  margin-left: 1rem;
-  max-width: 27rem;
-  background: rgb(216, 216, 216);
-  text-align: center;
-  padding: 0.8rem 10rem;
-  border-radius: 0.4rem;
-  transition: color 0.2s;
-  color: rgb(56, 56, 56);
+  color: rgb(10, 125, 255);
+  background: rgba(101, 173, 241, 0);
+  transition: color 0.2s, background 0.2s;
   &:hover {
     cursor: pointer;
-    color: rgb(82, 94, 255);
-    background: rgb(220, 221, 224);
+    color: rgb(235, 237, 243);
+    background: rgb(91, 168, 245);
   }
 }
 
-.postremovelikebutton {
-  margin-right: 1rem;
-  color: rgb(82, 94, 255);
-  max-width: 27rem;
-  background: rgb(216, 216, 216);
-  text-align: center;
-  padding: 0.8rem 10rem;
-  border-radius: 0.4rem;
-  transition: color 0.2s;
-  &:hover {
-    cursor: pointer;
-    color: rgb(255, 82, 82);
-    background: rgb(220, 221, 224);
-  }
-}
-
+.postremovelikebutton,
 .postremovedislikebutton {
-  margin-left: 1rem;
-  color: rgb(82, 94, 255);
-  max-width: 27rem;
-  background: rgb(216, 216, 216);
-  text-align: center;
-  padding: 0.8rem 10rem;
-  border-radius: 0.4rem;
-  transition: color 0.2s;
+  color: rgb(10, 125, 255);
+  background: rgb(238, 238, 238);
+  transition: color 0.2s, background 0.2s;
   &:hover {
     cursor: pointer;
-    color: rgb(255, 82, 82);
+    color: rgba(10, 124, 255, 0.466);
     background: rgb(220, 221, 224);
   }
 }
@@ -75,19 +48,8 @@ $break-small: 414px;
 .postlikebuttongrayedout,
 .postdislikebuttongrayedout {
   color: rgb(160, 160, 160);
-  max-width: 27rem;
-  background: rgb(216, 216, 216);
-  text-align: center;
-  padding: 0.8rem 10rem;
-  border-radius: 0.4rem;
-}
-
-.postdislikebuttongrayedout {
-  margin-left: 1rem;
-}
-
-.postlikebuttongrayedout {
-  margin-right: 1rem;
+  background: rgb(221, 221, 221);
+  margin: 0 0.5rem;
 }
 
 .postlikebutton,

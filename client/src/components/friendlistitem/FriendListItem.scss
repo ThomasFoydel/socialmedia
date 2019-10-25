@@ -51,7 +51,7 @@
   }
 }
 
-.unfriendbutton {
+.openunfriendbutton {
   font-size: 1.2rem;
   padding: 0.5rem 0.5rem;
   border-radius: 0.4rem;
@@ -65,4 +65,12 @@
     color: red;
     background: rgb(206, 206, 206);
   }
+}
+
+.unfriendbuttonoptionscontainer {
+  // right: 0;
+  text-align: center;
+  width: 74%;
+  margin-left: 50%;
+  transform: translateX(-50%);
 }

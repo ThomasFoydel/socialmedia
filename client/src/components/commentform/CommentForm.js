@@ -10,7 +10,8 @@ const CommentForm = ({
   token,
   userName,
   addCommentToPost,
-  setCommentsArray
+  setCommentsArray,
+  page
 }) => {
   const [commentContent, setCommentContent] = useState('');
 
@@ -31,7 +32,9 @@ const CommentForm = ({
         headers: { 'x-auth-token': token }
       }
     ).then(result => {
-      addCommentToPost(result.data);
+      if (page !== 'individualpost') {
+        addCommentToPost(result.data);
+      }
       setCommentsArray(result.data.comments);
     });
     setCommentContent('');

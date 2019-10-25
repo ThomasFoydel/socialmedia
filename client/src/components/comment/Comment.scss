@@ -1,10 +1,10 @@
 .feedpostcomment {
-  background: rgba(196, 200, 221, 0.301);
-  margin: 14px;
-  padding: 10px;
+  background: rgba(196, 209, 221, 0.301);
+  margin: 1.4rem;
+  padding: 0.1rem;
   border-radius: 1rem;
   position: relative;
-  max-height: 13.6rem;
+  height: 17rem;
 }
 .feedpostcommentauthorpic {
   height: 4rem;
@@ -18,11 +18,14 @@
 }
 
 .commentlikesdislikescounter {
-  height: 2rem;
+  position: absolute;
+  bottom: 0.5rem;
+  right: 1.5rem;
 }
 
 .commenteditbutton {
   margin-right: 1rem;
+  transition: color 0.2s;
   &:hover {
     cursor: pointer;
     color: rgb(82, 94, 255);
@@ -35,6 +38,8 @@
 }
 
 .commentdeletebutton {
+  transition: color 0.2s;
+  color: black;
   &:hover {
     cursor: pointer;
     color: rgb(255, 82, 82);
@@ -58,7 +63,6 @@
   position: absolute;
   top: 3rem;
   right: -9rem;
-  // left: 1rem;
   background: rgb(240, 240, 240);
   padding: 1rem;
   border-radius: 0.4rem;
@@ -93,8 +97,10 @@
 }
 
 .commentcontent {
+  font-size: 1.5rem;
   margin-top: 1.5rem;
   margin-left: 2rem;
+  min-height: 6.8rem;
   max-height: 6.8rem;
   margin-bottom: -1rem;
   overflow: auto;
@@ -105,7 +111,3 @@
   top: 1rem;
   right: 1.5rem;
 }
-
-// .commentdeletesubmitbutton {
-
-// }

@@ -41,12 +41,10 @@ const FriendListItem = ({
         </div>
       </Link>
 
-      {/* <p className='friendlistprofileemail'>{friendInfo.email}</p>
-      <p className='friendlistprofilecity'>{friendInfo.city}</p> */}
       {!isCurrentUser && (
         <>
           {openUnfriend ? (
-            <div className='flex'>
+            <div className='flex unfriendbuttonoptionscontainer'>
               <UnfriendButton
                 userId={userId}
                 friendId={friendInfo._id}
@@ -64,7 +62,7 @@ const FriendListItem = ({
             <>
               {profileBelongsToCurrentUser && (
                 <div
-                  className='unfriendbutton'
+                  className='openunfriendbutton'
                   onClick={() => setOpenUnfriend(true)}
                 >
                   unfriend

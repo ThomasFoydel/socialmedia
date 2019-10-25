@@ -14,7 +14,7 @@ $break-small: 414px;
   @media screen and (min-width: $break-medium) {
     padding-top: 0.3rem;
     display: flex;
-    background: rgb(65, 116, 255);
+    background: rgb(10, 125, 255);
     color: white;
     height: 4.7rem;
     margin-bottom: 0;
@@ -96,7 +96,7 @@ $break-small: 414px;
 }
 
 .mediumnavbarcontainer {
-  background: rgb(65, 116, 255);
+  background: rgb(10, 125, 255);
   font-size: 1.8rem;
   position: fixed;
   z-index: 6;
@@ -126,12 +126,12 @@ $break-small: 414px;
 
 .mediumclosefullnavbarbutton,
 .mediumopenfullnavbarbutton {
-  // right: 1rem;
-  // top: 1.5rem;
-  // float: right;
-  // position: absolute;
   margin-left: 3rem;
   margin-top: 0.5rem;
+  &:hover {
+    color: #7eb8fa;
+    cursor: pointer;
+  }
 }
 
 .mediumnavbarhomelink {
@@ -186,7 +186,7 @@ $break-small: 414px;
 .navbarsmall,
 .smallmainnavbarinnercontainer {
   top: 0;
-  background: rgb(65, 116, 255);
+  background: rgb(10, 125, 255);
   color: #fff;
   z-index: 6;
   position: fixed;
