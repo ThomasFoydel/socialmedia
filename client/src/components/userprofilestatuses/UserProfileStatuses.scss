@@ -41,13 +41,15 @@ $break-small: 414px;
     margin-bottom: 10rem;
     width: 80%;
     margin-bottom: 5rem;
-    min-width: 50rem;
+    // min-width: 50rem;
+    max-width: 49rem;
+    min-width: 49rem;
   }
-
-  // @media screen and (max-width: $break-small) {
-  //   min-width: 48rem;
-  //   max-width: 55rem;
-  // }
+  @media screen and (max-width: $break-small) {
+    font-size: 2rem;
+    max-width: 49rem;
+    min-width: 49rem;
+  }
 }
 
 .userprofilestatusformsubmit {
@@ -102,6 +104,10 @@ $break-small: 414px;
   border-radius: 0.1rem;
   height: 18rem;
   margin-bottom: 2rem;
+  @media screen and (max-width: $break-medium) {
+    width: 98%;
+  }
+
   @media screen and (max-width: $break-small) {
     height: 20rem;
     width: 98%;

@@ -9,7 +9,8 @@ const UserProfileIndividualStatus = ({
   token,
   userId,
   statusesArray,
-  handleUpdateStatusArrayFromIndividualStatus
+  handleUpdateStatusArrayFromIndividualStatus,
+  isLoggedIn
 }) => {
   const [likes, setLikes] = useState(status.likes);
   const [dislikes, setDislikes] = useState(status.dislikes);
@@ -46,7 +47,7 @@ const UserProfileIndividualStatus = ({
           {createdAtDate.getFullYear()}
         </div>
       </div>
-      {isCurrentUser && (
+      {isCurrentUser && isLoggedIn && (
         <div className='userprofilestatusdeletebuttoncontainer'>
           <UserProfileStatusDeleteButton
             status={status}

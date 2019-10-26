@@ -1,8 +1,18 @@
+$break-medium: 665px;
+$break-small: 414px;
+
 .editcommentforminput {
   border-radius: 2rem;
   padding: 0.2rem;
   padding-left: 1rem;
   width: 30rem;
+  @media screen and (max-width: $break-medium) {
+    font-size: 1.7rem;
+  }
+  @media screen and (max-width: $break-small) {
+    font-size: 2rem;
+    width: 25rem;
+  }
 }
 
 .editcommentformclosebutton {
@@ -11,9 +21,15 @@
   right: 0.4rem;
   top: 0.4rem;
   transition: color 0.2s;
+  transform: scale(1.4);
+  margin: 0.3rem;
   &:hover {
     color: rgb(255, 82, 82);
     cursor: pointer;
+  }
+  @media screen and (max-width: $break-small) {
+    transform: scale(1.8);
+    margin: 0.3rem;
   }
 }
 
@@ -24,4 +40,7 @@
   background: #f3f3f3;
   border-radius: 0.4rem;
   padding: 2rem;
+  @media screen and (max-width: $break-small) {
+    width: 28rem;
+  }
 }

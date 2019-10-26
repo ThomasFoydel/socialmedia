@@ -9,7 +9,8 @@ const FriendListItem = ({
   friend,
   token,
   userId,
-  profileBelongsToCurrentUser
+  profileBelongsToCurrentUser,
+  isLoggedIn
 }) => {
   const [friendInfo, setFriendInfo] = useState('');
   const [isCurrentUser, setIsCurrentUser] = useState(false);
@@ -60,7 +61,7 @@ const FriendListItem = ({
             </div>
           ) : (
             <>
-              {profileBelongsToCurrentUser && (
+              {profileBelongsToCurrentUser && isLoggedIn && (
                 <div
                   className='openunfriendbutton'
                   onClick={() => setOpenUnfriend(true)}

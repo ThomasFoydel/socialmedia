@@ -144,6 +144,7 @@ const UserProfile = ({ match, userId, token, isLoggedIn, friendList }) => {
                       userId={userId}
                       token={token}
                       profileBelongsToCurrentUser={isCurrentUser}
+                      isLoggedIn={isLoggedIn}
                     />
                   ))
                 ) : (
@@ -165,6 +166,7 @@ const UserProfile = ({ match, userId, token, isLoggedIn, friendList }) => {
                   userid={userid}
                   profileUser={profileUser}
                   userId={userId}
+                  isLoggedIn={isLoggedIn}
                 />
               </div>
             </div>

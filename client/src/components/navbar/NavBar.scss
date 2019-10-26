@@ -214,9 +214,6 @@ $break-small: 414px;
 .smallsearchbar {
   width: 14rem;
   margin-right: 1rem;
-  @media screen and (max-width: $break-small) {
-    width: 17rem;
-  }
 }
 
 .smallnavbarhomelink {

@@ -10,10 +10,11 @@ $break-small: 440px;
   z-index: 1;
 
   @media screen and (max-width: $break-medium) {
-    left: -27rem;
+    left: -16rem;
   }
+
   @media screen and (max-width: $break-small) {
-    left: -23rem;
+    // left: -18rem;
   }
 }
 
@@ -26,6 +27,11 @@ $break-small: 440px;
   box-shadow: 1rem 1rem 2.5rem #000000a6;
   border-radius: 1rem;
   background: rgb(235, 235, 235);
+  @media screen and (max-width: $break-medium) {
+    min-width: 30rem;
+    max-width: 39rem;
+    padding: 3rem 1.7rem 0 1.7rem;
+  }
   @media screen and (max-width: $break-small) {
     min-width: 25rem;
     max-width: 31rem;
@@ -47,7 +53,7 @@ $break-small: 440px;
   border-radius: 0.5rem;
   padding: 1rem;
   @media screen and (max-width: $break-small) {
-    min-width: 23rem;
+    min-width: 25.5rem;
     max-width: 27rem;
   }
 }
@@ -139,7 +145,7 @@ $break-small: 440px;
   margin-left: 33%;
   transition: color 0.2s, background 0.2s;
   @media screen and (max-width: $break-small) {
-    width: 10.5rem;
+    width: 9.5rem;
   }
 }
 
@@ -159,6 +165,10 @@ $break-small: 440px;
   &:hover {
     color: red;
     cursor: pointer;
+  }
+  @media screen and (max-width: $break-medium) {
+    margin-right: -1rem;
+    margin-top: -2.7rem;
   }
 }
 

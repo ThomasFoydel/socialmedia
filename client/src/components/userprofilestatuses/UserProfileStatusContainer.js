@@ -12,7 +12,8 @@ const UserProfileStatusContainer = ({
   token,
   userid,
   profileUser,
-  userId
+  userId,
+  isLoggedIn
 }) => {
   const [statusesArray, setStatusesArray] = useState([]);
 
@@ -62,6 +63,7 @@ const UserProfileStatusContainer = ({
                 status={item}
                 token={token}
                 userId={userId}
+                isLoggedIn={isLoggedIn}
                 handleUpdateStatusArrayFromIndividualStatus={
                   handleUpdateStatusArrayFromIndividualStatus
                 }

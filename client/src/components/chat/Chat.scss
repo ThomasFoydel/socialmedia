@@ -31,6 +31,7 @@ $break-small: 414px;
   }
   @media screen and (max-width: $break-small) {
     width: 12rem;
+    padding: 1rem 0.4rem;
   }
 }
 
@@ -89,6 +90,9 @@ $break-small: 414px;
   border-radius: 10rem;
   width: 17rem;
   margin-right: 0.3rem;
+  @media screen and (max-width: $break-small) {
+    font-size: 1.8rem;
+  }
 }
 
 .chatboxicons {
