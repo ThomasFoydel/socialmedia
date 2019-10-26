@@ -67,7 +67,7 @@ const UploadProfilePic = ({
             aria-hidden='true'
           ></i>
         ) : (
-          <>choose a new profile pic</>
+          <>new profile pic</>
         )}
       </label>
       {profileInputContainsFile && (

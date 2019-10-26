@@ -64,7 +64,7 @@ const UploadCoverPic = ({ setCurrentUserCoverPic, coverPicId, token }) => {
             aria-hidden='true'
           ></i>
         ) : (
-          <>choose a new cover pic</>
+          <>new cover pic</>
         )}
       </label>
 

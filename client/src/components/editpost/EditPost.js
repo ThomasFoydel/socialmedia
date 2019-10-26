@@ -116,7 +116,7 @@ function EditPost({
   return updateStatusSuccess ? (
     <Redirect to='/feed' />
   ) : (
-    <div>
+    <div className='edituserformoutsidecontainer'>
       <div className='editpostform'>
         <div className='editpostforminsidecontainer'>
           <i
@@ -126,7 +126,6 @@ function EditPost({
           ></i>
 
           <form onSubmit={submitToBackEnd}>
-            {/* <h1 className='text-center editposttitletext'>edit post</h1> */}
             <label type='text' name='title'>
               <input
                 name='title'
