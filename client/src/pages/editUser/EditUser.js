@@ -183,9 +183,11 @@ function EditUser({
             </h3>
           ) : null}
         </form>
-        <div className='edituserpicturesection flex'>
-          <UploadProfilePic />
-          <UploadCoverPic />
+        <div>
+          <div className='edituserpicturesection flex'>
+            <UploadProfilePic />
+            <UploadCoverPic />
+          </div>
         </div>
       </div>
     </div>
