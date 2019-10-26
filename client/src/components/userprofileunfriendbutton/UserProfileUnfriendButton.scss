@@ -1,3 +1,6 @@
+$break-medium: 850px;
+$break-small: 414px;
+
 .profileunfriendbuttoncontainer {
   position: absolute;
   top: 36.5rem !important;
@@ -24,6 +27,13 @@
     transform: translateY(-0.1rem);
     background: rgb(255, 0, 0);
     color: rgb(206, 206, 206);
+  }
+  @media screen and (max-width: $break-small) {
+    font-size: 1.8rem;
+    width: 8rem;
+    background: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
+    margin: 0 0.5rem;
   }
 }
 

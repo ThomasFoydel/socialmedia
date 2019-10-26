@@ -206,11 +206,17 @@ $break-small: 414px;
   height: 6rem;
   z-index: 3;
   font-size: 2.1rem;
+  @media screen and (max-width: $break-small) {
+    font-size: 3rem;
+  }
 }
 
 .smallsearchbar {
   width: 14rem;
   margin-right: 1rem;
+  @media screen and (max-width: $break-small) {
+    width: 17rem;
+  }
 }
 
 .smallnavbarhomelink {

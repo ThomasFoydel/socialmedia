@@ -25,8 +25,6 @@ $break-small: 414px;
     margin-left: 5rem;
   }
   display: flex;
-  // width: 120%;
-  // margin-left: 5rem;
 }
 
 .userprofilestatusinput {
@@ -45,9 +43,11 @@ $break-small: 414px;
     margin-bottom: 5rem;
     min-width: 50rem;
   }
-  @media screen and (max-width: $break-small) {
-    min-width: 40rem;
-  }
+
+  // @media screen and (max-width: $break-small) {
+  //   min-width: 48rem;
+  //   max-width: 55rem;
+  // }
 }
 
 .userprofilestatusformsubmit {
@@ -80,6 +80,14 @@ $break-small: 414px;
       top: 8.4rem;
     }
   }
+  @media screen and (max-width: $break-medium) {
+    right: 6rem;
+    font-size: 1.9rem;
+    padding: 0.2rem 2rem;
+    height: 3.7rem;
+    width: 11rem;
+    text-align: center;
+  }
 }
 
 .userprofilestatuses {
@@ -92,27 +100,40 @@ $break-small: 414px;
   background: rgb(231, 231, 231);
   padding: 1.8rem;
   border-radius: 0.1rem;
-  height: 16rem;
+  height: 18rem;
   margin-bottom: 2rem;
+  @media screen and (max-width: $break-small) {
+    height: 20rem;
+    width: 98%;
+  }
 }
 .individualstatusname {
   margin-left: 0.5rem;
+  @media screen and (max-width: $break-small) {
+    font-size: 2.6rem;
+  }
 }
 
 .individualstatuscreatedat {
   margin-left: 1rem;
   margin-top: 0.35rem;
   font-size: 1.1rem;
+  @media screen and (max-width: $break-small) {
+    font-size: 1.4rem;
+  }
 }
 
 .individualstatuscontent {
   margin-left: 2rem;
   margin-top: 1rem;
   overflow: scroll;
-  min-height: 4rem;
-  max-height: 7.2rem;
+  min-height: 6rem;
+  max-height: 6rem;
   width: 90%;
   font-size: 1.8rem;
+  @media screen and (max-width: $break-small) {
+    font-size: 2.2rem;
+  }
 }
 
 .individualstatuslikesdislikescounter {
@@ -128,6 +149,19 @@ $break-small: 414px;
   &:hover {
     cursor: pointer;
     color: rgb(255, 82, 82);
+  }
+}
+
+.fa-trash-mediumandup {
+  @media screen and(max-width: $break-small) {
+    display: none;
+  }
+}
+
+.fa-trash-smallversion {
+  display: none;
+  @media screen and(max-width: $break-small) {
+    display: inherit;
   }
 }
 

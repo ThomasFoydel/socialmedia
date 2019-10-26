@@ -10,9 +10,9 @@ $break-small: 414px;
   margin-top: -0.3rem;
 
   @media screen and (max-width: $break-medium) {
-    width: 23.8rem;
+    width: 24.8rem;
   }
-  @media screen and (max-width: $break-small) {
-    width: 15rem;
-  }
+  // @media screen and (max-width: $break-small) {
+  //   width: 20rem;
+  // }
 }
