@@ -39,6 +39,9 @@ $break-small: 414px;
   margin-top: 1rem;
   max-height: 40rem;
   overflow-y: scroll;
+  @media screen and (max-width: $break-small) {
+    max-height: 23rem;
+  }
 }
 
 .chatcontainer {
@@ -51,7 +54,7 @@ $break-small: 414px;
   width: 25rem;
   border-radius: 0.3rem;
   z-index: 3;
-
+  border: 0.1rem solid rgb(190, 190, 190);
   @media screen and (max-width: $break-medium) {
     width: 25rem;
   }
@@ -206,4 +209,19 @@ $break-small: 414px;
   min-height: 4.5rem;
   max-height: 35rem;
   overflow: scroll;
+  @media screen and (max-width: $break-small) {
+    max-height: 23rem;
+  }
+}
+
+.chatsendbutton {
+  background: white;
+  color: rgb(34, 122, 255);
+  border: 0.1rem solid rgb(34, 122, 255);
+  padding: 0.1rem 0.3rem;
+  display: none;
+  border-radius: 0.4rem;
+  @media screen and (max-width: $break-small) {
+    display: inline-block;
+  }
 }

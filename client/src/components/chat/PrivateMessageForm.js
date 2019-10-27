@@ -58,6 +58,7 @@ const PrivateMessageForm = ({
         onChange={inputMessage}
         onKeyDown={keyDownHandler}
       />
+      <div className='chatsendbutton'>send</div>
     </div>
   );
 };
