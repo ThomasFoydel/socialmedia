@@ -109,7 +109,7 @@ $break-small: 414px;
   }
 
   @media screen and (max-width: $break-small) {
-    height: 20rem;
+    height: 18rem;
     width: 98%;
   }
 }
@@ -145,6 +145,9 @@ $break-small: 414px;
 .individualstatuslikesdislikescounter {
   font-size: 1.2rem;
   height: 3rem !important;
+  @media screen and (max-width: $break-small) {
+    font-size: 1.4rem;
+  }
 }
 
 .userprofilestatusdeleteopen {
@@ -176,6 +179,9 @@ $break-small: 414px;
   right: 0.8rem;
   top: -2rem;
   color: rgb(255, 82, 82);
+  @media screen and (max-width: $break-small) {
+    transform: scale(1.6);
+  }
 }
 
 .userprofilestatusdeleteoptions {

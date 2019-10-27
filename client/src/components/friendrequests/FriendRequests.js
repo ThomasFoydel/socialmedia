@@ -49,7 +49,7 @@ const FriendRequests = ({ token, userId, addFriendToFriendList }) => {
           })}
 
           {requests.length < 1 && (
-            <div className='friendrequest'>no friend requests</div>
+            <div className='nofriendrequests'>no friend requests</div>
           )}
         </>
       )}

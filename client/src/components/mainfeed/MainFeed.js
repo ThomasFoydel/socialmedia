@@ -60,7 +60,13 @@ const MainFeed = ({ setReduxPosts, reduxPosts, token, isLoggedIn }) => {
             }
           >
             {reduxPosts.map(post => {
-              return <FeedPost key={post._id} post={post}></FeedPost>;
+              return (
+                <FeedPost
+                  key={post._id}
+                  post={post}
+                  isLoggedIn={isLoggedIn}
+                ></FeedPost>
+              );
             })}
           </InfiniteScroll>
         )}

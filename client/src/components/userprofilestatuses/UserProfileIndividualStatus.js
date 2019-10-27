@@ -76,7 +76,7 @@ const UserProfileIndividualStatus = ({
         )}
       </div>
 
-      {!isCurrentUser && (
+      {!isCurrentUser && isLoggedIn && (
         <UserProfileStatusLikeDislikeButtons
           userId={userId}
           _id={status._id}

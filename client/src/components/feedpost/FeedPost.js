@@ -11,7 +11,7 @@ import './FeedPost.scss';
 import EditPost from '../../components/editpost/EditPost';
 import FeedPostCommentSection from './FeedPostCommentSection';
 
-const FeedPost = ({ post, token, userId, profilePicId, page }) => {
+const FeedPost = ({ post, token, userId, profilePicId, page, isLoggedIn }) => {
   const [postAuthorProfilePicId, setPostAuthorProfilePicId] = useState(null);
   const [likes, setLikes] = useState(post.likes);
   const [dislikes, setDislikes] = useState(post.dislikes);
@@ -71,7 +71,7 @@ const FeedPost = ({ post, token, userId, profilePicId, page }) => {
           </Link>
         </h5>
         <div className='feedposttopbuttons'>
-          {authorId === userId && (
+          {authorId === userId && isLoggedIn && (
             <>
               {!editPostOpen && (
                 <i
@@ -248,6 +248,7 @@ const FeedPost = ({ post, token, userId, profilePicId, page }) => {
           commentsArray={commentsArray}
           _id={_id}
           setCommentsArray={updateCommentsArray}
+          isLoggedIn={isLoggedIn}
         />
       </div>
       <div className='flex feedpostcommentformandpic'>

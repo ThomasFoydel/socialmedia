@@ -2,26 +2,28 @@ $break-medium: 850px;
 $break-small: 414px;
 
 .edituserformoutsidecontainer {
-  margin-left: 50%;
-  transform: translateX(-50%);
-  @media screen and (max-width: $break-medium) {
-    min-width: 55rem;
-    max-width: 55rem;
-  }
-  @media screen and (max-width: $break-small) {
-    min-width: 40rem;
-    max-width: 40rem;
-  }
+  width: 100vw;
+  margin-left: 1rem;
+  // margin-left: 50%;
+  // transform: translateX(-50%);
+  // @media screen and (max-width: $break-medium) {
+  //   min-width: 40rem;
+  //   max-width: 40rem;
+  // }
+  // @media screen and (max-width: $break-small) {
+  //   min-width: 30rem;
+  //   max-width: 30rem;
+  // }
 }
 .edituserformcontainer {
-  margin-left: 50%;
-  transform: translateX(-50%);
-  @media screen and (max-width: $break-medium) {
-    width: 45rem;
-  }
-  @media screen and (max-width: $break-small) {
-    width: 28rem;
-  }
+  // margin-left: 50%;
+  // transform: translateX(-50%);
+  // @media screen and (max-width: $break-medium) {
+  //   width: 45rem;
+  // }
+  // @media screen and (max-width: $break-small) {
+  //   width: 27rem;
+  // }
 }
 
 .editusertitletext {
@@ -37,7 +39,7 @@ $break-small: 414px;
 
 .edituserform {
   margin-top: 12rem;
-  padding: 2rem 0 0 3rem !important;
+  padding: 2rem 3rem 0 3rem !important;
   height: 67rem;
   border-radius: 1rem;
   background: rgb(255, 255, 255);

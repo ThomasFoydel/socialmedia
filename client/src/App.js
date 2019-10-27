@@ -68,12 +68,13 @@ const App = ({
   return (
     <div className='App'>
       <Router>
-        {token && (
+        {/* {token && (
           <NavBar
             setIsLoggedIn={setIsLoggedIn}
             isAuthenticated={setIsLoggedIn}
           />
-        )}
+        )} */}
+        <NavBar setIsLoggedIn={setIsLoggedIn} isAuthenticated={setIsLoggedIn} />
 
         <Switch>
           <Route exact path='/' component={Home} />

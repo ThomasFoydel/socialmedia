@@ -188,6 +188,7 @@ function EditUser({
             <UploadProfilePic />
             <UploadCoverPic />
           </div>
+          <div style={{ height: '10rem' }} />
         </div>
       </div>
     </div>

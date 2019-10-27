@@ -45,6 +45,18 @@
   }
 }
 
+.nofriendrequests {
+  font-size: 2.3rem;
+  color: white;
+  background: rgba(255, 255, 255, 0.082);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  height: 10rem;
+  &:hover {
+    cursor: default;
+  }
+}
+
 .friendrequestprofilepic {
   height: 4rem;
   width: 4rem;

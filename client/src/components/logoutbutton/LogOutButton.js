@@ -8,7 +8,11 @@ function LogOutButton({ logoutSession, resetCurrentUserInfo }) {
     logoutSession();
     resetCurrentUserInfo();
   };
-  return <span onClick={logoutHandler}>Log Out</span>;
+  return (
+    <span onClick={logoutHandler}>
+      <i className='fa fa-sign-out' aria-hidden='true'></i>Log Out
+    </span>
+  );
 }
 
 const mapDispatchToProps = dispatch => {

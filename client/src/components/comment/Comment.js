@@ -15,7 +15,8 @@ const Comment = ({
   token,
   postId,
   setCommentsArray,
-  commentsArray
+  commentsArray,
+  isLoggedIn
 }) => {
   const [foundComment, setFoundComment] = useState(null);
   const [editOpen, setEditOpen] = useState(false);
@@ -76,7 +77,7 @@ const Comment = ({
             </Link>
 
             <div className='commentauthorbuttons'>
-              {userId === foundComment.authorId ? (
+              {userId === foundComment.authorId && isLoggedIn ? (
                 // author is current user
                 <div className='flex'>
                   <div>

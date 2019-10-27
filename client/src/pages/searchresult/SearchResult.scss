@@ -3,16 +3,20 @@ $break-medium: 1040px;
 $break-small: 880px;
 $break-xs: 485px;
 
-// .searchresulttotalcontainer {
-//   margin-top: 0rem;
-// }
+.searchresulttotalcontainer {
+  @media screen and (max-width: $break-xs) {
+    max-width: 48rem;
+    overflow: hidden;
+  }
+}
 
 .searchresultusersorpostsbuttonoutercontainer {
   margin-left: 50%;
-  transform: translateX(-41%);
-  // justify-items: center;
-  // justify-content: center;
-  // text-align: center;
+  transform: translateX(-50%);
+
+  @media screen and (max-width: $break-xs) {
+    transform: translateX(-50%);
+  }
 }
 
 .searchresultusersorpostsbuttoncontainer {
@@ -21,12 +25,7 @@ $break-xs: 485px;
   width: 100%;
   margin-left: 50%;
   transform: translateX(-50%);
-  // border: 2px solid black;
   align-content: center;
-  // @media screen and (max-width: $break-small) {
-  //   margin-left: 50%;
-  //   transform: translateX(-50%);
-  // }
 }
 
 .searchresultpostsbutton,
@@ -182,17 +181,6 @@ $break-xs: 485px;
 }
 
 .searchresultuserscontainer {
-  // padding: 0;
-  // margin-top: 10rem;
-  // display: grid;
-  // grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-  // height: auto;
-  // margin-bottom: 4rem;
-  // box-sizing: border-box;
-  // margin-left: 50%;
-  // transform: translateX(-50%);
-  // justify-content: center;
-  // justify-items: center;
   padding: 0;
   margin-top: 10rem;
   display: grid;

@@ -12,22 +12,24 @@ $break-small: 414px;
 }
 
 .fixedcontainer {
-  width: 100%;
+  max-width: 100vw;
+  min-width: 100vw;
   position: fixed;
+  // overflow: hidden;
 }
 
 .coverpicture {
   width: 100%;
-  min-width: 97rem;
+  // min-width: 97rem;
   height: 350px;
   position: absolute;
   background-size: cover;
-  @media screen and (max-width: $break-medium) {
-    min-width: 61rem;
-  }
-  @media screen and (max-width: $break-small) {
-    min-width: 52rem;
-  }
+  // @media screen and (max-width: $break-medium) {
+  //   min-width: 61rem;
+  // }
+  // @media screen and (max-width: $break-small) {
+  //   min-width: 52rem;
+  // }
 }
 
 .profilepagename {
@@ -197,7 +199,6 @@ $break-small: 414px;
 }
 
 .profilestatusinnercontainer {
-  // overflow-y: auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   justify-content: space-around;
