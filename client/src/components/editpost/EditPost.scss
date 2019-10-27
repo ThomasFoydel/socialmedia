@@ -1,15 +1,28 @@
 $break-medium: 665px;
 $break-small: 440px;
 
+.editpostformoutsidecontainer {
+  margin-left: 50%;
+  transform: translateX(-50%);
+  @media screen and (max-width: $break-medium) {
+    min-width: 40rem;
+    max-width: 40rem;
+  }
+  @media screen and (max-width: $break-small) {
+    min-width: 30rem;
+    max-width: 30rem;
+  }
+}
+
 .editpostform {
   display: flex;
   justify-content: center;
   position: absolute;
-  left: -20rem;
+  left: -41rem;
   top: -3rem;
   height: 32rem;
   @media screen and (max-width: $break-medium) {
-    left: -16rem;
+    left: -12rem;
   }
 }
 

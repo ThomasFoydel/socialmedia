@@ -119,7 +119,7 @@ function EditPost({
   return updateStatusSuccess ? (
     <Redirect to='/feed' />
   ) : (
-    <div className='edituserformoutsidecontainer'>
+    <div className='editpostformoutsidecontainer'>
       <div className='editpostform'>
         <div className='editpostforminsidecontainer'>
           <i

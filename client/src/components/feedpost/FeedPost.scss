@@ -76,7 +76,8 @@ $break-small: 414px;
 
 .feedposttopbuttons {
   position: relative;
-  width: 100%;
+  // width: 100%;
+  max-width: 10rem;
   margin-right: 0.4rem;
   margin-top: 0.2rem;
 }
