@@ -86,6 +86,7 @@ export default function Register() {
               className='registerforminput'
               value={nameValue}
               onChange={handleChange}
+              maxLength={15}
             />
           </label>
           <label type='text' name='email'>
@@ -117,6 +118,7 @@ export default function Register() {
               className='registerforminput'
               value={cityValue}
               onChange={handleChange}
+              maxLength={15}
             />
           </label>
 
@@ -144,6 +146,7 @@ export default function Register() {
           <input type='submit' className='registerbutton' value='Register' />
         </div>
       </form>
+      <div style={{ height: '10rem' }} />
     </>
   );
 

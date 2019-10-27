@@ -33,7 +33,11 @@ $break-small: 414px;
   transition: color 0.2s;
   &:hover {
     cursor: pointer;
-    color: rgb(82, 94, 255);
+    color: rgb(82, 137, 255);
+  }
+  @media screen and (max-width: $break-small) {
+    transform: scale(1.5);
+    margin-right: 1.5rem;
   }
 }
 
@@ -48,6 +52,9 @@ $break-small: 414px;
   &:hover {
     cursor: pointer;
     color: rgb(255, 82, 82);
+  }
+  @media screen and (max-width: $break-small) {
+    transform: scale(1.5);
   }
 }
 

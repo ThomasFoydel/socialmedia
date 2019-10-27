@@ -85,8 +85,9 @@ $break-small: 440px;
   left: 69%;
   position: absolute;
   background: rgb(207, 207, 207);
-  padding: 0.5rem 1.5rem;
+  padding: 0.6rem 1.5rem;
   transition: background 0.2s, color 0.2s;
+  border: none;
   &:hover {
     cursor: pointer;
     background: rgb(10, 125, 255);
@@ -98,7 +99,7 @@ $break-small: 440px;
   }
   @media screen and (max-width: $break-small) {
     width: 7rem;
-    padding: 0.5rem 0rem;
+    padding: 0.6rem 0rem;
   }
 }
 
