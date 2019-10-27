@@ -13,14 +13,17 @@ function EditPost({
   token,
   postId,
   setEditPostOpen,
-  setCurrentPost
+  setCurrentPost,
+  currentPost
 }) {
-  const [titleValue, setTitleValue] = useState('');
-  const [postValue, setPostValue] = useState('');
+  const { content, title, tags } = currentPost;
+  console.log('current post: ', currentPost);
+  const [titleValue, setTitleValue] = useState(title);
+  const [postValue, setPostValue] = useState(content);
   const [updateStatusSuccess, setUpdateStatusSuccess] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
   const [openDelete, setOpenDelete] = useState(false);
-  const [tagsValue, setTagsValue] = useState('');
+  const [tagsValue, setTagsValue] = useState(tags);
 
   useEffect(() => {
     const getPost = async () => {

@@ -73,11 +73,13 @@ const FeedPost = ({ post, token, userId, profilePicId, page }) => {
         <div className='feedposttopbuttons'>
           {authorId === userId && (
             <>
-              <i
-                onClick={() => setEditPostOpen(!editPostOpen)}
-                className={`fa fa-lg fa-pencil feedposteditbutton feedposteditbutton${editPostOpen}`}
-                aria-hidden='true'
-              ></i>
+              {!editPostOpen && (
+                <i
+                  onClick={() => setEditPostOpen(!editPostOpen)}
+                  className={`fa fa-lg fa-pencil feedposteditbutton feedposteditbutton${editPostOpen}`}
+                  aria-hidden='true'
+                ></i>
+              )}
 
               <div className='posteditcontainer'>
                 {editPostOpen && (
@@ -85,6 +87,7 @@ const FeedPost = ({ post, token, userId, profilePicId, page }) => {
                     setCurrentPost={setCurrentPost}
                     setEditPostOpen={setEditPostOpen}
                     postId={_id}
+                    currentPost={currentPost}
                   />
                 )}
               </div>

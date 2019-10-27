@@ -6,15 +6,10 @@ $break-small: 440px;
   justify-content: center;
   position: absolute;
   left: -20rem;
+  top: -3rem;
   height: 32rem;
-  z-index: 1;
-
   @media screen and (max-width: $break-medium) {
     left: -16rem;
-  }
-
-  @media screen and (max-width: $break-small) {
-    // left: -18rem;
   }
 }
 

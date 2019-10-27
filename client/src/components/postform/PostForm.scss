@@ -38,6 +38,9 @@ $break-small: 414px;
   position: fixed;
   left: 2rem;
   bottom: 3rem;
+  @media screen and (max-width: $break-medium) {
+    bottom: 8rem;
+  }
 }
 
 .postform {

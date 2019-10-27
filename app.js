@@ -72,6 +72,7 @@ mongoose
 
     // BEGIN SOCKET IO:
     const io = socketio(expressServer);
+
     io.on('connection', socket => {
       console.log('online users: ', onlineUsers, 'new user: ', socket.id);
       const setUpCurrentChatUser = async () => {
