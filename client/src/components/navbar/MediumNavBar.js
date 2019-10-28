@@ -135,7 +135,7 @@ const MediumNavBar = ({
               </div>
             ) : (
               <>
-                <div className='flex mediumnavbarclosedcontainer'>
+                <div className='flex'>
                   <li className='mediummainnavbaritem mediumnavbarhomelink'>
                     <NavLink to='/'>
                       <i
