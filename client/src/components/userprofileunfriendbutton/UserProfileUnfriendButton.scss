@@ -3,8 +3,17 @@ $break-small: 414px;
 
 .profileunfriendbuttoncontainer {
   position: absolute;
-  top: 36.5rem !important;
+  top: 36.5rem;
   left: 25rem;
+  @media screen and (max-width: $break-medium) {
+    top: 36.5rem;
+    left: 35rem;
+  }
+  @media screen and (max-width: $break-small) {
+    position: fixed;
+    top: 36.5rem;
+    left: 2rem;
+  }
 }
 
 .profileunfriendopenbutton,

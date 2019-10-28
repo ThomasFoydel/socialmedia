@@ -1,5 +1,5 @@
 $break-medium: 850px;
-$break-small: 414px;
+$break-small: 476px;
 
 .userprofilestatusarea {
   width: 41.5rem;
@@ -14,17 +14,20 @@ $break-small: 414px;
     padding-left: 0;
   }
   @media screen and (max-width: $break-small) {
-    margin-left: 0;
-    padding-left: 0;
+    // margin-left: 50%;
+    // transform: translateX(-50%);
   }
 }
 
 .userprofilestatusform {
+  display: flex;
   @media screen and (min-width: $break-medium) {
     width: 100%;
     margin-left: 5rem;
   }
-  display: flex;
+  @media screen and (min-width: $break-small) {
+    margin-left: 10rem;
+  }
 }
 
 .userprofilestatusinput {
@@ -36,19 +39,22 @@ $break-small: 414px;
   resize: none;
   padding: 0.5rem;
   padding: 1rem;
-
+  margin-left: -10rem;
   @media screen and (max-width: $break-medium) {
     margin-bottom: 10rem;
     width: 80%;
     margin-bottom: 5rem;
     // min-width: 50rem;
-    max-width: 49rem;
-    min-width: 49rem;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    max-width: 80vw;
+    min-width: 98%;
   }
   @media screen and (max-width: $break-small) {
     font-size: 2rem;
-    max-width: 49rem;
-    min-width: 49rem;
+    max-width: 92vw;
+    min-width: 92vw;
+    margin-left: 45vw;
   }
 }
 
@@ -74,26 +80,34 @@ $break-small: 414px;
     color: rgb(255, 255, 255);
     background: rgb(158, 158, 158);
   }
-  @media screen and (min-width: $break-medium) {
-    &:hover {
-      top: 8.3rem;
-    }
-    &:active {
-      top: 8.4rem;
-    }
-  }
+  // @media screen and (min-width: $break-medium) {
+  //   &:hover {
+  //     top: 8.3rem;
+  //   }
+  //   &:active {
+  //     top: 8.4rem;
+  //   }
+  // }
   @media screen and (max-width: $break-medium) {
-    right: 6rem;
+    right: 120%;
+    transform: translateX(50%);
     font-size: 1.9rem;
     padding: 0.2rem 2rem;
     height: 3.7rem;
-    width: 11rem;
+    min-width: 10rem;
     text-align: center;
+  }
+  @media screen and (max-width: $break-small) {
+    right: 100vw;
+    transform: translateX(0);
   }
 }
 
 .userprofilestatuses {
   max-width: 100%;
+  @media screen and (min-width: $break-medium) {
+    margin-left: 0;
+  }
 }
 
 .individualstatus {
@@ -104,19 +118,30 @@ $break-small: 414px;
   border-radius: 0.1rem;
   height: 18rem;
   margin-bottom: 2rem;
+  margin-left: 50%;
+  transform: translateX(-50%);
   @media screen and (max-width: $break-medium) {
-    width: 98%;
+    // width: 95vw;
+    max-width: 95vw;
+    margin-left: 0;
+    transform: translateX(0);
   }
-
   @media screen and (max-width: $break-small) {
     height: 18rem;
-    width: 70%;
+    transform: translateX(0);
+    margin-left: 0;
+    // margin-left: 18rem;
+    max-width: 95vw;
+    // min-width: 90vw;
+    min-width: 95vw;
   }
 }
+
 .individualstatusname {
   margin-left: 0.5rem;
+  white-space: nowrap;
   @media screen and (max-width: $break-small) {
-    font-size: 2.6rem;
+    font-size: 2.4rem;
   }
 }
 
@@ -125,7 +150,10 @@ $break-small: 414px;
   margin-top: 0.35rem;
   font-size: 1.1rem;
   @media screen and (max-width: $break-small) {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
+    width: 5rem;
+    line-height: 1.1rem;
+    margin-top: 0.8rem;
   }
 }
 
@@ -152,16 +180,27 @@ $break-small: 414px;
 
 .userprofilestatusdeleteopen {
   position: absolute;
-  right: 0.8rem;
-  top: -2rem;
+  right: 0.2rem;
+  top: -2.3rem;
   transition: color 0.2s;
   &:hover {
     cursor: pointer;
     color: rgb(255, 82, 82);
   }
+  @media screen and (max-width: $break-medium) {
+    top: -2rem;
+    right: 2rem;
+    transform: scale(1.2);
+  }
+  @media screen and (max-width: $break-small) {
+    top: -3.3rem;
+    transform: scale(1);
+  }
 }
 
 .fa-trash-mediumandup {
+  margin-top: -3rem;
+  // margin-right:
   @media screen and(max-width: $break-small) {
     display: none;
   }
@@ -171,6 +210,7 @@ $break-small: 414px;
   display: none;
   @media screen and(max-width: $break-small) {
     display: inherit;
+    transform: scale(0.8);
   }
 }
 

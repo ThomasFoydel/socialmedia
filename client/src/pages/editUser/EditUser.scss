@@ -96,21 +96,25 @@ $break-small: 414px;
   transition: background 0.1s, transform 0.1s, color 0.1s;
   &:hover {
     background: rgb(160, 202, 253) !important;
-    transform: translateY(-0.2rem);
+    transform: translateY(-0.2rem) translateX(-50%);
     box-shadow: 0.2rem 0.2rem 0.2rem rgba(153, 153, 153, 0.568);
     color: white;
   }
   &:active {
-    transform: translateY(0.1rem);
+    transform: translateY(0.1rem) translateX(-50%);
     background: white !important;
     color: rgb(70, 70, 70);
     box-shadow: 0.14rem 0.14rem 0.14rem rgba(153, 153, 153, 0.808);
   }
-  @media screen and (max-width: $break-medium) {
-    // margin: 0 auto;
-  }
+
   @media screen and (max-width: $break-small) {
-    // margin: 0 auto;
+    transform: translateY(0) translateX(-50%);
+    &:hover {
+      transform: translateY(0) translateX(-50%);
+    }
+    &:active {
+      transform: translateY(0) translateX(-50%);
+    }
   }
 }
 

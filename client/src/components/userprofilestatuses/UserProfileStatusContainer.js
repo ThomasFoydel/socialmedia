@@ -53,6 +53,7 @@ const UserProfileStatusContainer = ({
           token={token}
         />
       )}
+
       <div className='userprofilestatuses'>
         {transition.map(({ item, key, props }) => {
           return (
@@ -73,6 +74,7 @@ const UserProfileStatusContainer = ({
           );
         })}
       </div>
+      <div style={{ height: '50rem' }} />
     </div>
   );
 };

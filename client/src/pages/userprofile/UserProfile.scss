@@ -1,5 +1,7 @@
+$break-big: 900px;
 $break-medium: 850px;
-$break-small: 414px;
+// $break-small: 414px;
+$break-small: 476px;
 
 .profilepicture {
   width: 20rem;
@@ -9,27 +11,36 @@ $break-small: 414px;
   border: 0.6rem solid rgb(243, 242, 242);
   margin-top: 22rem;
   margin-left: 4rem;
+  @media screen and (max-width: $break-small) {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 22rem;
+    height: 22rem;
+    border-width: 0.7rem;
+  }
 }
 
 .fixedcontainer {
   max-width: 100vw;
   min-width: 100vw;
   position: fixed;
-  // overflow: hidden;
 }
 
 .coverpicture {
-  width: 100%;
-  // min-width: 97rem;
+  min-width: 100vw;
+  min-width: 100rem;
   height: 350px;
   position: absolute;
   background-size: cover;
-  // @media screen and (max-width: $break-medium) {
-  //   min-width: 61rem;
-  // }
-  // @media screen and (max-width: $break-small) {
-  //   min-width: 52rem;
-  // }
+  @media screen and (min-width: $break-big) {
+    min-width: 120%;
+  }
+  @media screen and (max-width: $break-medium) {
+    min-width: 100%;
+  }
+  @media screen and (max-width: $break-small) {
+    min-width: 100%;
+  }
 }
 
 .profilepagename {
@@ -46,6 +57,13 @@ $break-small: 414px;
     margin-top: -2.8rem;
     width: 24.5rem;
     white-space: pre-line;
+  }
+  @media screen and (max-width: $break-small) {
+    width: auto;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    top: 18rem;
+    white-space: nowrap;
   }
 }
 
@@ -108,9 +126,12 @@ $break-small: 414px;
     background: rgba(170, 194, 231, 0.308);
   }
   @media screen and (max-width: $break-small) {
-    font-size: 2rem;
+    font-size: 1.6rem;
     padding: 0.5rem;
     width: 17rem;
+    position: fixed;
+    top: 40.5rem;
+    left: -4rem;
   }
 }
 
@@ -132,7 +153,7 @@ $break-small: 414px;
   }
   @media screen and (max-width: $break-small) {
     max-width: 80vw;
-    margin-left: 50vw;
+    margin-left: 48vw;
     font-size: 1.4rem;
     transform: translateX(-50%);
   }
@@ -168,7 +189,7 @@ $break-small: 414px;
   }
   @media screen and (max-width: $break-small) {
     min-width: 18rem;
-    margin-left: 50vw;
+    margin-left: 48vw;
   }
 }
 
@@ -198,7 +219,7 @@ $break-small: 414px;
   }
   @media screen and (max-width: $break-small) {
     min-width: 18rem;
-    margin-left: 50vw;
+    margin-left: 48vw;
     margin-top: 1rem;
   }
 }
@@ -207,15 +228,17 @@ $break-small: 414px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   justify-content: space-around;
-  min-width: 34rem;
+  // min-width: 34rem;
   box-sizing: border-box;
   @media screen and (max-width: $break-medium) {
     margin-left: 50%;
     transform: translateX(-50%);
     margin-bottom: 8rem;
     margin-top: 0;
-    // min-width: 50rem;
   }
+  // @media screen and (max-width: $break-small) {
+  //   margin-left: 20vw;
+  // }
 }
 
 .userprofilepost {
@@ -255,6 +278,7 @@ $break-small: 414px;
     overflow: hidden;
     margin-left: 50%;
     transform: translateX(-50%);
+    margin-top: -2rem;
   }
 }
 
@@ -271,8 +295,11 @@ $break-small: 414px;
 
 .userprofilepostemptyspace {
   height: 12.3rem;
+  @media screen and (max-width: $break-medium) {
+    height: 9rem;
+  }
   @media screen and (max-width: $break-small) {
-    height: 14rem;
+    height: 12rem;
   }
 }
 
@@ -318,7 +345,7 @@ $break-small: 414px;
     padding: 0.3rem 1rem;
   }
   @media screen and (max-width: $break-small) {
-    margin-left: 50vw;
+    margin-left: 48vw;
   }
 }
 
@@ -367,12 +394,12 @@ $break-small: 414px;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4, 1fr);
     max-width: 100vw;
-    overflow: hidden;
+    overflow-x: hidden;
   }
 
   @media screen and (max-width: $break-small) {
     max-width: 100vw;
-    overflow: hidden;
+    overflow-x: hidden;
   }
 }
 
