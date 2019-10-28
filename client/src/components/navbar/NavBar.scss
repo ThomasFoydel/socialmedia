@@ -114,6 +114,17 @@ $break-small: 414px;
   -ms-user-select: none; /* IE 10  */
   -o-user-select: none;
   user-select: none;
+  max-height: 6rem;
+}
+
+.mediumnavbaropentopcontainer {
+  height: 6rem;
+  z-index: 999;
+  position: relative;
+}
+
+.mediumnavbaropenbottomcontainer {
+  margin-top: -1rem;
 }
 
 .closefullnavbarbutton,
@@ -195,7 +206,6 @@ $break-small: 414px;
 .navbarsmall,
 .smallmainnavbarinnercontainer {
   top: 0;
-  background: rgb(10, 125, 255);
   color: #fff;
   z-index: 6;
   position: fixed;
@@ -206,12 +216,23 @@ $break-small: 414px;
 }
 
 .smallmainnavbarinnercontainer {
-  height: 6rem;
   z-index: 3;
   font-size: 2.1rem;
   @media screen and (max-width: $break-small) {
     font-size: 3rem;
   }
+}
+
+.smallnavbarclosedcontainer,
+.smallnavbaropentopcontainer {
+  background: rgb(10, 125, 255);
+  max-height: 6rem;
+  z-index: 999;
+  position: relative;
+}
+
+.smallnavbaropenbottomcontainer {
+  // height: 20rem;
 }
 
 .smallsearchbar {
@@ -230,7 +251,7 @@ $break-small: 414px;
 }
 
 .smallnavbaropen {
-  height: auto;
+  height: 31rem;
   background: rgb(10, 125, 255);
   z-index: 2;
   position: fixed;
