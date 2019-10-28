@@ -93,7 +93,7 @@ $break-small: 414px;
 }
 
 .userprofilestatuses {
-  width: 100%;
+  max-width: 100%;
 }
 
 .individualstatus {
@@ -110,7 +110,7 @@ $break-small: 414px;
 
   @media screen and (max-width: $break-small) {
     height: 18rem;
-    width: 98%;
+    width: 70%;
   }
 }
 .individualstatusname {

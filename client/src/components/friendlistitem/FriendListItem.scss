@@ -13,10 +13,10 @@ $break-small: 414px;
   white-space: nowrap;
   text-align: center;
   @media screen and (max-width: $break-small) {
-    width: 20rem;
-    height: 20rem;
-    margin: 0.3rem 1rem;
-    padding: 2rem;
+    width: 14rem;
+    height: 14rem;
+    margin: 0.3rem 0rem;
+    padding: 1rem;
   }
 }
 
@@ -28,8 +28,8 @@ $break-small: 414px;
   margin-left: 50%;
   transform: translateX(-50%);
   @media screen and (max-width: $break-small) {
-    width: 12.3rem;
-    height: 12.3rem;
+    width: 10.3rem;
+    height: 10.3rem;
     border: 0.3rem solid white;
   }
 }
@@ -39,8 +39,8 @@ $break-small: 414px;
   margin-top: 0.3rem;
   text-align: center;
   @media screen and (max-width: $break-small) {
-    font-size: 2.1rem;
-    max-width: 19rem;
+    font-size: 1.6rem;
+    max-width: 14rem;
     overflow: hidden;
   }
 }

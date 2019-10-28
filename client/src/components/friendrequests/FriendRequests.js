@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useTransition, animated, config } from 'react-spring';
-
+import { Spring } from 'react-spring/renderprops';
 import Axios from 'axios';
 
 import IndividualFriendRequest from './IndividualFriendRequest';
@@ -25,35 +25,48 @@ const FriendRequests = ({ token, userId, addFriendToFriendList }) => {
   }, [token, userId]);
 
   const transition = useTransition(requests, request => request._id, {
-    from: { opacity: 0, marginTop: -100 },
-    enter: { opacity: 1, marginTop: 0 },
-    leave: { opacity: 0, marginTop: -100 },
-    config: config.wobbly
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    config: config.molasses
   });
   return (
-    <div className='friendrequestcontainer'>
-      {requests && (
-        <>
-          {transition.map(({ item, key, props }) => {
-            return (
-              <animated.div key={key} style={props} className='animatedstatus'>
-                <IndividualFriendRequest
-                  addFriendToFriendList={addFriendToFriendList}
-                  info={item}
-                  token={token}
-                  setRequests={setRequests}
-                  requests={requests}
-                />
-              </animated.div>
-            );
-          })}
+    <Spring
+      from={{ opacity: 0, marginTop: -10 }}
+      to={{ opacity: 100, marginTop: 0 }}
+      config={config.molasses}
+    >
+      {props => (
+        <div style={props}>
+          <div className='friendrequestcontainer'>
+            {requests && (
+              <>
+                {transition.map(({ item, key, props }) => {
+                  return (
+                    <animated.div
+                      key={key}
+                      style={props}
+                      className='animatedstatus'
+                    >
+                      <IndividualFriendRequest
+                        addFriendToFriendList={addFriendToFriendList}
+                        info={item}
+                        token={token}
+                        setRequests={setRequests}
+                        requests={requests}
+                      />
+                    </animated.div>
+                  );
+                })}
 
-          {requests.length < 1 && (
-            <div className='nofriendrequests'>no friend requests</div>
-          )}
-        </>
+                {requests.length < 1 && (
+                  <div className='nofriendrequests'>no friend requests</div>
+                )}
+              </>
+            )}
+          </div>
+        </div>
       )}
-    </div>
+    </Spring>
   );
 };
 

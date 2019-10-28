@@ -131,8 +131,10 @@ $break-small: 414px;
     margin-bottom: 5rem;
   }
   @media screen and (max-width: $break-small) {
-    // min-width: 40rem;
-    // margin-left: 12%;
+    max-width: 80vw;
+    margin-left: 50vw;
+    font-size: 1.4rem;
+    transform: translateX(-50%);
   }
 }
 
@@ -165,7 +167,8 @@ $break-small: 414px;
     row-gap: 1.2rem;
   }
   @media screen and (max-width: $break-small) {
-    row-gap: 1.8rem;
+    min-width: 18rem;
+    margin-left: 50vw;
   }
 }
 
@@ -194,7 +197,9 @@ $break-small: 414px;
     row-gap: 1.2rem;
   }
   @media screen and (max-width: $break-small) {
-    row-gap: 1.8rem;
+    min-width: 18rem;
+    margin-left: 50vw;
+    margin-top: 1rem;
   }
 }
 
@@ -214,14 +219,31 @@ $break-small: 414px;
 }
 
 .userprofilepost {
-  margin: 0.4rem;
-  background: rgb(245, 245, 245);
+  // margin: 0.4rem;
+  // background: rgb(245, 245, 245);
+  // width: 16rem;
+  // height: 16rem;
+  // box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.096);
+  // @media screen and (max-width: $break-small) {
+  //   width: 20rem;
+  //   height: 20rem;
+  // }
+
+  padding: 1.5rem;
+  background: rgb(238, 238, 238);
+  width: 18rem;
+  margin: 0.3rem;
   width: 16rem;
-  height: 16rem;
+  height: 14rem;
+  line-height: 1rem;
   box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.096);
+  white-space: nowrap;
+  text-align: center;
   @media screen and (max-width: $break-small) {
-    width: 20rem;
-    height: 20rem;
+    width: 14rem;
+    height: 14rem;
+    margin: 0.3rem 0rem;
+    padding: 1rem;
   }
 }
 
@@ -295,6 +317,9 @@ $break-small: 414px;
     width: 29%;
     padding: 0.3rem 1rem;
   }
+  @media screen and (max-width: $break-small) {
+    margin-left: 50vw;
+  }
 }
 
 .userprofilepostlisttitle {
@@ -317,7 +342,10 @@ $break-small: 414px;
     padding: 0.3rem 1rem;
     top: 0.4rem;
   }
+
   @media screen and (max-width: $break-small) {
+    margin-left: 50vw;
+    // transform: translateX(-50%);
   }
 }
 
@@ -326,24 +354,26 @@ $break-small: 414px;
   margin-top: 45rem;
   margin-left: 50%;
   transform: translateX(-50%);
-  width: 95%;
+  width: 95vw;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
   grid-column-gap: 10px;
   height: 190rem;
   box-sizing: border-box;
-  // overflow: hidden;
   max-width: 100%;
 
   @media screen and (max-width: $break-medium) {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4, 1fr);
+    max-width: 100vw;
+    overflow: hidden;
   }
 
-  // @media screen and (max-width: $break-small) {
-  //   width: 70%;
-  // }
+  @media screen and (max-width: $break-small) {
+    max-width: 100vw;
+    overflow: hidden;
+  }
 }
 
 .profileinfobox {
