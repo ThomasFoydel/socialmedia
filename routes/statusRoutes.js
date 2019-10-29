@@ -33,7 +33,6 @@ router.get('/getuserstatuses/:id', async (req, res) => {
 router.post('/likestatus/:id', auth, async (req, res) => {
   const foundStatus = await Status.findOne({ _id: req.params.id });
   if (foundStatus.likes.includes(req.tokenUser.userId)) {
-    console.log('already includes like from this user');
     res.status(422).send('error: post already liked by this user');
   } else {
     const updatedStatus = await Status.findOneAndUpdate(
@@ -41,8 +40,6 @@ router.post('/likestatus/:id', auth, async (req, res) => {
       { $push: { likes: req.tokenUser.userId } },
       { new: true }
     );
-    console.log('Updated status with like: ', updatedStatus);
-
     res.status(200).send(updatedStatus);
   }
 });
@@ -51,7 +48,6 @@ router.post('/likestatus/:id', auth, async (req, res) => {
 router.post('/dislikestatus/:id', auth, async (req, res) => {
   const foundStatus = await Status.findOne({ _id: req.params.id });
   if (foundStatus.dislikes.includes(req.tokenUser.userId)) {
-    console.log('already includes dislike from this user');
     res.status(422).send('error: status already liked by this user');
   } else {
     const updatedStatus = await Status.findOneAndUpdate(
@@ -59,7 +55,6 @@ router.post('/dislikestatus/:id', auth, async (req, res) => {
       { $push: { dislikes: req.tokenUser.userId } },
       { new: true }
     );
-    console.log('Updated status with dislike: ', updatedStatus);
     res.status(200).send(updatedStatus);
   }
 });
@@ -73,7 +68,6 @@ router.post('/removelikestatus/:id', auth, async (req, res) => {
       { $pullAll: { likes: [req.tokenUser.userId] } },
       { new: true }
     );
-    console.log('Updated status, removed like: ', updatedStatus);
     res.status(200).send(updatedStatus);
   } else {
     res.status(422).send('error: status not yet liked by this user');
@@ -89,7 +83,6 @@ router.post('/removedislikestatus/:id', auth, async (req, res) => {
       { $pullAll: { dislikes: [req.tokenUser.userId] } },
       { new: true }
     );
-    console.log('Updated status, removed dislike: ', updatedStatus);
     res.status(200).send(updatedStatus);
   } else {
     res.status(422).send('error: status not yet disliked by this user');

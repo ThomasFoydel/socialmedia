@@ -74,7 +74,7 @@ mongoose
     const io = socketio(expressServer);
 
     io.on('connection', socket => {
-      console.log('online users: ', onlineUsers, 'new user: ', socket.id);
+      // console.log('online users: ', onlineUsers, 'new user: ', socket.id);
       const setUpCurrentChatUser = async () => {
         const token = socket.handshake.query.token;
         if (!token) {
@@ -135,7 +135,7 @@ mongoose
       };
 
       socket.on('newPrivateMessageFromClient', async message => {
-        console.log('newPrivateMessageFromClient: ', message);
+        // console.log('newPrivateMessageFromClient: ', message);
 
         const friendId = message.currentFriend.friendId;
         const friendSocketId = onlineUsers[friendId].socketId;
@@ -147,14 +147,14 @@ mongoose
           content: message.message
         });
         newPrivateMessage.save().then(result => {
-          console.log('newPrivateMessage: ', result);
+          // console.log('newPrivateMessage: ', result);
 
           //to friend
           io.to(`${friendSocketId}`).emit('privateMessageFromServer', result);
 
           //to sender
           const userSocketId = onlineUsers[message.senderId].socketId;
-          console.log('USER SOCKET ID: ', userSocketId);
+          // console.log('USER SOCKET ID: ', userSocketId);
           io.to(`${userSocketId}`).emit('ownPrivateMessageFromServer', result);
         });
       });
@@ -186,14 +186,14 @@ mongoose
           const token = socket.handshake.query.token;
           const decoded = jwt.verify(token, process.env.SECRET);
           const userId = decoded.tokenUser.userId;
-          console.log(
-            'DISCONNECT, socket id: ',
-            socketId,
-            'decoded.tokenUser.userId: ',
-            decoded.tokenUser.userId
-          );
+          // console.log(
+          //   'DISCONNECT, socket id: ',
+          //   socketId,
+          //   'decoded.tokenUser.userId: ',
+          //   decoded.tokenUser.userId
+          // );
           delete onlineUsers[userId];
-          console.log('updated online users after disconnect: ', onlineUsers);
+          // console.log('updated online users after disconnect: ', onlineUsers);
         } catch (err) {
           console.log(err);
         }

@@ -73,8 +73,6 @@ router.get('/scrollposts', async (req, res) => {
   let { count, start } = req.query;
   count = Number(count);
   start = Number(start);
-  console.log('start: ', start);
-  console.log('count: ', count);
   const page = await Post.find()
     .sort({ updatedAt: -1 })
     .skip(count * (start - 1))
@@ -101,7 +99,6 @@ router.get('/contentimage/:id', async (req, res) => {
     _id: mongoose.Types.ObjectId(req.params.id)
   });
   if (!file || file.length === 0) {
-    console.log('post content image request failed');
     return res.status(404).json({ err: 'no file exists' });
   } else {
     const readStream = gfs.createReadStream(file.filename);
@@ -139,8 +136,6 @@ router.post(
 
         tagsArray = tagsArray.map(tag => tag.trim());
 
-        console.log('tagsArray: ', tagsArray);
-
         const newPost = new Post({
           authorId: req.tokenUser.userId,
           authorName: authorName,
@@ -158,7 +153,6 @@ router.post(
           .save()
           .then(result => {
             res.send(result);
-            console.log('new post success, post: ', result);
           })
           .catch(err => console.log(err));
       }
@@ -177,7 +171,6 @@ router.post(
 router.post('/editpost/:postid', auth, async (req, res) => {
   const { postid } = req.params;
   let { authorId, authorName, newTitle, newContent, newTags } = req.body;
-  console.log('new tags: ', newTags, ' newtags type: ', typeof newTags);
   let tagsArray;
   if (newTags) {
     if (typeof newTags === 'string') {
@@ -219,7 +212,6 @@ router.post('/editpost/:postid', auth, async (req, res) => {
       { new: true }
     );
 
-    console.log('succesful post update, updated post: ', updatedPost);
     res.status(201).send(updatedPost);
   }
 });
@@ -230,11 +222,6 @@ router.post(
   auth,
   upload.single('contentImage'),
   async (req, res, next) => {
-    console.log('WITH IMAGE FILE: ', req.file, 'WITH IMAGE BODY: ', req.body);
-
-    // TODO: UPDATE USER IN MONGO WITH ID FROM REQ.FILE, THEN SEND UPDATED USER
-    // TO FRONT END, UPDATE STORE IN REDUX
-
     const { postid } = req.params;
     const { authorId, authorName, newTitle, newContent } = req.body;
     const existingPost = await Post.findOne({ _id: postid });
@@ -264,10 +251,7 @@ router.post(
           }
         }
       );
-      // console.log(
-      //   'succesful post update with image, updated post: ',
-      //   updatedPost
-      // );
+
       res.status(201).send(updatedPost);
     }
   }
@@ -275,14 +259,12 @@ router.post(
 
 /*
  **
- **
  ** delete post
  **
  */
 
 router.post('/deletepost/:id', auth, async (req, res, next) => {
   // Get tokenUser ID from auth
-  console.log('req param id: ', req.params.id);
   const { userId } = req.tokenUser;
 
   const foundPost = await Post.findOne({
@@ -314,15 +296,14 @@ router.post('/deletepost/:id', auth, async (req, res, next) => {
           { files_id: mongoose.Types.ObjectId(deletedPost.contentImageId) },
           function(err) {
             if (err) console.log('ERROR! ', err);
-            console.log('gfs chunk delete success');
           }
         );
     }
     Comment.deleteMany({ postId: req.params.id })
-      .then(result =>
-        console.log('delete many comments from post routes result: ', result)
-      )
-      .catch(error => console.log('delete many error: ', error));
+      .then(result => null)
+      .catch(error =>
+        console.log('delete post, delete many comments error: ', error)
+      );
 
     res.send(deletedPost);
     // console.log('DELETED POST: ', deletedPost);
@@ -333,7 +314,6 @@ router.post('/deletepost/:id', auth, async (req, res, next) => {
 router.post('/likepost/:id', auth, async (req, res) => {
   const foundPost = await Post.findOne({ _id: req.params.id });
   if (foundPost.likes.includes(req.tokenUser.userId)) {
-    console.log('already includes like from this user');
     res.status(422).send('error: post already liked by this user');
   } else {
     const updatedPost = await Post.findOneAndUpdate(
@@ -341,7 +321,6 @@ router.post('/likepost/:id', auth, async (req, res) => {
       { $push: { likes: req.tokenUser.userId } },
       { new: true }
     );
-    console.log('Updated post with like: ', updatedPost);
     res.status(200).send(updatedPost);
   }
 });
@@ -349,10 +328,7 @@ router.post('/likepost/:id', auth, async (req, res) => {
 // / DISLIKE POST
 router.post('/dislikepost/:id', auth, async (req, res) => {
   const foundPost = await Post.findOne({ _id: req.params.id });
-  // console.log('FOUND POST: ', foundPost);
-  // console.log('AUTH: ', req.tokenUser);
   if (foundPost.dislikes.includes(req.tokenUser.userId)) {
-    console.log('already includes dislike from this user');
     res.status(422).send('error: post already liked by this user');
   } else {
     const updatedPost = await Post.findOneAndUpdate(
@@ -360,7 +336,6 @@ router.post('/dislikepost/:id', auth, async (req, res) => {
       { $push: { dislikes: req.tokenUser.userId } },
       { new: true }
     );
-    console.log('Updated post with dislike: ', updatedPost);
     res.status(200).send(updatedPost);
   }
 });
@@ -374,7 +349,6 @@ router.post('/removelikepost/:id', auth, async (req, res) => {
       { $pullAll: { likes: [req.tokenUser.userId] } },
       { new: true }
     );
-    console.log('Updated post, removed like: ', updatedPost);
     res.status(200).send(updatedPost);
   } else {
     res.status(422).send('error: post not yet liked by this user');
@@ -390,7 +364,6 @@ router.post('/removedislikepost/:id', auth, async (req, res) => {
       { $pullAll: { dislikes: [req.tokenUser.userId] } },
       { new: true }
     );
-    console.log('Updated post, removed dislike: ', updatedPost);
     res.status(200).send(updatedPost);
   } else {
     res.status(422).send('error: post not yet disliked by this user');

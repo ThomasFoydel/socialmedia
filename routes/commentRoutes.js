@@ -12,7 +12,6 @@ const auth = require('../middlewares/auth');
 //          comment routes          //
 
 router.post('/newcomment', auth, async (req, res) => {
-  console.log('NEW COMMENT!!!!');
   const { userId } = req.tokenUser;
   const { commentContent, postId, authorName } = req.body;
   const newComment = new Comment({
@@ -27,7 +26,6 @@ router.post('/newcomment', auth, async (req, res) => {
     .save()
     .then(result => {
       // res.send(result);
-      console.log('new comment success. comment: ', result);
       // update post, add comment id to array of comment ids
       Post.findOneAndUpdate(
         { _id: postId },
@@ -35,7 +33,6 @@ router.post('/newcomment', auth, async (req, res) => {
         { new: true }
       )
         .then(result => {
-          console.log('post update result: ', result);
           res.status(201).send(result);
         })
         .catch(err => console.log('postupdate failed. error: ', err));
@@ -62,10 +59,8 @@ router.post('/editcomment/:id', auth, async (req, res) => {
     { new: true }
   );
   if (updatedComment) {
-    console.log('successful comment edit. updated comment: ', updatedComment);
     res.status(201).send({ updatedComment });
   } else {
-    console.log('comment edit failed');
     res.status(400).send({ err: 'edit failed' });
   }
 });
@@ -74,18 +69,13 @@ router.post('/editcomment/:id', auth, async (req, res) => {
 router.delete('/deletecomment/:id', async (req, res) => {
   try {
     const commentId = req.params.id;
-    console.log('req body: ', req.body);
     const { postId } = req.body;
-    console.log('postId: ', postId);
     const deletedComment = await Comment.findOneAndDelete({ _id: commentId });
-    console.log('deletedComment: ', deletedComment);
-    console.log('commentId: ', commentId);
 
     // update post that comment belonged to, take id out of comments array
     const { commentAuthorId } = deletedComment.authorId;
 
     const postToBeUpdated = await Post.findOne({ _id: postId });
-    console.log('POST TO BE UPDATED: ', postToBeUpdated);
 
     const updatedPost = await Post.findOneAndUpdate(
       // { commentAuthorId },
@@ -93,11 +83,8 @@ router.delete('/deletecomment/:id', async (req, res) => {
       { $pullAll: { comments: [mongoose.Types.ObjectId(commentId)] } },
       { new: true }
     );
-    console.log('delete comment updated post: ', updatedPost);
     res.status(200).send(updatedPost);
-  } catch (error) {
-    console.log('error in comment delete route: ', error);
-  }
+  } catch (error) {}
 });
 
 // like comment
@@ -125,7 +112,6 @@ router.post('/likecomment/:id', auth, async (req, res) => {
 // dislike comment
 router.post('/dislikecomment/:id', auth, async (req, res) => {
   const commentId = req.params.id;
-  console.log('DISLIKE: ', commentId);
   const updatedComment = await Comment.findOneAndUpdate(
     {
       _id: commentId,
@@ -134,12 +120,10 @@ router.post('/dislikecomment/:id', auth, async (req, res) => {
     { $push: { dislikes: [req.tokenUser.userId] } },
     { new: true }
   );
-  console.log('updatedComment: ', updatedComment);
+
   if (updatedComment) {
-    console.log('success: ', updatedComment);
     res.status(200).send(updatedComment);
   } else {
-    console.log('FAIL: ', updatedComment);
     res
       .status(400)
       .send({ err: 'comment has already been disliked by this user!' });
@@ -185,15 +169,5 @@ router.post('/removedislikecomment/:id', auth, async (req, res) => {
       .send({ err: 'comment has not been disliked by this user!' });
   }
 });
-
-// router.post('/likecomment/:id', auth, async (req, res) => {
-//   const { postId } = req.params.id;
-//   const updatedPost = await Post.findOneAndUpdate(
-//     { _id: postId },
-//     { $push: { likes: req.tokenUser.userId } },
-//     { new: true }
-//   );
-//   console.log('comment liked. updated post: ', updatedPost);
-// });
 
 module.exports = router;

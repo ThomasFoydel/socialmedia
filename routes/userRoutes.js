@@ -5,8 +5,6 @@ const mongoose = require('mongoose');
 const User = require('../models/user');
 const FriendRequest = require('../models/friendRequest');
 
-// const upload = require('../gridfs/gridFs');
-
 // validation & authorization
 const {
   check,
@@ -91,10 +89,6 @@ router.get('/getauth', auth, async (req, res) => {
 // register new user
 router.post(
   '/register',
-
-  // ###### VALIDATION ###### with express-validator,
-  // check email, password length, passwords match, email is new, schema:
-
   [
     check('email').isEmail(),
     check('password').isLength({ min: 5 }),
@@ -178,7 +172,7 @@ router.post('/login', async (req, res, next) => {
               email: user.email
             }
           },
-          'speakfriendandenter',
+          process.env.SECRET,
           { expiresIn: '3hr' }
         );
 
@@ -283,8 +277,6 @@ router.post(
         { _id: req.tokenUser.userId },
         {
           profilePicId: file._id
-          // ,
-          // profilePicFilename: file.filename
         },
         { new: true }
       );
@@ -309,7 +301,6 @@ router.post(
           .status(404)
           .json({ err: 'no file exists, file upload failed' });
       }
-      // console.log('FILE: ', file);
       const updatedUser = await User.findOneAndUpdate(
         { _id: req.tokenUser.userId },
         {
@@ -330,12 +321,10 @@ router.get('/image/:id', async (req, res) => {
   if (req.params.id === undefined) {
     return res.status(404).send('undefined)');
   } else if (req.params.id !== 'undefined') {
-    // console.log('req params not undefined: ', req.params.id);
     const file = await gfs.files.findOne({
       _id: mongoose.Types.ObjectId(req.params.id)
     });
     if (!file || file.length === 0) {
-      // console.log('image request failed');
       return res.status(404).json({ err: 'no file exists' });
     } else {
       const readStream = gfs.createReadStream(file.filename);
@@ -351,7 +340,6 @@ router.get('/authorprofilepic/:authorId', async (req, res) => {
     _id: mongoose.Types.ObjectId(foundUser.profilePicId)
   });
   if (!file || file.length === 0) {
-    // console.log('profile picture image request failed');
     return res.status(404).json({ err: 'no file exists' });
   } else {
     const readStream = gfs.createReadStream(file.filename);
@@ -366,7 +354,6 @@ router.get('/image/author/:authorId', async (req, res) => {
     _id: mongoose.Types.ObjectId(req.params.id)
   });
   if (!file || file.length === 0) {
-    // console.log('author id profile picture image request failed');
     return res.status(404).json({ err: 'no file exists' });
   } else {
     const readStream = gfs.createReadStream(file.filename);
@@ -384,7 +371,6 @@ router.post('/sendfriendrequest', auth, async (req, res) => {
     recipient: recipientId
   });
   if (foundFriendRequest) {
-    // console.log('foundFriendRequest: ', foundFriendRequest);
     return res.status(400).send();
   }
 
@@ -393,32 +379,23 @@ router.post('/sendfriendrequest', auth, async (req, res) => {
     recipient: recipientId,
     status: 'pending'
   });
-  // console.log('new friend request: ', newFriendRequest);
-  // save new user to mongo
 
   newFriendRequest
     .save()
     .then(result => {
-      // console.log('success new friend request created, result: ', result);
       res.status(201).send(result);
     })
     .catch(err => {
-      // console.log('error! friend request not created. error: ', err);
       res.status(400).send(err);
     });
 });
 
 // get friend requests of current user
 router.get('/getfriendrequests/:id', async (req, res) => {
-  //   if (req.params.id !== req.tokenUser.userId) {
-  //     return res.status(401).send('error, not authenticated');
-  //   } else {
-
   const requests = await FriendRequest.find({
     recipient: req.params.id
   });
   res.status(200).send(requests);
-  //   }
 });
 
 // get single friend request by id, returns true or false
@@ -480,12 +457,10 @@ router.post('/acceptfriendrequest', auth, async (req, res) => {
 router.post('/rejectfriendrequest', auth, async (req, res) => {
   const recipientId = req.tokenUser.userId;
   const senderId = req.body.sender;
-  //   find friendrequest where sender and recipient ids match values from request and delete it
   const deletedFriendRequest = await FriendRequest.findOneAndDelete({
     sender: senderId,
     recipient: recipientId
   });
-  // console.log('deletedFriendRequest: ', deletedFriendRequest);
   res.status(200).send(deletedFriendRequest);
 });
 
@@ -498,13 +473,11 @@ router.post('/unfriend', auth, async (req, res) => {
     { $pullAll: { friendList: [friendId] } },
     { new: true }
   ).select('-password');
-  // console.log('updated user: ', updatedUser);
   const updatedFriend = await User.findOneAndUpdate(
     { _id: friendId },
     { $pullAll: { friendList: [userId] } },
     { new: true }
   ).select('-password');
-  // console.log('updated friend: ', updatedFriend);
 
   const deletedFriendRequest = await FriendRequest.findOneAndDelete({
     $and: [
@@ -512,18 +485,8 @@ router.post('/unfriend', auth, async (req, res) => {
       { friendshipParticipants: { $in: [userId] } }
     ]
   });
-  // console.log('deletedFriendRequest: ', deletedFriendRequest);
 
   res.status(200).send({ updatedUser, updatedFriend });
 });
-
-// router.post('/updatebio', auth, async (req, res) => {
-//   const updatedUser = await User.findOneAndUpdate(
-//     { id: req.tokenUser.userId },
-//     { $set: { bio: req.body.bio } },
-//     { new: true }
-//   );
-//   res.send(updatedUser);
-// });
 
 module.exports = router;

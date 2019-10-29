@@ -251,54 +251,48 @@ $break-xs: 414px;
 }
 
 .userprofilepost {
-  // margin: 0.4rem;
-  // background: rgb(245, 245, 245);
-  // width: 16rem;
-  // height: 16rem;
-  // box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.096);
-  // @media screen and (max-width: $break-small) {
-  //   width: 20rem;
-  //   height: 20rem;
-  // }
-
   padding: 1.5rem;
   background: rgb(238, 238, 238);
   width: 18rem;
   margin: 0.3rem;
   width: 16rem;
-  height: 14rem;
+  height: 17rem;
   line-height: 1rem;
   box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.096);
   white-space: nowrap;
   text-align: center;
   @media screen and (max-width: $break-small) {
     width: 14rem;
-    height: 14rem;
+    height: 15.5rem;
     margin: 0.3rem 0rem;
-    padding: 1rem;
+    padding: 0rem;
   }
 }
 
 .userprofileposttitle {
   text-align: center;
+  font-size: 2rem;
+  margin-top: 0.3rem;
   @media screen and (max-width: $break-small) {
-    font-size: 2.3rem;
+    font-size: 1.8rem;
     width: 19rem;
     overflow: hidden;
     margin-left: 50%;
     transform: translateX(-50%);
-    margin-top: -2rem;
+    margin-top: 0.3rem;
   }
 }
 
 .userprofilepostimage {
-  margin-top: 0.25rem;
+  margin-top: 0rem;
   height: 12rem;
   width: 15.3rem;
   margin-left: 50%;
   transform: translateX(-50%);
+
   @media screen and (max-width: $break-small) {
-    height: 14rem;
+    height: 12rem;
+    width: 14rem;
   }
 }
 
@@ -387,7 +381,7 @@ $break-xs: 414px;
 
 .profilegrid {
   position: absolute;
-  margin-top: 45rem;
+  // margin-top: 45rem;
   margin-left: 50%;
   transform: translateX(-50%);
   width: 95vw;

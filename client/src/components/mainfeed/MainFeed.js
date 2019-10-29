@@ -51,6 +51,8 @@ const MainFeed = ({ setReduxPosts, reduxPosts, token, isLoggedIn }) => {
 
   const animationProps = useSpring({
     opacity: postFormOpen ? 1 : 0,
+    maxHeight: postFormOpen ? '45rem' : '0.1rem',
+    display: postFormOpen ? 'inherit' : 'none',
     config: { mass: 1, tension: 300, friction: 38 }
   });
 
@@ -85,11 +87,9 @@ const MainFeed = ({ setReduxPosts, reduxPosts, token, isLoggedIn }) => {
       </div>
       {isLoggedIn && (
         <>
-          {/* {postFormOpen ? ( */}
           <animated.div style={animationProps}>
             <PostForm setPostFormOpen={setPostFormOpen} />
           </animated.div>
-          {/* ) : ( */}
           <animated.div style={reverseAnimationProps}>
             <button
               className='postformopenbutton'
@@ -98,7 +98,6 @@ const MainFeed = ({ setReduxPosts, reduxPosts, token, isLoggedIn }) => {
               new post
             </button>
           </animated.div>
-          {/* )} */}
         </>
       )}
     </>
