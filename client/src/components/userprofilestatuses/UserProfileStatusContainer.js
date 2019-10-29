@@ -53,26 +53,27 @@ const UserProfileStatusContainer = ({
           token={token}
         />
       )}
-
-      <div className='userprofilestatuses'>
-        {transition.map(({ item, key, props }) => {
-          return (
-            <animated.div key={key} style={props} className='animatedstatus'>
-              <UserProfileIndividualStatus
-                isCurrentUser={isCurrentUser}
-                profileUser={profileUser}
-                status={item}
-                token={token}
-                userId={userId}
-                isLoggedIn={isLoggedIn}
-                handleUpdateStatusArrayFromIndividualStatus={
-                  handleUpdateStatusArrayFromIndividualStatus
-                }
-                statusesArray={statusesArray}
-              />
-            </animated.div>
-          );
-        })}
+      <div className='profilestatusboxcontainer'>
+        <div className='userprofilestatuses'>
+          {transition.map(({ item, key, props }) => {
+            return (
+              <animated.div key={key} style={props} className='animatedstatus'>
+                <UserProfileIndividualStatus
+                  isCurrentUser={isCurrentUser}
+                  profileUser={profileUser}
+                  status={item}
+                  token={token}
+                  userId={userId}
+                  isLoggedIn={isLoggedIn}
+                  handleUpdateStatusArrayFromIndividualStatus={
+                    handleUpdateStatusArrayFromIndividualStatus
+                  }
+                  statusesArray={statusesArray}
+                />
+              </animated.div>
+            );
+          })}
+        </div>
       </div>
       <div style={{ height: '50rem' }} />
     </div>

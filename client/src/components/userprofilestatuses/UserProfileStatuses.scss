@@ -125,6 +125,7 @@ $break-small: 476px;
     max-width: 95vw;
     margin-left: 0;
     transform: translateX(0);
+    box-shadow: -0.8rem 0.4rem 0.2rem rgba(0, 0, 0, 0);
   }
   @media screen and (max-width: $break-small) {
     height: 18rem;

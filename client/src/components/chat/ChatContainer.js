@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import Axios from 'axios';
 import { connect } from 'react-redux';
+import { useSpring, animated, config } from 'react-spring';
 
 import Chat from './Chat';
 
@@ -63,11 +64,21 @@ const ChatContainer = ({ isLoggedIn, token, userName, friendList }) => {
     socket.emit('updateFriendList', friendList);
   };
 
+  const animationProps = useSpring({
+    opacity: chatOpen ? 1 : 0,
+    background: chatOpen ? 'rgb(10, 125, 255)' : 'rgba(10, 125, 255, 0)',
+    right: chatOpen ? 0 : -200,
+    config: { mass: 0.8, tension: 300, friction: 40 }
+
+    // zIndex: 0
+  });
+
   return (
     <div>
       {isLoggedIn && (
         <>
-          {chatOpen ? (
+          {/* {chatOpen ? ( */}
+          <animated.div style={animationProps}>
             <Chat
               userName={userName}
               token={token}
@@ -84,11 +95,14 @@ const ChatContainer = ({ isLoggedIn, token, userName, friendList }) => {
               setUpdatedFriendList={setUpdatedFriendList}
               setMainSocket={setMainSocket}
             />
-          ) : (
+          </animated.div>
+          {/* ) : ( */}
+          {!chatOpen && (
             <button className='openchatbutton' onClick={openChat}>
               chat
             </button>
           )}
+          {/* )} */}
         </>
       )}
     </div>
