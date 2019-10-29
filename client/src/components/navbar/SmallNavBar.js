@@ -70,7 +70,10 @@ const SmallNavBar = ({
               </div>
 
               <animated.div style={animationProps}>
-                <div className='smallnavbaropenbottomcontainer'>
+                <div
+                  className='smallnavbaropenbottomcontainer'
+                  style={{ position: fullNavBarOpen ? 'inherit' : 'fixed' }}
+                >
                   <li className='smallmainnavbaritem' onClick={closeFullNavBar}>
                     <NavLink to='/feed'>
                       <i className='far fa-arrow-alt-circle-right smallarrow'></i>

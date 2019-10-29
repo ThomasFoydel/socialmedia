@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Axios from 'axios';
 import PostLikeDislikeButtons from '../postlikedislikebuttons/PostLikeDislikeButtons';
-import { Spring, config } from 'react-spring/renderprops';
+import { Spring } from 'react-spring/renderprops';
+import { useSpring, config, animated } from 'react-spring';
 
 import cloudloading from '../../imgs/cloudloading2.svg';
 
@@ -51,6 +52,11 @@ const FeedPost = ({ post, token, userId, profilePicId, page, isLoggedIn }) => {
     setCommentsArray(newArray);
   };
 
+  const animationProps = useSpring({
+    opacity: editPostOpen ? 1 : 0,
+    config: { mass: 1, tension: 300, friction: 38 }
+  });
+
   return (
     <Spring
       from={{ opacity: 0, marginTop: -400 }}
@@ -91,12 +97,14 @@ const FeedPost = ({ post, token, userId, profilePicId, page, isLoggedIn }) => {
 
                     <div className='posteditcontainer'>
                       {editPostOpen && (
-                        <EditPost
-                          setCurrentPost={setCurrentPost}
-                          setEditPostOpen={setEditPostOpen}
-                          postId={_id}
-                          currentPost={currentPost}
-                        />
+                        <animated.div style={animationProps}>
+                          <EditPost
+                            setCurrentPost={setCurrentPost}
+                            setEditPostOpen={setEditPostOpen}
+                            postId={_id}
+                            currentPost={currentPost}
+                          />
+                        </animated.div>
                       )}
                     </div>
                   </>

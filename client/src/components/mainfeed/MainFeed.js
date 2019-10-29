@@ -4,6 +4,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { connect } from 'react-redux';
 import FeedPost from '../feedpost/FeedPost';
 import PostForm from '../postform/PostForm';
+import { useSpring, animated, config } from 'react-spring';
 
 import { setPosts } from '../../redux/posts/postActions';
 
@@ -47,6 +48,17 @@ const MainFeed = ({ setReduxPosts, reduxPosts, token, isLoggedIn }) => {
       );
     });
   };
+
+  const animationProps = useSpring({
+    opacity: postFormOpen ? 1 : 0,
+    config: { mass: 1, tension: 300, friction: 38 }
+  });
+
+  const reverseAnimationProps = useSpring({
+    opacity: postFormOpen ? 0 : 1,
+    config: { mass: 1, tension: 300, friction: 38 }
+  });
+
   return (
     <>
       <div className='mainfeedcontainer'>
@@ -73,16 +85,20 @@ const MainFeed = ({ setReduxPosts, reduxPosts, token, isLoggedIn }) => {
       </div>
       {isLoggedIn && (
         <>
-          {postFormOpen ? (
+          {/* {postFormOpen ? ( */}
+          <animated.div style={animationProps}>
             <PostForm setPostFormOpen={setPostFormOpen} />
-          ) : (
+          </animated.div>
+          {/* ) : ( */}
+          <animated.div style={reverseAnimationProps}>
             <button
               className='postformopenbutton'
               onClick={() => setPostFormOpen(true)}
             >
               new post
             </button>
-          )}
+          </animated.div>
+          {/* )} */}
         </>
       )}
     </>

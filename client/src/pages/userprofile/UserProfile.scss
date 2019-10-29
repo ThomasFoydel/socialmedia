@@ -55,7 +55,7 @@ $break-xs: 414px;
   white-space: nowrap;
   @media screen and (max-width: $break-medium) {
     font-size: 3.4rem;
-    margin-top: 0.8rem;
+    // margin-top: 0.8rem;
     width: 24.5rem;
     white-space: pre-line;
   }
@@ -64,14 +64,14 @@ $break-xs: 414px;
     padding-left: 0.3rem;
     margin-left: 50%;
     transform: translateX(-50%);
-    top: 18.3rem;
+    top: 16.3rem;
     white-space: nowrap;
     font-size: 5.5rem;
     letter-spacing: 0.3rem;
   }
   @media screen and (max-width: $break-xs) {
     font-size: 4rem;
-    top: 19rem;
+    top: 16rem;
   }
 }
 
