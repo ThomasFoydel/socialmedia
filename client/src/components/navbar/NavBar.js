@@ -11,6 +11,8 @@ import './NavBar.scss';
 
 const NavBar = ({ isLoggedIn, userId }) => {
   const [friendRequestsOpen, setFriendRequestsOpen] = useState(false);
+  const [fullNavBarOpen, setFullNavBarOpen] = useState(false);
+
   return (
     <>
       <div className='navbarcontainer'>
@@ -73,6 +75,8 @@ const NavBar = ({ isLoggedIn, userId }) => {
         userId={userId}
         friendRequestsOpen={friendRequestsOpen}
         setFriendRequestsOpen={setFriendRequestsOpen}
+        fullNavBarOpen={fullNavBarOpen}
+        setFullNavBarOpen={setFullNavBarOpen}
       />
       <SmallNavBar
         className='smallnavbar'
@@ -80,6 +84,8 @@ const NavBar = ({ isLoggedIn, userId }) => {
         userId={userId}
         friendRequestsOpen={friendRequestsOpen}
         setFriendRequestsOpen={setFriendRequestsOpen}
+        fullNavBarOpen={fullNavBarOpen}
+        setFullNavBarOpen={setFullNavBarOpen}
       />
     </>
   );

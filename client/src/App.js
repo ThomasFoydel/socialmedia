@@ -68,12 +68,6 @@ const App = ({
   return (
     <div className='App'>
       <Router>
-        {/* {token && (
-          <NavBar
-            setIsLoggedIn={setIsLoggedIn}
-            isAuthenticated={setIsLoggedIn}
-          />
-        )} */}
         <NavBar setIsLoggedIn={setIsLoggedIn} isAuthenticated={setIsLoggedIn} />
 
         <Switch>

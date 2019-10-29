@@ -9,10 +9,10 @@ const MediumNavBar = ({
   isLoggedIn,
   userId,
   setFriendRequestsOpen,
-  friendRequestsOpen
+  friendRequestsOpen,
+  fullNavBarOpen,
+  setFullNavBarOpen
 }) => {
-  const [fullNavBarOpen, setFullNavBarOpen] = useState(false);
-
   const openFullNavBar = () => {
     setFullNavBarOpen(true);
   };
@@ -21,39 +21,20 @@ const MediumNavBar = ({
     setFullNavBarOpen(false);
   };
 
+  const toggleFullNavBar = () => {
+    setFullNavBarOpen(!fullNavBarOpen);
+  };
+
   const arrowTag = friendRequestsOpen
     ? 'far fa-arrow-alt-circle-down mediumarrow'
     : 'far fa-arrow-alt-circle-right mediumarrow';
-
-  // const opacityValue = 1;
-  // const animationProps = useSpring({
-  //   to: { opacity: 1, marginTop: 0 },
-  //   from: { opacity: 0, marginTop: -100 },
-  //   // leave: { opacity: 0, marginTop: -100 },
-  //   config: { duration: 1000 }
-  // });
-
-  // const animationProps = useSpring({
-  //   to: {
-  //     opacity: 1,
-  //     color: 'white',
-  //     background: 'rgb(10, 125, 255)',
-  //     marginTop: 0
-  //   },
-  //   from: {
-  //     opacity: 0,
-  //     color: 'red',
-  //     background: 'rgba(10, 125, 255,0)',
-  //     marginTop: -200
-  //   },
-  //   config: config.wobbly
-  // });
 
   const animationProps = useSpring({
     opacity: fullNavBarOpen ? 1 : 0,
     background: fullNavBarOpen ? 'rgb(10, 125, 255)' : 'rgba(10, 125, 255, 0)',
     color: fullNavBarOpen ? 'white' : 'red',
-    marginTop: fullNavBarOpen ? 0 : -160
+    marginLeft: fullNavBarOpen ? 0 : -200,
+    config: { mass: 1, tension: 300, friction: 40 }
     // zIndex: 0
   });
 
@@ -62,7 +43,7 @@ const MediumNavBar = ({
       <ul className='mediummainnavbarinnercontainer'>
         {isLoggedIn ? (
           <>
-            {fullNavBarOpen ? (
+            {true ? (
               <div className='mediumnavbaropencontainer'>
                 <div className='flex mediumnavbaropentopcontainer'>
                   <li
@@ -81,8 +62,8 @@ const MediumNavBar = ({
                     <SearchBar />
                   </div>
                   <div
-                    onClick={closeFullNavBar}
-                    className='mediumclosefullnavbarbutton'
+                    onClick={toggleFullNavBar}
+                    className={`mediumclosefullnavbarbutton mediumclosefullnavbarbuttonopen${fullNavBarOpen}`}
                   >
                     <i className='fa fa-bars' aria-hidden='true'></i>
                   </div>

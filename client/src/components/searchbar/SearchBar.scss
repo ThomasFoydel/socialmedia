@@ -13,6 +13,7 @@ $break-small: 414px;
     width: 24.8rem;
   }
   @media screen and (max-width: $break-small) {
-    width: 20.8rem;
+    min-width: 16.8rem;
+    max-width: 18rem;
   }
 }

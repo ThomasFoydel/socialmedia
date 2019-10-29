@@ -148,10 +148,8 @@ $break-small: 414px;
 .mediumopenfullnavbarbutton {
   margin-left: 3rem;
   margin-top: 0.6rem;
-  &:hover {
-    color: #7eb8fa;
-    cursor: pointer;
-  }
+  // color: white;
+
   @media screen and (max-width: $break-medium) {
     transform: scale(1.3);
   }
@@ -345,11 +343,26 @@ $break-small: 414px;
     }
   }
 }
+.smallclosefullnavbarbutton {
+  color: #f2f4f7;
+  position: absolute;
+  right: 2rem;
+  top: 0.2rem;
+  @media screen and (max-width: $break-small) {
+    transform: scale(1.25);
+    &:hover {
+      color: inherit;
+      cursor: pointer;
+    }
+  }
+}
 
-.smallclosefullnavbarbutton,
+.mediumclosefullnavbarbuttonopentrue i,
+.smallclosefullnavbarbuttonopentrue i {
+  color: #7eb8fa;
+}
+// .smallclosefullnavbarbutton,
 .smallopenfullnavbarbutton {
-  // margin-left: 3rem;
-  // margin-top: 0.6rem;
   top: 1.5rem;
   right: 1rem;
   position: absolute;
@@ -363,7 +376,7 @@ $break-small: 414px;
 }
 
 .smallnavbarhomelink {
-  margin-top: -0.1rem;
+  margin-top: -0.6rem;
   margin-right: 0.1rem;
   margin-left: 0.5rem;
   white-space: nowrap;
@@ -402,6 +415,6 @@ $break-small: 414px;
 }
 
 .smallsearchbar {
-  margin-top: 0.6rem;
+  margin-top: 0.2rem;
   margin-left: 2%;
 }
