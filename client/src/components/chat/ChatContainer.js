@@ -69,15 +69,19 @@ const ChatContainer = ({ isLoggedIn, token, userName, friendList }) => {
     background: chatOpen ? 'rgb(10, 125, 255)' : 'rgba(10, 125, 255, 0)',
     right: chatOpen ? 0 : -200,
     config: { mass: 0.8, tension: 300, friction: 40 }
+  });
 
-    // zIndex: 0
+  const reverseAnimationProps = useSpring({
+    opacity: chatOpen ? 0 : 1,
+    background: chatOpen ? 'rgba(10, 125, 255, 0)' : 'rgb(10, 125, 255)',
+    right: chatOpen ? -200 : 0,
+    config: { mass: 0.8, tension: 300, friction: 40 }
   });
 
   return (
     <div>
       {isLoggedIn && (
         <>
-          {/* {chatOpen ? ( */}
           <animated.div style={animationProps}>
             <Chat
               userName={userName}
@@ -96,13 +100,14 @@ const ChatContainer = ({ isLoggedIn, token, userName, friendList }) => {
               setMainSocket={setMainSocket}
             />
           </animated.div>
-          {/* ) : ( */}
-          {!chatOpen && (
-            <button className='openchatbutton' onClick={openChat}>
-              chat
-            </button>
+
+          {!false && (
+            <animated.div style={reverseAnimationProps}>
+              <button className='openchatbutton' onClick={openChat}>
+                chat
+              </button>
+            </animated.div>
           )}
-          {/* )} */}
         </>
       )}
     </div>

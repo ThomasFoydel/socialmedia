@@ -37,7 +37,6 @@ const SmallNavBar = ({
     color: fullNavBarOpen ? 'white' : 'red',
     marginLeft: fullNavBarOpen ? 0 : -170,
     config: { mass: 1, tension: 300, friction: 38 }
-    // zIndex: 0
   });
 
   return (
