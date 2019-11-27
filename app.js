@@ -68,7 +68,7 @@ mongoose
   .connect(process.env.MONGO_URI, { useNewUrlParser: true })
   .then(res => {
     const expressServer = app.listen(process.env.PORT || 8000);
-    console.log('listening on port 8000');
+    // console.log('listening on port 8000');
 
     // BEGIN SOCKET IO:
     const io = socketio(expressServer);
@@ -78,15 +78,14 @@ mongoose
       const setUpCurrentChatUser = async () => {
         const token = socket.handshake.query.token;
         if (!token) {
-          console.log('no token auth denied');
+          // console.log('no token auth denied');
         } else {
           try {
             const decoded = jwt.verify(token, process.env.SECRET);
             // console.log('DECODED: ', decoded);
             let current_time = Date.now() / 1000;
             if (decoded.exp < current_time) {
-              console.log('expired');
-
+              // console.log('expired');
               // token is expired, not authorized
             } else {
               let decodedUser = await User.findOne({
@@ -121,7 +120,7 @@ mongoose
               socket.emit('friendList', modifiedFriendList);
             }
           } catch (error) {
-            console.log('jwt error ');
+            // console.log('jwt error ');
           }
         }
       };
@@ -195,7 +194,7 @@ mongoose
           delete onlineUsers[userId];
           // console.log('updated online users after disconnect: ', onlineUsers);
         } catch (err) {
-          console.log(err);
+          // console.log(err);
         }
       });
     });

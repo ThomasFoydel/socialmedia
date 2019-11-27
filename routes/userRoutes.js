@@ -12,7 +12,7 @@ const {
   body,
   checkSchema
 } = require('express-validator');
-const brcypt = require('bcryptjs');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const auth = require('../middlewares/auth');
 
@@ -123,7 +123,7 @@ router.post(
     }
 
     // hash password
-    const hashedPw = await brcypt.hash(req.body.password, 12);
+    const hashedPw = await bcrypt.hash(req.body.password, 12);
 
     // create new user, plug registration form data into mongoose model
     const newUser = new User({
@@ -160,7 +160,7 @@ router.post('/login', async (req, res, next) => {
       error.code = 401;
       throw error;
     } else {
-      const passwordsMatch = await brcypt.compare(
+      const passwordsMatch = await bcrypt.compare(
         req.body.password,
         user.password
       );
@@ -217,7 +217,7 @@ router.post('/edituser', auth, async (req, res, next) => {
     _id: mongoose.Types.ObjectId(userId)
   });
   // console.log('edit user found user: ', foundUser);
-  const passwordsMatch = await brcypt.compare(password, foundUser.password);
+  const passwordsMatch = await bcrypt.compare(password, foundUser.password);
   if (!passwordsMatch) {
     const error = new Error('Not authenticated');
     error.code = 401;

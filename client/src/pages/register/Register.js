@@ -57,7 +57,7 @@ export default function Register() {
         age: ageValue,
         city: cityValue,
         // DEFAULT PROFILE PICTURE:
-        profilePicId: '5d86c52d615a0076174f186d'
+        profilePicId: '5dddc804fe5c4c0017a60faa'
       },
       { headers: { 'Content-Type': 'application/json' } }
     )
