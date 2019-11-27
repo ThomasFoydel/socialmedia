@@ -78,6 +78,7 @@ const ChatContainer = ({ isLoggedIn, token, userName, friendList }) => {
     background: chatOpen ? 'rgba(10, 125, 255, 0)' : 'rgb(10, 125, 255)',
     right: chatOpen ? -200 : 0,
     position: chatOpen ? 'inherit' : 'fixed',
+    display: chatOpen ? 'none' : 'block',
     config: { mass: 0.8, tension: 300, friction: 40 }
   });
 
