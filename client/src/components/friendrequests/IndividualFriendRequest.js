@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 const IndividualFriendRequest = ({
   info,
   token,
-  requests,
   setRequests,
   addFriendToFriendList
 }) => {
