@@ -147,14 +147,16 @@ $break-small: 440px;
   width: 11.4rem;
   color: rgb(7, 9, 24);
   background: rgb(207, 207, 207);
-  margin-top: 1.5rem;
+  margin-top: 1.2rem;
   display: inline-block;
-  padding: 0.58rem 1.4rem;
+  padding: 0.7rem 1.4rem;
   border-radius: 0.3rem;
   margin-left: 33%;
   transition: color 0.2s, background 0.2s;
   @media screen and (max-width: $break-small) {
     width: 9.5rem;
+    margin-top: 1.5rem;
+    padding: 0.6rem 1.4rem;
   }
 }
 

@@ -199,31 +199,25 @@ $break-small: 476px;
   }
 }
 
-.fa-trash-mediumandup {
-  margin-top: -3rem;
-  // margin-right:
+.fa-trash-icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  // margin-top: -3rem;
   @media screen and(max-width: $break-small) {
     display: none;
   }
 }
 
-.fa-trash-smallversion {
-  display: none;
-  @media screen and(max-width: $break-small) {
-    display: inherit;
-    transform: scale(0.8);
-  }
-}
-
-.userprofilestatusdeleteclicked {
-  position: absolute;
-  right: 0.8rem;
-  top: -2rem;
-  color: rgb(255, 82, 82);
-  @media screen and (max-width: $break-small) {
-    transform: scale(1.6);
-  }
-}
+// .userprofilestatusdeleteclicked {
+//   position: absolute;
+//   right: 0.8rem;
+//   top: -2rem;
+//   color: rgb(255, 82, 82);
+//   @media screen and (max-width: $break-small) {
+//     transform: scale(1.6);
+//   }
+// }
 
 .userprofilestatusdeleteoptions {
   position: absolute;

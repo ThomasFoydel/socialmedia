@@ -9,6 +9,8 @@ import FriendListItem from '../../components/friendlistitem/FriendListItem';
 
 import UserProfilePosts from './UserProfilePosts';
 
+import cloudloading from '../../imgs/cloudloading2.svg';
+
 import './UserProfile.scss';
 
 const UserProfile = ({ match, userId, token, isLoggedIn, friendList }) => {
@@ -21,6 +23,7 @@ const UserProfile = ({ match, userId, token, isLoggedIn, friendList }) => {
   const [isCurrentUser, setIsCurrentUser] = useState(false);
   const [existingAdd, setExistingAdd] = useState(false);
   const [isFriend, setIsFriend] = useState(false);
+  const [coverPhotoLoading, setCoverPhotoLoading] = useState(true);
 
   useEffect(() => {
     let isSubscribed = true;
@@ -72,16 +75,31 @@ const UserProfile = ({ match, userId, token, isLoggedIn, friendList }) => {
       {profileUser && (
         <div className='profilepagecontainer'>
           <div className='fixedcontainer'>
+            {coverPhotoLoading && (
+              <img alt='loading' className='coverpicture' src={cloudloading} />
+            )}
+
+            <img
+              src={
+                profileUser.coverPicId
+                  ? `/user/image/${profileUser.coverPicId}`
+                  : 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/healthiest-dog-breeds-1569423729.jpg?crop=0.548xw:0.822xh;0.115xw,0.0577xh'
+              }
+              alt='profile cover'
+              onLoad={() => setCoverPhotoLoading(false)}
+              className='coverpicture'
+              className={
+                coverPhotoLoading ? 'feedposthiddenimage' : 'coverpicture'
+              }
+            />
+
             <div
               className='coverpicture'
               style={{
-                backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.000)), url('${
-                  profileUser.coverPicId
-                    ? `/user/image/${profileUser.coverPicId}`
-                    : 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/healthiest-dog-breeds-1569423729.jpg?crop=0.548xw:0.822xh;0.115xw,0.0577xh'
-                }')`
+                backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.000)`
               }}
             ></div>
+
             <h1 className='profilepagename'>{profileUser.name}</h1>
 
             <img
@@ -89,33 +107,32 @@ const UserProfile = ({ match, userId, token, isLoggedIn, friendList }) => {
               alt='profile'
               className='profilepicture'
             />
-
-            <>
-              {isFriend && !isCurrentUser && (
-                <UserProfileUnfriendButton
-                  page='UserProfile'
-                  token={token}
-                  friendId={profileUser._id}
-                  setIsFriend={setIsFriend}
-                  setExistingAdd={setExistingAdd}
-                />
-              )}
-              <div className='profilepageaddoredit'>
-                {isCurrentUser ? (
-                  <Link className='linktoeditprofile' to='/edituser'>
-                    edit profile
-                  </Link>
-                ) : !existingAdd && isLoggedIn && !isFriend ? (
-                  <div
-                    className='userprofilefriendrequestbutton'
-                    onClick={sendFriendRequest}
-                  >
-                    add
-                  </div>
-                ) : null}
-              </div>
-            </>
           </div>
+          <>
+            {isFriend && !isCurrentUser && (
+              <UserProfileUnfriendButton
+                page='UserProfile'
+                token={token}
+                friendId={profileUser._id}
+                setIsFriend={setIsFriend}
+                setExistingAdd={setExistingAdd}
+              />
+            )}
+            <div className='profilepageaddoredit'>
+              {isCurrentUser ? (
+                <Link className='linktoeditprofile' to='/edituser'>
+                  edit profile
+                </Link>
+              ) : !existingAdd && isLoggedIn && !isFriend ? (
+                <div
+                  className='userprofilefriendrequestbutton'
+                  onClick={sendFriendRequest}
+                >
+                  add
+                </div>
+              ) : null}
+            </div>
+          </>
           {/* <div style={{ height: '45rem' }} /> */}
           <div className='profilegrid'>
             <div className='profileinfobox'>

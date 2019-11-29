@@ -41,7 +41,11 @@ const NavBar = ({ isLoggedIn, userId }) => {
                 >
                   Friend Requests
                 </div>
-                {friendRequestsOpen && <FriendRequests />}
+                {friendRequestsOpen && (
+                  <FriendRequests
+                    setFriendRequestsOpen={setFriendRequestsOpen}
+                  />
+                )}
               </li>
               <li className='mainnavbaritem mainsearchbar'>
                 <SearchBar />

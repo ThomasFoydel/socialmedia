@@ -34,6 +34,14 @@ const UploadCoverPic = ({ setCurrentUserCoverPic, coverPicId, token }) => {
     setSelectedCoverFile(null);
   };
 
+  const handleClick = e => {
+    if (inputContainsFile) {
+      e.preventDefault();
+      fileUploadHandler();
+      setInputContainsFile(false);
+    }
+  };
+
   return (
     <div className='editusercoverupload'>
       {coverPicId ? (
@@ -57,6 +65,7 @@ const UploadCoverPic = ({ setCurrentUserCoverPic, coverPicId, token }) => {
         className={`editusercoverfileinputlabel editusercoverselectedfile${selectedCoverFile &&
           'true'}`}
         htmlFor='coverfile'
+        onClick={handleClick}
       >
         {selectedCoverFile ? (
           <i
@@ -68,11 +77,11 @@ const UploadCoverPic = ({ setCurrentUserCoverPic, coverPicId, token }) => {
         )}
       </label>
 
-      {inputContainsFile && (
+      {/* {inputContainsFile && (
         <button className='uploadcoverpicbutton' onClick={fileUploadHandler}>
           upload
         </button>
-      )}
+      )} */}
     </div>
   );
 };
@@ -91,7 +100,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(UploadCoverPic);
+export default connect(mapStateToProps, mapDispatchToProps)(UploadCoverPic);

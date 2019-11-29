@@ -14,6 +14,7 @@ const MainFeed = ({ setReduxPosts, reduxPosts, token, isLoggedIn }) => {
   const [postFormOpen, setPostFormOpen] = useState(false);
   const [count, setCount] = useState(5);
   const [start, setStart] = useState(1);
+  const [morePostsExist, setMorePostsExist] = useState(true);
 
   useEffect(() => {
     const getPosts = async () => {
@@ -42,6 +43,9 @@ const MainFeed = ({ setReduxPosts, reduxPosts, token, isLoggedIn }) => {
     updateStartPromise.then(result => {
       Axios.get(`/post/scrollposts?count=${count}&start=${result}`).then(
         result => {
+          if (result.data.length !== count) {
+            setMorePostsExist(false);
+          }
           setReduxPosts(reduxPosts.concat(result.data));
           console.log('fetch more posts. result: ', result);
         }
@@ -68,7 +72,7 @@ const MainFeed = ({ setReduxPosts, reduxPosts, token, isLoggedIn }) => {
           <InfiniteScroll
             dataLength={reduxPosts.length}
             next={fetchMorePosts}
-            hasMore={true}
+            hasMore={morePostsExist}
             loader={
               <h3 className='mainfeedscrollloading'>loading more posts...</h3>
             }
@@ -116,10 +120,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MainFeed);
+export default connect(mapStateToProps, mapDispatchToProps)(MainFeed);
 
 // import React, { useState, useEffect } from 'react';
 // import { useTransition, animated, config } from 'react-spring';

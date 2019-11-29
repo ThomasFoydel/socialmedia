@@ -4,6 +4,7 @@ $break-small: 440px;
 .mainfeedcontainer {
   margin: 1rem 0 10rem 0 !important;
   padding: 6rem 0 10rem 0 !important;
+  min-height: 100%;
   height: auto;
   width: 100vw;
   overflow-x: hidden;

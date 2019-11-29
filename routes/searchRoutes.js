@@ -52,7 +52,6 @@ router.post('/mainsearch/:terms', auth, async (req, res) => {
                 } else console.log('post already exists');
               });
             }
-            console.log(counter);
             counter -= 1;
             if (counter === 0) {
               const filteredPostArray = [];

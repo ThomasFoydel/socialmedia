@@ -73,3 +73,17 @@
     color: rgb(23, 131, 255);
   }
 }
+
+.friendrequestclosebutton {
+  color: rgb(80, 80, 80);
+  right: 0;
+  margin-left: 20rem;
+  // float: right;
+  // margin-top: -2.2rem;
+  // margin-right: -2.8rem;
+  transition: color 0.2s;
+  &:hover {
+    color: red;
+    cursor: pointer;
+  }
+}

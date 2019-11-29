@@ -29,9 +29,10 @@ const UserProfileStatusDeleteButton = ({
     <div>
       {deleteOpen ? (
         <>
-          <div className='userprofilestatusdeleteclicked'>
-            <i className='fa fa-trash' aria-hidden='true'></i>
+          <div className='userprofilestatusdeleteopen'>
+            <i className='fa fa-trash fa-trash-icon' aria-hidden='true'></i>
           </div>
+
           <div className='userprofilestatusdeleteoptions'>
             <div
               onClick={deleteStatus}
@@ -49,14 +50,7 @@ const UserProfileStatusDeleteButton = ({
         </>
       ) : (
         <div onClick={openDelete} className='userprofilestatusdeleteopen'>
-          <i
-            className='fa fa-trash fa-trash-mediumandup'
-            aria-hidden='true'
-          ></i>
-          <i
-            className='fa fa-trash fa-2x fa-trash-smallversion'
-            aria-hidden='true'
-          ></i>
+          <i className='fa fa-trash fa-trash-icon' aria-hidden='true'></i>
         </div>
       )}
     </div>

@@ -4,6 +4,8 @@ $break-small: 880px;
 $break-xs: 485px;
 
 .searchresulttotalcontainer {
+  min-height: 100%;
+
   @media screen and (max-width: $break-xs) {
     max-width: 48rem;
     overflow: hidden;
@@ -88,6 +90,10 @@ $break-xs: 485px;
 
 .searchresultuserscontainertitle,
 .searchresultpostscontainertitle {
+  color: white;
+  background: #afafaf;
+  padding: 0.1rem 1.4rem 0.4rem 1.4rem;
+  border-radius: 99rem;
   position: absolute;
   margin-left: 50%;
   transform: translateX(-50%);

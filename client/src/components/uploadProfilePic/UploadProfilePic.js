@@ -41,6 +41,14 @@ const UploadProfilePic = ({
     setProfileInputContainsFile(false);
   };
 
+  const handleClick = e => {
+    if (profileInputContainsFile) {
+      e.preventDefault();
+      fileUploadHandler();
+      setProfileInputContainsFile(false);
+    }
+  };
+
   return (
     <div className='edituserprofileupload'>
       <img
@@ -60,6 +68,7 @@ const UploadProfilePic = ({
         className={`edituserprofilefileinputlabel edituserprofileselectedfile${selectedProfileFile &&
           'true'}`}
         htmlFor='file'
+        onClick={handleClick}
       >
         {selectedProfileFile ? (
           <i
@@ -70,11 +79,11 @@ const UploadProfilePic = ({
           <>new profile pic</>
         )}
       </label>
-      {profileInputContainsFile && (
+      {/* {profileInputContainsFile && (
         <button className='uploadprofilepicbutton' onClick={fileUploadHandler}>
           upload
         </button>
-      )}
+      )} */}
     </div>
   );
 };
@@ -91,7 +100,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(UploadProfilePic);
+export default connect(mapStateToProps, mapDispatchToProps)(UploadProfilePic);

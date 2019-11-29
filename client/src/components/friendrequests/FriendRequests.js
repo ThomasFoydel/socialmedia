@@ -9,8 +9,19 @@ import { addFriendToFriendList } from '../../redux/currentUser/currentUserAction
 
 import './FriendRequests.scss';
 
-const FriendRequests = ({ token, userId, addFriendToFriendList }) => {
+const FriendRequests = ({
+  token,
+  userId,
+  addFriendToFriendList,
+  setFriendRequestsOpen
+}) => {
+  const [loading, setLoading] = useState(true);
   const [requests, setRequests] = useState([]);
+
+  const handleClose = () => {
+    setFriendRequestsOpen(false);
+  };
+
   useEffect(() => {
     Axios.get(
       `/user/getfriendrequests/${userId}`,
@@ -21,6 +32,7 @@ const FriendRequests = ({ token, userId, addFriendToFriendList }) => {
         request => request.status === 'pending'
       );
       setRequests(requestsArray);
+      setLoading(false);
     });
   }, [token, userId]);
 
@@ -38,6 +50,11 @@ const FriendRequests = ({ token, userId, addFriendToFriendList }) => {
       {props => (
         <div style={props}>
           <div className='friendrequestcontainer'>
+            <i
+              className='fa fa-2x fa-times friendrequestclosebutton'
+              aria-hidden='true'
+              onClick={handleClose}
+            ></i>
             {requests && (
               <>
                 {transition.map(({ item, key, props }) => {
@@ -58,7 +75,7 @@ const FriendRequests = ({ token, userId, addFriendToFriendList }) => {
                   );
                 })}
 
-                {requests.length < 1 && (
+                {requests.length < 1 && !loading && (
                   <div className='nofriendrequests'>no friend requests</div>
                 )}
               </>
@@ -79,7 +96,4 @@ const mapDispatchToProps = dispatch => ({
   addFriendToFriendList: friendId => dispatch(addFriendToFriendList(friendId))
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(FriendRequests);
+export default connect(mapStateToProps, mapDispatchToProps)(FriendRequests);

@@ -321,14 +321,18 @@ router.get('/image/:id', async (req, res) => {
   if (req.params.id === undefined) {
     return res.status(404).send('undefined)');
   } else if (req.params.id !== 'undefined') {
-    const file = await gfs.files.findOne({
-      _id: mongoose.Types.ObjectId(req.params.id)
-    });
-    if (!file || file.length === 0) {
-      return res.status(404).json({ err: 'no file exists' });
-    } else {
-      const readStream = gfs.createReadStream(file.filename);
-      readStream.pipe(res);
+    try {
+      const file = await gfs.files.findOne({
+        _id: mongoose.Types.ObjectId(req.params.id)
+      });
+      if (!file || file.length === 0) {
+        return res.status(404).json({ err: 'no file exists' });
+      } else {
+        const readStream = gfs.createReadStream(file.filename);
+        readStream.pipe(res);
+      }
+    } catch (err) {
+      console.log('get image error: ', err);
     }
   }
 });
@@ -433,25 +437,28 @@ router.post('/acceptfriendrequest', auth, async (req, res) => {
     },
     { new: true }
   );
-  const updatedFriendRequest = await FriendRequest.findOneAndUpdate(
-    {
-      sender: senderId,
-      recipient: recipientId
-    },
-    {
-      $set: { status: 'accepted' },
-      $push: { friendshipParticipants: [senderId, recipientId] }
-    },
-    { new: true }
-  );
-  const updatedRequests = await FriendRequest.find({
-    recipient: req.tokenUser.userId,
-    status: 'pending'
-  });
-  res.status(200).send({
-    updatedRequests: updatedRequests,
-    updatedUserFriendList: updatedRecipient.friendList
-  });
+  if (updatedRecipient) {
+    const updatedFriendRequest = await FriendRequest.findOneAndUpdate(
+      {
+        sender: senderId,
+        recipient: recipientId
+      },
+      {
+        $set: { status: 'accepted' },
+        $push: { friendshipParticipants: [senderId, recipientId] }
+      },
+      { new: true }
+    );
+
+    const updatedRequests = await FriendRequest.find({
+      recipient: req.tokenUser.userId,
+      status: 'pending'
+    });
+    res.status(200).send({
+      updatedRequests: updatedRequests,
+      updatedUserFriendList: updatedRecipient.friendList
+    });
+  }
 });
 
 router.post('/rejectfriendrequest', auth, async (req, res) => {
