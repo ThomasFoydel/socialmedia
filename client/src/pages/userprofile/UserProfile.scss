@@ -147,11 +147,12 @@ html {
   }
   @media screen and (max-width: $break-small) {
     font-size: 1.6rem;
-    padding: 0.5rem;
-    width: 17rem;
+    padding: 0.9rem 0 1rem 0;
+    width: 10rem;
     position: fixed;
-    top: 40.5rem;
-    left: -4rem;
+    top: 38rem;
+    left: 1.4rem;
+    height: 5rem;
   }
 }
 

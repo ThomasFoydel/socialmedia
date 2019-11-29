@@ -16,18 +16,13 @@ const Home = ({ userName, profilePicId, isLoggedIn, token, friendList }) => {
               <div className='homecontainer-textbox'>
                 <div className='homecontainer__heading'></div>
                 <h1 className='homecontainer__heading--main'>HOME</h1>
-                {/* <p className='homecontainer__heading--sub'>
-                  Welcome {userName}
-                </p> */}
-                {profilePicId ? (
-                  // <ParallaxLayer offset={0} speed={-1}>
+                {profilePicId && (
                   <img
                     src={`/user/image/${profilePicId}`}
                     alt='your profilepic'
                     className='homecontainer__heading--profilepicture'
                   ></img>
-                ) : // </ParallaxLayer>
-                null}
+                )}
               </div>
             </div>
           </div>
@@ -41,7 +36,6 @@ const Home = ({ userName, profilePicId, isLoggedIn, token, friendList }) => {
           )}
         </>
       ) : (
-        // </Parallax>
         <>
           <NavBar />
           <Login />
