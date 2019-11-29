@@ -22,10 +22,8 @@ $break-xs: 485px;
 .searchresultusersorpostsbuttoncontainer {
   margin-top: 10rem;
   text-align: center;
-  width: 100%;
   margin-left: 50%;
   transform: translateX(-50%);
-  align-content: center;
 }
 
 .searchresultpostsbutton,
@@ -41,10 +39,11 @@ $break-xs: 485px;
 .searchresultusersbutton {
   background: #fff;
   box-shadow: 0.25rem 0.25rem 0.25rem rgba(46, 46, 46, 0.671);
+  cursor: pointer;
   // border-bottom: 1px solid black;
   // border-left: 1px solid black;
+  transition: color 0.5s, background 0.5s;
   &:hover {
-    cursor: pointer;
     background: rgb(63, 130, 230);
     color: white;
   }

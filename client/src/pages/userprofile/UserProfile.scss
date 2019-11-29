@@ -44,6 +44,10 @@ $break-xs: 414px;
   }
 }
 
+html {
+  background-image: url('../../imgs/pineapplerepeat.jpg');
+}
+
 .profilepagename {
   color: white;
   position: absolute;
@@ -381,7 +385,7 @@ $break-xs: 414px;
 
 .profilegrid {
   position: absolute;
-  // margin-top: 45rem;
+  margin-top: 45rem;
   margin-left: 50%;
   transform: translateX(-50%);
   width: 95vw;

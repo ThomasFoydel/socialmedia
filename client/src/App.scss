@@ -6,6 +6,11 @@
   box-sizing: inherit;
 }
 
+html,
+body {
+  overscroll-behavior: none;
+}
+
 html {
   font-size: 62.5%;
 }

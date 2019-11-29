@@ -148,6 +148,7 @@ $break-small: 414px;
 .mediumopenfullnavbarbutton {
   margin-left: 3rem;
   margin-top: 0.8rem;
+  cursor: pointer;
 
   @media screen and (max-width: $break-medium) {
     transform: scale(1.3);

@@ -145,8 +145,8 @@ export default function Register() {
 
           <input type='submit' className='registerbutton' value='Register' />
         </div>
+        <div style={{ height: '10rem' }} />
       </form>
-      <div style={{ height: '10rem' }} />
     </>
   );
 

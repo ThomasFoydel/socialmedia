@@ -116,7 +116,7 @@ const UserProfile = ({ match, userId, token, isLoggedIn, friendList }) => {
               </div>
             </>
           </div>
-          <div style={{ height: '45rem' }} />
+          {/* <div style={{ height: '45rem' }} /> */}
           <div className='profilegrid'>
             <div className='profileinfobox'>
               <div className='profilepageinfobox'>

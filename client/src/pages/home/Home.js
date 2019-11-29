@@ -16,9 +16,9 @@ const Home = ({ userName, profilePicId, isLoggedIn, token, friendList }) => {
               <div className='homecontainer-textbox'>
                 <div className='homecontainer__heading'></div>
                 <h1 className='homecontainer__heading--main'>HOME</h1>
-                <p className='homecontainer__heading--sub'>
+                {/* <p className='homecontainer__heading--sub'>
                   Welcome {userName}
-                </p>
+                </p> */}
                 {profilePicId ? (
                   // <ParallaxLayer offset={0} speed={-1}>
                   <img
@@ -66,7 +66,4 @@ const mapDispatchToProps = dispatch => ({
   logoutSession: () => dispatch(logoutSession())
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
