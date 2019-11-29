@@ -4,3 +4,5 @@ node_modules/
 *.orig
 .idea/
 .vscode/
+
+/client/node_modules/
