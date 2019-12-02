@@ -7,7 +7,6 @@ import { deletePost } from '../../redux/posts/postActions';
 import './DeleteButton.scss';
 
 function DeleteButton({ postId, userId, userName, token, deletePost }) {
-  // const deleteLink = `/deletepost/${postId}`;
   const sendDeleteToBackEnd = async postId => {
     const deletedPost = await Axios.post(
       `/post/deletepost/${postId}`,
@@ -51,7 +50,4 @@ const mapStateToProps = state => ({
   token: state.auth.token
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(DeleteButton);
+export default connect(mapStateToProps, mapDispatchToProps)(DeleteButton);

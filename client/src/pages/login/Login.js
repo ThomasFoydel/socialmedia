@@ -94,7 +94,11 @@ function Login({
               value={passwordValue}
               onChange={handleChange}
             />
-
+            <h6 style={{ color: 'red', marginBottom: '-3rem' }}>
+              test login <br />
+              email: address@gmail.com <br />
+              password: password
+            </h6>
             <input type='submit' className='loginbutton' value='login' />
           </div>
         </div>
@@ -132,7 +136,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

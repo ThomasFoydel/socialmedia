@@ -6,9 +6,6 @@ import UploadProfilePic from '../../components/uploadProfilePic/UploadProfilePic
 import UploadCoverPic from '../../components/uploadcoverpic/UploadCoverPic';
 
 import './EditUser.scss';
-// send to REST route that calls updateOne() on users
-
-// TODO: LOAD IN DATA from mongodb, in an HOC
 
 function EditUser({
   userId,
@@ -91,11 +88,8 @@ function EditUser({
         });
         setAuthError(false);
         setPasswordInput('');
-
-        //TODO: temporary successful profile update notification
       })
       .catch(err => {
-        // sets error state to true, conditional tags activate red error text:
         setAuthError(true);
       });
   };
@@ -103,11 +97,7 @@ function EditUser({
   return (
     <div className='edituserformoutsidecontainer'>
       <div className='edituserformcontainer'>
-        <form
-          className='edituserform'
-          onSubmit={handleSubmit}
-          // enctype="multipart/form-data"
-        >
+        <form className='edituserform' onSubmit={handleSubmit}>
           <h1 className='editusertitletext'>edit your info</h1>
           <div className='form-group'>
             <div className='editusercurrentvaluelabel'>name:</div>
@@ -217,7 +207,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(EditUser);
+export default connect(mapStateToProps, mapDispatchToProps)(EditUser);

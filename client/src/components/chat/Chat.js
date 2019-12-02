@@ -7,8 +7,6 @@ import { connect } from 'react-redux';
 
 import './Chat.scss';
 
-// let socket;
-
 const Chat = ({
   token,
   userName,

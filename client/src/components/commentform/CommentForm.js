@@ -20,11 +20,9 @@ const CommentForm = ({
   };
 
   const handleSubmit = e => {
-    // e.preventDefault();
     if (!commentContent) {
       return;
     }
-    //send to backend
     Axios.post(
       `/comment/newcomment`,
       { commentContent, postId, authorName: userName },
@@ -76,7 +74,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CommentForm);
+export default connect(mapStateToProps, mapDispatchToProps)(CommentForm);

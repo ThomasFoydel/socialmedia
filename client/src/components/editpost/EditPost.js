@@ -17,7 +17,6 @@ function EditPost({
   currentPost
 }) {
   const { content, title, tags } = currentPost;
-  console.log('current post: ', currentPost);
   const [titleValue, setTitleValue] = useState(title);
   const [postValue, setPostValue] = useState(content);
   const [updateStatusSuccess, setUpdateStatusSuccess] = useState(false);
@@ -76,7 +75,6 @@ function EditPost({
       )
         .then(result => {
           if (result.request.status === 201) {
-            // SUCCESSFUL UPDATE, CHANGE STATE TO UPDATESUCCESS, CAUSE REDIRECT TO FEED
             setUpdateStatusSuccess(true);
             setCurrentPost(result.data);
           }
@@ -86,9 +84,6 @@ function EditPost({
       setTitleValue('');
       setSelectedFile(null);
     } else {
-      // image was uploaded, upload then return updated post
-      // update redux store
-
       const fd = new FormData();
       fd.append('contentImage', selectedFile, selectedFile.name);
       fd.append('authorId', userId);

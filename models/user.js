@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// TODO: FIX TYPES TO USE MONGODB OBJECT IDS FOR REFS
 const userSchema = {
   name: {
     type: String,

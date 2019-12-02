@@ -42,7 +42,6 @@ export const deleteCommentFromPost = post => {
   };
 };
 
-// // // // LIKES / DISLIKES
 export const addLikeToPost = post => {
   return {
     type: PostActionTypes.ADD_LIKE_TO_POST,

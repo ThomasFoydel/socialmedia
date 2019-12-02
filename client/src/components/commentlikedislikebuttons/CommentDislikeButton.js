@@ -10,7 +10,6 @@ const CommentDislikeButton = ({ commentId, token, userId, setDislikes }) => {
         headers: { 'x-auth-token': token }
       }
     ).then(result => {
-      console.log('dislike result: ', result);
       setDislikes(result.data.dislikes);
     });
   };

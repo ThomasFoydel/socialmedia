@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-// import HomeStatusLikeButton from './HomeStatusLikeButton';
 import HomeStatusLikeButton from './HomeStatusLikeButton';
 import HomeStatusDislikeButton from './HomeStatusDislikeButton';
 import HomeStatusRemoveLikeButton from './HomeStatusRemoveLikeButton';
@@ -22,7 +21,7 @@ const HomeStatusLikeDislikeButtons = ({
     <div className='flex homestatuslikedislikebuttonscontainer'>
       <div className='flex homestatuslikedislikebuttonsinnercontainer'>
         <>
-          {!likes.includes(userId) && !dislikes.includes(userId) ? (
+          {!likes.includes(userId) && !dislikes.includes(userId) && (
             <>
               <HomeStatusLikeButton
                 statusId={_id}
@@ -38,7 +37,7 @@ const HomeStatusLikeDislikeButtons = ({
                 className='homestatusdislikebutton'
               />
             </>
-          ) : null}
+          )}
         </>
 
         <>

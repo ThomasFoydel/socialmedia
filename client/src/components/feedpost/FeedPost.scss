@@ -76,7 +76,6 @@ $break-small: 414px;
 
 .feedposttopbuttons {
   position: relative;
-  // width: 100%;
   max-width: 10rem;
   margin-right: 0.4rem;
   margin-top: 0.2rem;
@@ -173,10 +172,6 @@ $break-small: 414px;
   }
 }
 
-// .commentsarray {
-//   margin-top: -3rem;
-// }
-
 .feedposthiddenimage {
   height: 0.1px;
   width: 100%;
@@ -198,7 +193,6 @@ $break-small: 414px;
 
 .tagsandlikes {
   height: 2rem;
-  // display: block;
   margin-bottom: 1rem;
   position: default;
 }

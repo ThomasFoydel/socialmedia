@@ -1,9 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-// TODO: abstract out the image stuff to gridFs and then import it back in
-// const upload = require('../gridfs/gridFs');
-
 const mongoose = require('mongoose');
 const Post = require('../models/post');
 const User = require('../models/user');
@@ -26,13 +23,12 @@ const methodOverride = require('method-override');
 const GridFsStorage = require('multer-gridfs-storage');
 const Grid = require('gridfs-stream');
 
-///////////// IMAGE STUFF
+// images
 router.use(methodOverride('_method'));
-// mongo uri
-const mongoURI =
-  'mongodb+srv://mongouser:Reelbigfish1@social-media-rest-ifmno.mongodb.net/test?retryWrites=true&w=majority';
+
+const mongoURI = process.env.MONGO_URI;
+
 const conn = mongoose.createConnection(mongoURI);
-// Init gfs
 let gfs;
 conn.once('open', () => {
   gfs = Grid(conn.db, mongoose.mongo);
@@ -59,8 +55,6 @@ const storage = new GridFsStorage({
 });
 const upload = multer({ storage });
 
-//          post routes          //
-//          post routes          //
 //          post routes          //
 
 //get all posts
@@ -113,11 +107,8 @@ router.post(
 
   async (req, res) => {
     let errors;
-
-    // get file from req if there is one, to pass in to new Post below
     let reqFileId;
     let { hasImage } = req.body;
-    // //TODO if has Image, set contentImage to be accessed in new Post
     if (hasImage) {
       reqFileId = req.file.id;
     }
@@ -129,7 +120,6 @@ router.post(
       if (!userInDB) {
         return res.status(401).json({ msg: 'Not authenticated' });
       } else {
-        // create new post object
         const { title, content, authorName, tags } = req.body;
 
         let tagsArray = tags.split(',');
@@ -146,8 +136,6 @@ router.post(
           lastEditedAt: null,
           tags: tagsArray
         });
-
-        // save post object to database
 
         newPost
           .save()
@@ -183,7 +171,6 @@ router.post('/editpost/:postid', auth, async (req, res) => {
 
   const existingPost = await Post.findOne({ _id: postid });
 
-  // Get tokenUser ID from auth
   const { userId } = req.tokenUser;
 
   if (!existingPost) {
@@ -225,7 +212,7 @@ router.post(
     const { postid } = req.params;
     const { authorId, authorName, newTitle, newContent } = req.body;
     const existingPost = await Post.findOne({ _id: postid });
-    // Get tokenUser ID from auth
+
     const { userId } = req.tokenUser;
     if (!existingPost) {
       const error = new Error('Post not found!');
@@ -264,7 +251,6 @@ router.post(
  */
 
 router.post('/deletepost/:id', auth, async (req, res, next) => {
-  // Get tokenUser ID from auth
   const { userId } = req.tokenUser;
 
   const foundPost = await Post.findOne({
@@ -284,7 +270,6 @@ router.post('/deletepost/:id', auth, async (req, res, next) => {
     const deletedPost = await Post.findOneAndDelete({
       _id: mongoose.Types.ObjectId(req.params.id)
     });
-    console.log(deletedPost);
     if (deletedPost.hasImage) {
       gfs.files.deleteOne({
         _id: mongoose.Types.ObjectId(deletedPost.contentImageId)
@@ -295,22 +280,22 @@ router.post('/deletepost/:id', auth, async (req, res, next) => {
         .remove(
           { files_id: mongoose.Types.ObjectId(deletedPost.contentImageId) },
           function(err) {
-            if (err) console.log('ERROR! ', err);
+            if (err)
+              console.log('delete post- delete image files error! ', err);
           }
         );
     }
     Comment.deleteMany({ postId: req.params.id })
       .then(result => null)
       .catch(error =>
-        console.log('delete post, delete many comments error: ', error)
+        console.log('delete post delete comments error: ', error)
       );
 
     res.send(deletedPost);
-    // console.log('DELETED POST: ', deletedPost);
   }
 });
 
-// / LIKE POST
+// LIKE POST
 router.post('/likepost/:id', auth, async (req, res) => {
   const foundPost = await Post.findOne({ _id: req.params.id });
   if (foundPost.likes.includes(req.tokenUser.userId)) {
@@ -325,11 +310,11 @@ router.post('/likepost/:id', auth, async (req, res) => {
   }
 });
 
-// / DISLIKE POST
+// DISLIKE POST
 router.post('/dislikepost/:id', auth, async (req, res) => {
   const foundPost = await Post.findOne({ _id: req.params.id });
   if (foundPost.dislikes.includes(req.tokenUser.userId)) {
-    res.status(422).send('error: post already liked by this user');
+    res.status(422).send('error: post already disliked by this user');
   } else {
     const updatedPost = await Post.findOneAndUpdate(
       { _id: req.params.id },

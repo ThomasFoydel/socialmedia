@@ -22,7 +22,6 @@ const FeedPostCommentSection = ({
             return (
               <animated.div key={key} style={props} className='animatedcomment'>
                 <Comment
-                  //   key={item._id}
                   comment={item}
                   commentsArray={commentsArray}
                   setCommentsArray={setCommentsArray}

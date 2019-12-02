@@ -41,7 +41,6 @@ const postReducer = (state = INITIAL_STATE, action) => {
       };
     case PostActionTypes.DELETE_COMMENT_FROM_POST:
       const updatedPost = action.payload;
-      // take post array in state, filter it for all that dont match payload id
       const stateArrayMinusPost = state.posts.filter(
         post => post._id !== action.payload._id
       );

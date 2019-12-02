@@ -12,8 +12,6 @@ const DeleteCommentButton = ({
       data: { postId: postId }
     }).then(result => {
       if (result.status === 200) {
-        // deleteCommentFromPost(result.data);
-
         const newCommentArray = commentsArray.filter(
           comment => comment !== commentId
         );

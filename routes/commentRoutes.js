@@ -8,8 +8,6 @@ const Post = require('../models/post');
 const auth = require('../middlewares/auth');
 
 //          comment routes          //
-//          comment routes          //
-//          comment routes          //
 
 router.post('/newcomment', auth, async (req, res) => {
   const { userId } = req.tokenUser;
@@ -21,12 +19,10 @@ router.post('/newcomment', auth, async (req, res) => {
     authorId: userId,
     lastEditedAt: null
   });
-  // save comment object to database
+
   newComment
     .save()
     .then(result => {
-      // res.send(result);
-      // update post, add comment id to array of comment ids
       Post.findOneAndUpdate(
         { _id: postId },
         { $push: { comments: result._id } },
@@ -35,13 +31,11 @@ router.post('/newcomment', auth, async (req, res) => {
         .then(result => {
           res.status(201).send(result);
         })
-        .catch(err => console.log('postupdate failed. error: ', err));
+        .catch(err =>
+          console.log('newcomment post update failed. error: ', err)
+        );
     })
-    .catch(err => console.log(err));
-
-  // new Comment, returns commentId,
-  // needs Post ID:
-  // then findOneAndUpdate on Post to add commentId to comment array
+    .catch(err => console.log('newcomment save failed. error: ', err));
 });
 
 //get comment by id
@@ -72,13 +66,7 @@ router.delete('/deletecomment/:id', async (req, res) => {
     const { postId } = req.body;
     const deletedComment = await Comment.findOneAndDelete({ _id: commentId });
 
-    // update post that comment belonged to, take id out of comments array
-    const { commentAuthorId } = deletedComment.authorId;
-
-    const postToBeUpdated = await Post.findOne({ _id: postId });
-
     const updatedPost = await Post.findOneAndUpdate(
-      // { commentAuthorId },
       { _id: postId },
       { $pullAll: { comments: [mongoose.Types.ObjectId(commentId)] } },
       { new: true }

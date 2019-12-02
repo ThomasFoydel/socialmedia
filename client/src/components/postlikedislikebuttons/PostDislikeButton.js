@@ -10,7 +10,6 @@ const PostDislikeButton = ({ postId, token, userId, setDislikes }) => {
         headers: { 'x-auth-token': token }
       }
     ).then(result => {
-      // addDislikeToPost({ data: result.data, currentUserId: userId });
       setDislikes(result.data.dislikes);
     });
   };

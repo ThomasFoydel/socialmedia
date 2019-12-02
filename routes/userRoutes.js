@@ -26,10 +26,8 @@ const Grid = require('gridfs-stream');
 
 ///////////// IMAGE STUFF
 router.use(methodOverride('_method'));
-// mongo uri
-const mongoURI =
-  'mongodb+srv://mongouser:Reelbigfish1@social-media-rest-ifmno.mongodb.net/test?retryWrites=true&w=majority';
-const conn = mongoose.createConnection(mongoURI);
+
+const conn = mongoose.createConnection(process.env.MONGO_URI);
 // Init gfs
 let gfs;
 conn.once('open', () => {
@@ -38,7 +36,7 @@ conn.once('open', () => {
 });
 // create storage engine
 const storage = new GridFsStorage({
-  url: mongoURI,
+  url: process.env.MONGO_URI,
   file: (req, file) => {
     return new Promise((resolve, reject) => {
       crypto.randomBytes(16, (err, buf) => {
@@ -77,11 +75,9 @@ router.get('/getuser/:userid', async (req, res, next) => {
 router.get('/getauth', auth, async (req, res) => {
   User.findOne({ _id: mongoose.Types.ObjectId(req.tokenUser.userId) })
     .then(result => {
-      // console.log(result);
       res.status(200).send(result);
     })
     .catch(error => {
-      // console.log('get auth error: ', error);
       res.status(444).send(error);
     });
 });
@@ -141,11 +137,9 @@ router.post(
       .save()
       .then(result => {
         res.status(201).send(result);
-        // console.log('success new user created, result: ', result);
       })
       .catch(err => {
         res.status(400).send(err);
-        // console.log('error! user not created. error: ', err);
       });
   }
 );
@@ -155,7 +149,6 @@ router.post(
 router.post('/login', async (req, res, next) => {
   User.findOne({ email: req.body.email }, async function(err, user) {
     if (err) {
-      // next(err);
       const error = new Error('No user found with this email');
       error.code = 401;
       throw error;
@@ -209,21 +202,17 @@ router.post('/login', async (req, res, next) => {
 
 router.post('/edituser', auth, async (req, res, next) => {
   const { name, email, city, age, password, bio } = req.body;
-  // console.log('edit user req body: ', req.body);
-  // gets tokenUser from auth
   const { userId } = req.tokenUser;
 
   const foundUser = await User.findOne({
     _id: mongoose.Types.ObjectId(userId)
   });
-  // console.log('edit user found user: ', foundUser);
   const passwordsMatch = await bcrypt.compare(password, foundUser.password);
   if (!passwordsMatch) {
     const error = new Error('Not authenticated');
     error.code = 401;
     res.status(401).send(error);
   } else if (passwordsMatch) {
-    // console.log('userid: ', userId);
     User.findOneAndUpdate(
       {
         _id: mongoose.Types.ObjectId(userId)
@@ -231,7 +220,6 @@ router.post('/edituser', auth, async (req, res, next) => {
       { $set: { name: name, email: email, city: city, age: age, bio: bio } },
       { new: true }
     ).then(result => {
-      // console.log('RESULT: ', result);
       res.send(result);
     });
   }
@@ -256,7 +244,7 @@ router.get('/user/:id', async (req, res, next) => {
 //
 //
 //
-//////// EDIT PROFILE PIC //////
+//////// edit profile pic //////
 //
 //
 //
@@ -272,7 +260,6 @@ router.post(
           .status(404)
           .json({ err: 'no file exists, file upload failed' });
       }
-      // console.log('FILE: ', file);
       const updatedUser = await User.findOneAndUpdate(
         { _id: req.tokenUser.userId },
         {
@@ -337,25 +324,11 @@ router.get('/image/:id', async (req, res) => {
   }
 });
 
-// GET IMAGE FROM POST AUTHORID flag: not in use?
+// GET IMAGE FROM POST AUTHORID flag
 router.get('/authorprofilepic/:authorId', async (req, res) => {
   const foundUser = await User.findOne({ _id: req.params.authorId });
   const file = await gfs.files.findOne({
     _id: mongoose.Types.ObjectId(foundUser.profilePicId)
-  });
-  if (!file || file.length === 0) {
-    return res.status(404).json({ err: 'no file exists' });
-  } else {
-    const readStream = gfs.createReadStream(file.filename);
-    readStream.pipe(res);
-  }
-});
-
-/////// GET PROFILE IMAGE BY AUTHOR ID for posts flag: not in use?
-router.get('/image/author/:authorId', async (req, res) => {
-  // let id = mongoose.Types.ObjectId(`req.params.id`);
-  const file = await gfs.files.findOne({
-    _id: mongoose.Types.ObjectId(req.params.id)
   });
   if (!file || file.length === 0) {
     return res.status(404).json({ err: 'no file exists' });
@@ -403,6 +376,8 @@ router.get('/getfriendrequests/:id', async (req, res) => {
 });
 
 // get single friend request by id, returns true or false
+// determines if current user has pending or existing
+// friend request with owner of profile being viewed
 router.get('/getfriendrequest/', auth, async (req, res) => {
   const { profileUserId } = req.query;
   const { userId } = req.tokenUser;

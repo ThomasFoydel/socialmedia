@@ -1,6 +1,5 @@
 $break-big: 900px;
 $break-medium: 850px;
-// $break-small: 414px;
 $break-small: 476px;
 $break-xs: 414px;
 
@@ -63,7 +62,6 @@ html {
   white-space: nowrap;
   @media screen and (max-width: $break-medium) {
     font-size: 3.4rem;
-    // margin-top: 0.8rem;
     width: 24.5rem;
     white-space: pre-line;
   }
@@ -111,7 +109,6 @@ html {
   border-radius: 1rem;
   text-align: center;
   transition: box-shadow 0.2s, color 0.2s, transform 0.2s, background 0.2s;
-  // z-index: 1;
   &:hover {
     cursor: pointer;
     color: white;
@@ -165,7 +162,6 @@ html {
   box-shadow: 0.7rem 0.7rem 0.7rem rgba(0, 0, 0, 0.123);
   @media screen and (max-width: $break-medium) {
     width: 80%;
-    // min-width: 50rem;
     text-align: center;
     font-size: 1.7rem;
     margin-left: 50%;
@@ -186,7 +182,6 @@ html {
 }
 
 .profilepagefriendlist {
-  // background: rgba(105, 175, 255, 0.062);
   border-radius: 0.2rem;
   overflow-y: auto;
   margin-top: 2rem;
@@ -228,7 +223,6 @@ html {
   padding: 0.4rem;
   resize: none;
   border-radius: 0.2rem;
-  // background: rgba(105, 175, 255, 0.062);
   box-sizing: border-box;
   @media screen and (max-width: $break-medium) {
     margin-bottom: 8rem;
@@ -321,7 +315,6 @@ html {
 }
 
 .nofriendsmessage {
-  // border: 1px solid rgb(182, 182, 182);
   display: grid;
   margin-left: 0.4rem;
   grid-template-columns: repeat(2, 1fr);
@@ -337,9 +330,6 @@ html {
   margin-top: 2rem;
   text-align: center;
   overflow-x: auto;
-  // @media screen and (min-width: $break-medium) {
-  //   max-width: 30rem;
-  // }
 }
 
 .userprofilefriendlisttitle {
@@ -348,7 +338,6 @@ html {
   transform: translateX(-50%);
   position: relative;
   text-align: center;
-  // text-shadow: 3px 5px 2px #47474723;
   z-index: 1;
   color: rgb(27, 135, 236);
   background: rgba(233, 233, 233, 0.986);
@@ -374,7 +363,6 @@ html {
   position: relative;
   text-align: center;
   top: -44rem;
-  // text-shadow: 3px 5px 2px #47474723;
   z-index: 1;
   color: rgb(27, 135, 236);
   background: rgba(233, 233, 233, 0.986);
@@ -384,14 +372,12 @@ html {
   @media screen and (max-width: $break-medium) {
     font-size: 4rem;
     width: 29%;
-    // padding: 0.3rem 1rem;
     top: 0.4rem;
     padding: 0rem 0rem 0.5rem 0rem;
   }
 
   @media screen and (max-width: $break-small) {
     margin-left: 50vw;
-    // transform: translateX(-50%);
   }
 }
 

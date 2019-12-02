@@ -19,8 +19,6 @@ const UploadProfilePic = ({
   };
 
   const fileUploadHandler = () => {
-    // TODO: Maybe add error handling for if this
-    // fires while selectedProfileFile is null
     const fd = new FormData();
     fd.append('image', selectedProfileFile, selectedProfileFile.name);
     Axios.post(`/user/editprofilepic`, fd, {
@@ -79,11 +77,6 @@ const UploadProfilePic = ({
           <>new profile pic</>
         )}
       </label>
-      {/* {profileInputContainsFile && (
-        <button className='uploadprofilepicbutton' onClick={fileUploadHandler}>
-          upload
-        </button>
-      )} */}
     </div>
   );
 };

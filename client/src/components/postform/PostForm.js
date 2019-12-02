@@ -65,10 +65,8 @@ function PostForm({
           }
         });
 
-        // SEND POST TO REDUX
         pushToReduxPosts(createdPost.data);
 
-        // RESET COMPONENT STATE INPUT VALUES
         setPostValue('');
         setTitleValue('');
         setSelectedFile(null);
@@ -91,10 +89,7 @@ function PostForm({
           }
         );
 
-        // SEND POST TO REDUX
         pushToReduxPosts(createdPost.data);
-
-        // RESET COMPONENT STATE INPUT VALUES
 
         setPostValue('');
         setTitleValue('');
@@ -193,7 +188,4 @@ const mapDispatchToProps = dispatch => ({
   pushToReduxPosts: post => dispatch(pushPost(post))
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PostForm);
+export default connect(mapStateToProps, mapDispatchToProps)(PostForm);

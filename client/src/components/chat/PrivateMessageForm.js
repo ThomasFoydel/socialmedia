@@ -14,14 +14,12 @@ const PrivateMessageForm = ({
   useEffect(() => {}, []);
 
   const [messageInput, setMessageInput] = useState('');
-  //   const [messages, setMessages] = useState([]);
 
   const inputMessage = e => {
     setMessageInput(e.target.value);
   };
 
   const sendMessage = async () => {
-    // TODO: EMIT TO SOCKETID OF FRIEND
     if (messageInput.length > 0) {
       if (currentFriendIsOnline) {
         socket.emit('newPrivateMessageFromClient', {

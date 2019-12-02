@@ -78,7 +78,6 @@ const Comment = ({
 
             <div className='commentauthorbuttons'>
               {userId === foundComment.authorId && isLoggedIn ? (
-                // author is current user
                 <div className='flex'>
                   <div>
                     {' '}

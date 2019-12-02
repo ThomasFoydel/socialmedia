@@ -1,7 +1,6 @@
 import { CurrentUserActionTypes } from './currentUserTypes';
 
 const INITIAL_STATE = {
-  // TODO - CONFLICT WITH AUTH REDUCER NAME?? REMOVE IN AUTH??
   userName: '',
   email: '',
   city: '',

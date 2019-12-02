@@ -6,7 +6,6 @@ const Post = require('../models/post');
 const User = require('../models/user');
 
 router.post('/mainsearch/:terms', auth, async (req, res) => {
-  // console.log('main search: ', req.params.terms, req.body);
   let posts = [];
   let users = [];
 
@@ -18,8 +17,6 @@ router.post('/mainsearch/:terms', auth, async (req, res) => {
   let counter = termsArray.length;
 
   termsArray.forEach((term, index) => {
-    // console.log(term, ' started...');
-
     const searchMongo = async () => {
       User.find({
         name: { $regex: `${term}`, $options: '$i' }
@@ -58,7 +55,7 @@ router.post('/mainsearch/:terms', auth, async (req, res) => {
               const map = new Map();
               for (const post of posts) {
                 if (!map.has(post._id.toString())) {
-                  map.set(post._id.toString(), true); // set any value to Map
+                  map.set(post._id.toString(), true);
                   filteredPostArray.push({
                     _id: post._id.toString(),
                     authorName: post.authorName,

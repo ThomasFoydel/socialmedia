@@ -86,9 +86,6 @@ $break-small: 414px;
 }
 
 ///////// MEDIUM
-///////// MEDIUM
-///////// MEDIUM
-///////// MEDIUM
 
 .mediumnavbarcontainer,
 .navbarmedium {
@@ -203,92 +200,6 @@ $break-small: 414px;
   margin-left: 4%;
 }
 
-///////// SMALL
-///////// SMALL
-///////// SMALL
-///////// SMALL
-
-// .smallnavbarcontainer,
-// .navbarsmall,
-// .smallmainnavbarinnercontainer {
-//   top: 0;
-//   color: #fff;
-//   position: fixed;
-//   width: 100%;
-//   @media screen and (min-width: $break-small) {
-//     display: none;
-//   }
-// }
-
-// .smallmainnavbarinnercontainer {
-//   z-index: 3;
-//   font-size: 2.1rem;
-//   @media screen and (max-width: $break-small) {
-//     font-size: 3rem;
-//   }
-// }
-
-// .smallnavbarclosedcontainer,
-// .smallnavbaropentopcontainer {
-//   background: rgb(10, 125, 255);
-//   max-height: 6rem;
-//   z-index: 999;
-//   position: relative;
-// }
-
-// .smallnavbaropenbottomcontainer {
-//   // height: 20rem;
-// }
-
-// .smallsearchbar {
-//   width: 14rem;
-//   margin-right: 1rem;
-// }
-
-// .smallnavbarhomelink {
-//   margin-right: 1.5rem;
-//   margin-top: 1rem;
-//   margin-left: 0.5rem;
-// }
-
-// .smallmainnavbaritem {
-//   // margin-top: 1rem;
-// }
-
-// // .smallnavbaropen {
-// //   height: 31rem;
-// //   background: rgb(10, 125, 255);
-// //   z-index: 2;
-// //   position: fixed;
-// //   width: 100%;
-// // }
-
-// .smallopenfullnavbarbutton,
-// .smallclosefullnavbarbutton {
-//   position: absolute;
-//   right: 2rem;
-//   top: 1rem;
-// }
-
-// .smallclosefullnavbarbutton {
-//   color: #7eb8fa;
-// }
-
-// .smallsearchbar {
-//   margin-top: 1rem;
-// }
-
-// .smallnavbarnotloggedin {
-//   margin-top: 1rem;
-//   margin-left: 0.4rem;
-// }
-
-// .smallnavbarlogin,
-// .smallnavbarregister {
-//   list-style: none;
-//   margin-left: 1rem;
-// }
-
 .mediumfrobuttontrue,
 .smallfrobuttontrue {
   color: rgb(128, 186, 253);
@@ -366,7 +277,7 @@ $break-small: 414px;
 .smallclosefullnavbarbuttonopentrue i {
   color: #7eb8fa;
 }
-// .smallclosefullnavbarbutton,
+
 .smallopenfullnavbarbutton {
   top: 1.5rem;
   right: 1rem;
@@ -397,7 +308,6 @@ $break-small: 414px;
 }
 
 .smallfriendreqs {
-  // margin-left: 0.5rem;
   margin-top: 0.5rem;
   &:hover {
     cursor: pointer;

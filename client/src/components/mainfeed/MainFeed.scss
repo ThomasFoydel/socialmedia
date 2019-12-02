@@ -20,9 +20,6 @@ $break-small: 440px;
   margin-left: 50%;
   transform: translateX(-50%);
   padding: 0;
-  // height: auto;
-  // overflow-y: hidden;
-  // overflow-x: visible;
   width: 100%;
   @media screen and (max-width: $break-small) {
     min-width: 35rem;

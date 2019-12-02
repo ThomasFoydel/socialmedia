@@ -29,9 +29,7 @@ const App = ({
   userName
 }) => {
   useEffect(() => {
-    // FROM REDUX
     if (!token) {
-      console.log('no token');
       return;
     } else if (token) {
       const setAuthInfo = async () => {
@@ -118,7 +116,4 @@ const mapDispatchToProps = dispatch => ({
   setIsLoggedIn: loginstate => dispatch(setIsLoggedIn(loginstate))
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -9,8 +9,6 @@ const ChatFriendListIndividual = ({
   updateCurrentUser
 }) => {
   const [friend, setFriend] = useState({});
-  // if isOnline = true, make link to open up private message chat component
-  // that sends to socketid of friend
 
   useEffect(() => {
     if (isOnline) {
