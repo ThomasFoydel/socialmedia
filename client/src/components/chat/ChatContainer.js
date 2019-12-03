@@ -15,7 +15,7 @@ const ChatContainer = ({ isLoggedIn, token, userName, friendList }) => {
   const [messages, setMessages] = useState([]);
   const [updatedFriendList, setUpdatedFriendList] = useState([]);
 
-  const ENDPOINT = `http://localhost:8000?token=${token}`;
+  const ENDPOINT = `?token=${token}`;
 
   socket = io(ENDPOINT);
 

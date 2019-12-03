@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
 import { connect } from 'react-redux';
-import { setCurrentUserProfilePic } from '../../redux/currentUser/currentUserActions';
+import { setCurrentUserProfilePic } from '../../../redux/currentUser/currentUserActions';
 
 const UploadProfilePic = ({
   setCurrentUserProfilePic,

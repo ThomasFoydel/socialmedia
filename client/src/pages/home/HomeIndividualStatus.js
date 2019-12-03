@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
-import HomeStatusLikeDislikeButtons from '../../components/homestatuslikedislikebuttons/HomeStatusLikeDislikeButtons';
+import HomeStatusLikeDislikeButtons from './homestatuslikedislikebuttons/HomeStatusLikeDislikeButtons';
 import { Link } from 'react-router-dom';
 
 const HomeIndividualStatus = ({ status }) => {

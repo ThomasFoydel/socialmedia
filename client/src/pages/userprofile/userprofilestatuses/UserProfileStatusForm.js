@@ -29,17 +29,6 @@ const UserProfileStatusForm = ({ token, setStatusesArray, statusesArray }) => {
         className='userprofilestatusinput'
         placeholder='status...'
       />
-
-      {/* <label type='text' name='post'>
-              <textarea
-                name='post'
-                type='text'
-                className='editpostforminput editpostformpost'
-                value={postValue}
-                onChange={handleChange}
-              />
-            </label> */}
-
       <div onClick={handleSubmit} className='userprofilestatusformsubmit'>
         submit
       </div>

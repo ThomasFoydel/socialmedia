@@ -23,7 +23,6 @@ const HomeStatusFeed = ({ token, friendList }) => {
     <>
       {statusArray.length > 0 && (
         <div className='homepagestatusfeedcontainer'>
-          {/* <h1 className='homestatusfeedtitle'>friend status feed:</h1> */}
           {statusArray.map(status => (
             <HomeIndividualStatus key={status._id} status={status} />
           ))}
@@ -33,9 +32,4 @@ const HomeStatusFeed = ({ token, friendList }) => {
   );
 };
 
-// const mapStateToProps = state => ({
-//   token: state.auth.token
-// });
-
-// export default connect(mapStateToProps)(HomeStatusFeed);
 export default HomeStatusFeed;

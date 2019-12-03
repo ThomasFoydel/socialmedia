@@ -17,9 +17,6 @@ const PostLikeDislikeButtons = ({
 }) => {
   return (
     <div className='postlikedislikebuttonsoutercontainer'>
-      {/* {likes.includes(userId) && <h4>YOU LIKE THIS</h4>}
-      {dislikes.includes(userId) && <h4>YOU DISLIKE THIS</h4>} */}
-
       <>
         {authorId !== userId && (
           <div className='flex postlikedislikebuttonscontainer'>

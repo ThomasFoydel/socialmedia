@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import Axios from 'axios';
-import { addCommentToPost } from '../../redux/posts/postActions';
+import { addCommentToPost } from '../../../../../redux/posts/postActions';
 
 import './CommentForm.scss';
 
@@ -47,7 +47,6 @@ const CommentForm = ({
   return (
     <div className='commentform'>
       <div className='commentformcontainer'>
-        {/* <div className='flex'> */}
         <input
           type='text'
           name='commentContent'
@@ -57,7 +56,6 @@ const CommentForm = ({
           placeholder='comment...'
           onKeyDown={handleKeyDown}
         />
-        {/* </div> */}
       </div>
     </div>
   );

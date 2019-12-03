@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
 import { connect } from 'react-redux';
-import { setCurrentUserCoverPic } from '../../redux/currentUser/currentUserActions';
+import { setCurrentUserCoverPic } from '../../../redux/currentUser/currentUserActions';
 
 const UploadCoverPic = ({ setCurrentUserCoverPic, coverPicId, token }) => {
   const [selectedCoverFile, setSelectedCoverFile] = useState(null);
@@ -76,12 +76,6 @@ const UploadCoverPic = ({ setCurrentUserCoverPic, coverPicId, token }) => {
           <>new cover pic</>
         )}
       </label>
-
-      {/* {inputContainsFile && (
-        <button className='uploadcoverpicbutton' onClick={fileUploadHandler}>
-          upload
-        </button>
-      )} */}
     </div>
   );
 };

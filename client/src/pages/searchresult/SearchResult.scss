@@ -42,8 +42,6 @@ $break-xs: 485px;
   background: #fff;
   box-shadow: 0.25rem 0.25rem 0.25rem rgba(46, 46, 46, 0.671);
   cursor: pointer;
-  // border-bottom: 1px solid black;
-  // border-left: 1px solid black;
   transition: color 0.5s, background 0.5s;
   &:hover {
     background: rgb(63, 130, 230);
@@ -56,8 +54,6 @@ $break-xs: 485px;
   background: rgb(140, 186, 255);
   color: rgb(255, 255, 255);
   box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.671);
-  // border-top: 1px solid black;
-  // border-right: 1px solid black;
   &:hover {
     cursor: default;
   }
@@ -100,10 +96,6 @@ $break-xs: 485px;
   margin-top: 10rem;
   margin-top: -4rem;
 }
-
-// .searchresultuserscontainertitle {
-//   top: -4rem;
-// }
 
 .searchresultpost {
   max-width: 20rem;
@@ -163,18 +155,6 @@ $break-xs: 485px;
   justify-content: center;
   justify-items: center;
 }
-
-// .searchresultposttitle {
-// }
-
-// .searchresultpostdate {
-// }
-
-// .searchresultpostcontent {
-// }
-
-// .searchresultusername {
-// }
 
 .searchresultpostimage {
   width: 100%;

@@ -4,26 +4,6 @@ $break-small: 414px;
 .edituserformoutsidecontainer {
   width: 100vw;
   margin-left: 1rem;
-  // margin-left: 50%;
-  // transform: translateX(-50%);
-  // @media screen and (max-width: $break-medium) {
-  //   min-width: 40rem;
-  //   max-width: 40rem;
-  // }
-  // @media screen and (max-width: $break-small) {
-  //   min-width: 30rem;
-  //   max-width: 30rem;
-  // }
-}
-.edituserformcontainer {
-  // margin-left: 50%;
-  // transform: translateX(-50%);
-  // @media screen and (max-width: $break-medium) {
-  //   width: 45rem;
-  // }
-  // @media screen and (max-width: $break-small) {
-  //   width: 27rem;
-  // }
 }
 
 .editusertitletext {
@@ -83,7 +63,6 @@ $break-small: 414px;
 
 .edituserformbutton {
   margin-top: 1.8rem;
-  // margin-left: 10rem;
   margin-left: 50%;
   transform: translateX(-50%);
   color: rgb(82, 157, 250);

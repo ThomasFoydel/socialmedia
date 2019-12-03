@@ -101,7 +101,11 @@ const MediumNavBar = ({
                       <i className={arrowTag}></i>
                       Friend Requests
                     </div>
-                    {friendRequestsOpen && <FriendRequests />}
+
+                    <FriendRequests
+                      friendRequestsOpen={friendRequestsOpen}
+                      setFriendRequestsOpen={setFriendRequestsOpen}
+                    />
                   </li>
                   <li>
                     <div className='mediummainnavbarlogout'>

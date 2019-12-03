@@ -1,8 +1,8 @@
 import React from 'react';
-import CommentLikeButton from '../commentlikedislikebuttons/CommentLikeButton';
-import CommentRemoveLikeButton from '../commentlikedislikebuttons/CommentRemoveLikeButton';
-import CommentDislikeButton from '../commentlikedislikebuttons/CommentDislikeButton';
-import CommentRemoveDislikeButton from '../commentlikedislikebuttons/CommentRemoveDislikeButton';
+import CommentLikeButton from './CommentLikeButton';
+import CommentRemoveLikeButton from './CommentRemoveLikeButton';
+import CommentDislikeButton from './CommentDislikeButton';
+import CommentRemoveDislikeButton from './CommentRemoveDislikeButton';
 import EditCommentForm from '../editcommentform/EditCommentForm.js';
 
 import './CommentLikeDislikeButtons.scss';

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
-import EditCommentForm from '../editcommentform/EditCommentForm.js';
-import DeleteCommentButton from '../deletecommentbutton/DeleteCommentButton';
+import EditCommentForm from './editcommentform/EditCommentForm';
+import DeleteCommentButton from './deletecommentbutton/DeleteCommentButton';
 
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import './Comment.scss';
-import CommentLikeDislikeButtons from '../commentlikedislikebuttons/CommentLikeDislikeButtons.js';
+import CommentLikeDislikeButtons from './commentlikedislikebuttons/CommentLikeDislikeButtons';
 
 const Comment = ({
   comment,

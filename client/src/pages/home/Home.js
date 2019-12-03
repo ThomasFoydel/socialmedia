@@ -1,12 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logoutSession } from '../../redux/auth/authActions';
-import './Home.scss';
 import NavBar from '../../components/navbar/NavBar';
 import Login from '../login/Login';
 import HomeStatusFeed from './HomeStatusFeed';
+import './Home.scss';
 
-const Home = ({ userName, profilePicId, isLoggedIn, token, friendList }) => {
+const Home = ({ userId, profilePicId, isLoggedIn, token, friendList }) => {
   return (
     <>
       {isLoggedIn ? (
@@ -17,11 +18,13 @@ const Home = ({ userName, profilePicId, isLoggedIn, token, friendList }) => {
                 <div className='homecontainer__heading'></div>
                 <h1 className='homecontainer__heading--main'>HOME</h1>
                 {profilePicId && (
-                  <img
-                    src={`/user/image/${profilePicId}`}
-                    alt='your profilepic'
-                    className='homecontainer__heading--profilepicture'
-                  ></img>
+                  <Link to={`/userprofile/${userId}`}>
+                    <img
+                      src={`/user/image/${profilePicId}`}
+                      alt='your profilepic'
+                      className='homecontainer__heading--profilepicture'
+                    ></img>
+                  </Link>
                 )}
               </div>
             </div>

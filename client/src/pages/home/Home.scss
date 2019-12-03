@@ -5,12 +5,7 @@ $break-small: 414px;
   position: fixed;
   width: 100%;
   min-width: 31.5rem;
-  // background-image: url('../../imgs/pineapplerepeat.jpg');
 }
-
-// .homewavescontainer {
-
-// }
 
 .homecontainer {
   margin: 0 3rem;
@@ -67,12 +62,9 @@ $break-small: 414px;
   font-weight: 400;
   letter-spacing: 3.5rem;
   margin-right: -3.5rem;
-  animation-name: slideInLeft;
+  animation-name: slideUp;
   animation-duration: 0.8s;
   animation-timing-function: ease-out;
-  // width: 100vw;
-  // margin-left: 50%;
-  // transform: translateX(-50%);
   @media screen and (max-width: $break-small) {
     font-size: 4rem;
     font-weight: 700;
@@ -80,7 +72,6 @@ $break-small: 414px;
 }
 
 .homecontainer__heading--sub {
-  // width: 100vw;
   display: block;
   font-size: 2.1rem;
   font-weight: 900;
@@ -106,22 +97,22 @@ $break-small: 414px;
 
 @keyframes slideInRight {
   0% {
-    transform: translateX(10rem);
+    transform: translateY(10rem);
     opacity: 0;
   }
   100% {
-    transform: translateX(0);
+    transform: translateY(0);
     opacity: 1;
   }
 }
 
-@keyframes slideInLeft {
+@keyframes slideUp {
   0% {
-    transform: translateX(-10rem);
+    transform: translateY(3rem);
     opacity: 0;
   }
   100% {
-    transform: translateX(0);
+    transform: translateY(0);
     opacity: 1;
   }
 }

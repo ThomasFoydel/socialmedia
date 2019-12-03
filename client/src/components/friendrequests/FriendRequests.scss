@@ -1,3 +1,6 @@
+$break-medium: 850px;
+$break-small: 414px;
+
 .friendrequestcontainer {
   width: 24rem;
   z-index: 2;
@@ -9,6 +12,8 @@
   border-radius: 0 0 0.3rem 0.3rem;
   &:hover {
     cursor: default;
+  }
+  @media screen and (max-width: $break-medium) {
   }
 }
 

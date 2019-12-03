@@ -3,7 +3,7 @@ import CommentForm from '../commentform/CommentForm';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Axios from 'axios';
-import PostLikeDislikeButtons from '../postlikedislikebuttons/PostLikeDislikeButtons';
+import PostLikeDislikeButtons from './postlikedislikebuttons/PostLikeDislikeButtons';
 import { Spring } from 'react-spring/renderprops';
 import { useSpring, config, animated } from 'react-spring';
 

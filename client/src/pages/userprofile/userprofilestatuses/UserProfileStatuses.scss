@@ -13,10 +13,6 @@ $break-small: 476px;
     margin-left: 0;
     padding-left: 0;
   }
-  @media screen and (max-width: $break-small) {
-    // margin-left: 50%;
-    // transform: translateX(-50%);
-  }
 }
 
 .userprofilestatusform {
@@ -44,7 +40,6 @@ $break-small: 476px;
     margin-bottom: 10rem;
     width: 80%;
     margin-bottom: 5rem;
-    // min-width: 50rem;
     margin-left: 50%;
     transform: translateX(-50%);
     max-width: 80vw;
@@ -80,14 +75,6 @@ $break-small: 476px;
     color: rgb(255, 255, 255);
     background: rgb(158, 158, 158);
   }
-  // @media screen and (min-width: $break-medium) {
-  //   &:hover {
-  //     top: 8.3rem;
-  //   }
-  //   &:active {
-  //     top: 8.4rem;
-  //   }
-  // }
   @media screen and (max-width: $break-medium) {
     right: 120%;
     transform: translateX(50%);
@@ -121,7 +108,6 @@ $break-small: 476px;
   margin-left: 50%;
   transform: translateX(-50%);
   @media screen and (max-width: $break-medium) {
-    // width: 95vw;
     max-width: 95vw;
     margin-left: 0;
     transform: translateX(0);
@@ -131,9 +117,7 @@ $break-small: 476px;
     height: 18rem;
     transform: translateX(0);
     margin-left: 0;
-    // margin-left: 18rem;
     max-width: 95vw;
-    // min-width: 90vw;
     min-width: 95vw;
   }
 }
@@ -203,21 +187,11 @@ $break-small: 476px;
   position: absolute;
   right: 0;
   top: 0;
-  // margin-top: -3rem;
   @media screen and(max-width: $break-small) {
     display: none;
   }
 }
 
-// .userprofilestatusdeleteclicked {
-//   position: absolute;
-//   right: 0.8rem;
-//   top: -2rem;
-//   color: rgb(255, 82, 82);
-//   @media screen and (max-width: $break-small) {
-//     transform: scale(1.6);
-//   }
-// }
 
 .userprofilestatusdeleteoptions {
   position: absolute;

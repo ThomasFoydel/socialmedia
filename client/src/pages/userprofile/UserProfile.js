@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import UserProfileUnfriendButton from '../../components/userprofileunfriendbutton/UserProfileUnfriendButton';
+import UserProfileUnfriendButton from './userprofileunfriendbutton/UserProfileUnfriendButton';
 import UserProfileStatusContainer from '../../components/userprofilestatuses/UserProfileStatusContainer';
 
 import FriendListItem from '../../components/friendlistitem/FriendListItem';
@@ -14,8 +14,7 @@ import cloudloading from '../../imgs/cloudloading2.svg';
 import './UserProfile.scss';
 
 const UserProfile = ({ match, userId, token, isLoggedIn, friendList }) => {
-  // userId (current user) -different from- userid (profile user)
-  // uppercase and lower case "I"/"i"
+  // 'userId' (current user) -different from- 'userid' (profile user)
 
   const { userid } = match.params;
   const profileUserId = userid;
@@ -28,7 +27,6 @@ const UserProfile = ({ match, userId, token, isLoggedIn, friendList }) => {
   useEffect(() => {
     let isSubscribed = true;
     if (isSubscribed) {
-      // sets if this the current user
       const getProfileUser = async () => {
         const foundUser = await Axios.get(`/user/getuser/${profileUserId}`);
         setProfileUser(foundUser.data);
@@ -44,7 +42,6 @@ const UserProfile = ({ match, userId, token, isLoggedIn, friendList }) => {
 
       getProfileUser();
 
-      // sets if add already existing
       const getExistingAdd = async () => {
         const existingFriendRequest = await Axios.get(
           `/user/getfriendrequest/`,
@@ -133,7 +130,6 @@ const UserProfile = ({ match, userId, token, isLoggedIn, friendList }) => {
               ) : null}
             </div>
           </>
-          {/* <div style={{ height: '45rem' }} /> */}
           <div className='profilegrid'>
             <div className='profileinfobox'>
               <div className='profilepageinfobox'>

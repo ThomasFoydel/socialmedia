@@ -18,7 +18,6 @@ export default function Register() {
     setFormSubmitSuccess(false);
   }, []);
 
-  // Update State
   const handleChange = e => {
     switch (e.target.name) {
       case 'name':
@@ -44,7 +43,6 @@ export default function Register() {
     }
   };
 
-  // submit data to backend
   const handleSubmit = async e => {
     e.preventDefault();
     Axios.post(
@@ -56,7 +54,6 @@ export default function Register() {
         confirmPassword: confirmPasswordValue,
         age: ageValue,
         city: cityValue,
-        // DEFAULT PROFILE PICTURE:
         profilePicId: '5dddc804fe5c4c0017a60faa'
       },
       { headers: { 'Content-Type': 'application/json' } }

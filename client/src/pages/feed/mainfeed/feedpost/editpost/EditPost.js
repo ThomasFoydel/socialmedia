@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import Axios from 'axios';
 import { connect } from 'react-redux';
 
-import DeleteButton from '../deletebutton/DeleteButton';
+import DeleteButton from '../../../../../components/deletebutton/DeleteButton';
 
 import './EditPost.scss';
 
