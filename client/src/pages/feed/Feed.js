@@ -1,5 +1,5 @@
 import React from 'react';
-import MainFeed from '../../components/mainfeed/MainFeed';
+import MainFeed from './mainfeed/MainFeed';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
