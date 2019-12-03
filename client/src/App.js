@@ -8,7 +8,7 @@ import Login from './pages/login/Login';
 import Feed from './pages/feed/Feed';
 import Home from './pages/home/Home';
 
-import EditUser from './pages/edituser/EditUser';
+import EditUser from './pages/editUser/EditUser';
 import UserProfile from './pages/userprofile/UserProfile';
 import SearchResult from './pages/searchresult/SearchResult';
 import IndividualPost from './pages/individualpost/IndividualPost';
