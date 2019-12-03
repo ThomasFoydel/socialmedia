@@ -443,7 +443,15 @@ router.post('/rejectfriendrequest', auth, async (req, res) => {
     sender: senderId,
     recipient: recipientId
   });
-  res.status(200).send(deletedFriendRequest);
+
+  const updatedRequests = await FriendRequest.find({
+    recipient: req.tokenUser.userId,
+    status: 'pending'
+  });
+
+  res.status(200).send({
+    updatedRequests: updatedRequests
+  });
 });
 
 router.post('/unfriend', auth, async (req, res) => {
