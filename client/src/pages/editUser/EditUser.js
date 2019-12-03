@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import { connect } from 'react-redux';
-import { setCurrentUserInfo } from '../../redux/currentUser/currentUserActions';
-import UploadProfilePic from '../../components/uploadprofilepic/UploadProfilePic';
-import UploadCoverPic from '../../components/uploadcoverpic/UploadCoverPic';
+import { setCurrentUserInfo } from '../../../redux/currentUser/currentUserActions';
+import UploadProfilePic from '../../../components/uploadprofilepic/UploadProfilePic';
+import UploadCoverPic from '../../../components/uploadcoverpic/UploadCoverPic';
 
 import './EditUser.scss';
 
