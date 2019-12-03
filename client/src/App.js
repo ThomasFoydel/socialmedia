@@ -9,7 +9,7 @@ import Feed from './pages/feed/Feed';
 import Home from './pages/home/Home';
 
 import EditUser from './pages/edituser/EditUser';
-import UserProfile from './pages/userprofile/UserProfile';
+// import UserProfile from './pages/userprofile/UserProfile';
 import SearchResult from './pages/searchresult/SearchResult';
 import IndividualPost from './pages/individualpost/IndividualPost';
 import IndividualImage from './pages/individualimage/IndividualImage';
@@ -72,7 +72,7 @@ const App = ({
           <Route exact path='/' component={Home} />
           <Route path='/feed' component={Feed} />
           <Route path='/register' component={Register} />
-          <Route path='/edituser' component={EditUser} />
+          {/* <Route path='/edituser' component={EditUser} /> */}
           <Route path='/userprofile/:userid' component={UserProfile} />
           <Route path='/postimage/:id' component={IndividualImage} />
           <Route
