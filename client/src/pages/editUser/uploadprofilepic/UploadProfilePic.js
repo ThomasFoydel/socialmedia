@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Axios from 'axios';
 import { connect } from 'react-redux';
 import { setCurrentUserProfilePic } from '../../../redux/currentUser/currentUserActions';
+import LoadingDots from '../../../imgs/loadingdots.gif';
 
 const UploadProfilePic = ({
   setCurrentUserProfilePic,
@@ -12,6 +13,7 @@ const UploadProfilePic = ({
   const [profileInputContainsFile, setProfileInputContainsFile] = useState(
     false
   );
+  const [currentlyUploading, setCurrentlyUploading] = useState(false);
 
   const profileFileSelectedHandler = event => {
     setSelectedProfileFile(event.target.files[0]);
@@ -32,15 +34,18 @@ const UploadProfilePic = ({
     })
       .then(res => {
         setCurrentUserProfilePic(res.data.profilePicId);
+        setProfileInputContainsFile(false);
+        setSelectedProfileFile(null);
+        setCurrentlyUploading(false);
       })
       .catch(err => {
         console.log(err);
       });
-    setProfileInputContainsFile(false);
   };
 
   const handleClick = e => {
     if (profileInputContainsFile) {
+      setCurrentlyUploading(true);
       e.preventDefault();
       fileUploadHandler();
       setProfileInputContainsFile(false);
@@ -55,28 +60,27 @@ const UploadProfilePic = ({
         alt='profile'
       />
 
-      <input
-        className='edituserprofileuploadinput'
-        onChange={profileFileSelectedHandler}
-        type='file'
-        name='file'
-        id='file'
-      />
-      <label
-        className={`edituserprofilefileinputlabel edituserprofileselectedfile${selectedProfileFile &&
-          'true'}`}
-        htmlFor='file'
-        onClick={handleClick}
-      >
-        {selectedProfileFile ? (
-          <i
-            className='fa fa-check edituserprofilefileinputlabelcheck'
-            aria-hidden='true'
-          ></i>
-        ) : (
-          <>new profile pic</>
-        )}
-      </label>
+      {currentlyUploading ? (
+        <img src={LoadingDots} className='uploadprofilepic-loadingdots' />
+      ) : (
+        <>
+          <input
+            className='edituserprofileuploadinput'
+            onChange={profileFileSelectedHandler}
+            type='file'
+            name='file'
+            id='file'
+          />
+          <label
+            className={`edituserprofilefileinputlabel edituserprofileselectedfile${selectedProfileFile &&
+              'true'}`}
+            htmlFor='file'
+            onClick={handleClick}
+          >
+            {selectedProfileFile ? <>confirm</> : <>new profile pic</>}
+          </label>
+        </>
+      )}
     </div>
   );
 };

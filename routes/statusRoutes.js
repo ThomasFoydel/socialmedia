@@ -116,6 +116,7 @@ router.post('/getfriendstatuses', auth, async (req, res) => {
     const getStatusesForIndividualFriend = async () => {
       Status.find({ authorId: friend })
         .limit(15)
+        .sort({ createdAt: -1 })
         .then(friendStatuses => {
           friendStatuses.forEach(status => {
             totalStatusArray.push(status);

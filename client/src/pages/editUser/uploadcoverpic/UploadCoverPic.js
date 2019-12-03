@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import Axios from 'axios';
 import { connect } from 'react-redux';
 import { setCurrentUserCoverPic } from '../../../redux/currentUser/currentUserActions';
+import LoadingDots from '../../../imgs/loadingdots.gif';
 
 const UploadCoverPic = ({ setCurrentUserCoverPic, coverPicId, token }) => {
   const [selectedCoverFile, setSelectedCoverFile] = useState(null);
   const [inputContainsFile, setInputContainsFile] = useState(false);
+  const [currentlyUploading, setCurrentlyUploading] = useState(false);
 
   const coverFileSelectedHandler = event => {
     setSelectedCoverFile(event.target.files[0]);
@@ -26,16 +28,18 @@ const UploadCoverPic = ({ setCurrentUserCoverPic, coverPicId, token }) => {
     })
       .then(res => {
         setCurrentUserCoverPic(res.data.coverPicId);
+        setInputContainsFile(false);
+        setSelectedCoverFile(null);
+        setCurrentlyUploading(false);
       })
       .catch(err => {
         console.log(err);
       });
-    setInputContainsFile(false);
-    setSelectedCoverFile(null);
   };
 
   const handleClick = e => {
     if (inputContainsFile) {
+      setCurrentlyUploading(true);
       e.preventDefault();
       fileUploadHandler();
       setInputContainsFile(false);
@@ -54,28 +58,27 @@ const UploadCoverPic = ({ setCurrentUserCoverPic, coverPicId, token }) => {
         <div className='nocoverpic' />
       )}
 
-      <input
-        className='editusercoveruploadinput'
-        onChange={coverFileSelectedHandler}
-        type='file'
-        name='coverfile'
-        id='coverfile'
-      />
-      <label
-        className={`editusercoverfileinputlabel editusercoverselectedfile${selectedCoverFile &&
-          'true'}`}
-        htmlFor='coverfile'
-        onClick={handleClick}
-      >
-        {selectedCoverFile ? (
-          <i
-            className='fa fa-check editusercoverfileinputlabelcheck'
-            aria-hidden='true'
-          ></i>
-        ) : (
-          <>new cover pic</>
-        )}
-      </label>
+      {currentlyUploading ? (
+        <img src={LoadingDots} className='uploadcoverpic-loadingdots' />
+      ) : (
+        <>
+          <input
+            className='editusercoveruploadinput'
+            onChange={coverFileSelectedHandler}
+            type='file'
+            name='coverfile'
+            id='coverfile'
+          />
+          <label
+            className={`editusercoverfileinputlabel editusercoverselectedfile${selectedCoverFile &&
+              'true'}`}
+            htmlFor='coverfile'
+            onClick={handleClick}
+          >
+            {selectedCoverFile ? <>confirm</> : <>new cover pic</>}
+          </label>
+        </>
+      )}
     </div>
   );
 };

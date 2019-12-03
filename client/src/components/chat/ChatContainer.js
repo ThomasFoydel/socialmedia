@@ -15,7 +15,7 @@ const ChatContainer = ({ isLoggedIn, token, userName, friendList }) => {
   const [messages, setMessages] = useState([]);
   const [updatedFriendList, setUpdatedFriendList] = useState([]);
 
-  const ENDPOINT = `?token=${token}`;
+  const ENDPOINT = `http://localhost:8000?token=${token}`;
 
   socket = io(ENDPOINT);
 
@@ -41,6 +41,7 @@ const ChatContainer = ({ isLoggedIn, token, userName, friendList }) => {
       isSubscribed = false;
       if (socket) {
         socket.emit('disconnect', socket.id);
+        socket.removeAllListeners();
         socket.off();
       }
     };

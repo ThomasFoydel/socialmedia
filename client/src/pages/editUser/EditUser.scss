@@ -260,3 +260,29 @@ $break-small: 414px;
 .incorrectpassworderrormessage {
   color: red;
 }
+
+.uploadcoverpic-loadingdots {
+  height: 30rem;
+  width: 40rem;
+  margin-left: 55%;
+  transform: translateX(-50%);
+  margin-top: -13rem;
+  @media screen and (max-width: $break-medium) {
+    height: 21rem;
+    width: 15rem;
+    margin-top: -9rem;
+  }
+}
+
+.uploadprofilepic-loadingdots {
+  height: 30rem;
+  width: 40rem;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-top: -13rem;
+  @media screen and (max-width: $break-medium) {
+    height: 21rem;
+    width: 15rem;
+    margin-top: -9rem;
+  }
+}
