@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import UserProfileStatusLikeDislikeButtons from '../userprofilestatuslikedislikebuttons/UserProfileStatusLikeDislikeButtons';
+import UserProfileStatusLikeDislikeButtons from './userprofilestatuslikedislikebuttons/UserProfileStatusLikeDislikeButtons';
 import UserProfileStatusDeleteButton from './UserProfileStatusDeleteButton';
 import { Link } from 'react-router-dom';
 

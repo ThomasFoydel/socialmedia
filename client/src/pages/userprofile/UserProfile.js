@@ -3,9 +3,9 @@ import Axios from 'axios';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import UserProfileUnfriendButton from './userprofileunfriendbutton/UserProfileUnfriendButton';
-import UserProfileStatusContainer from '../../components/userprofilestatuses/UserProfileStatusContainer';
+import UserProfileStatusContainer from './userprofilestatuses/UserProfileStatusContainer';
 
-import FriendListItem from '../../components/friendlistitem/FriendListItem';
+import FriendListItem from './friendlistitem/FriendListItem';
 
 import UserProfilePosts from './UserProfilePosts';
 

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
 import { connect } from 'react-redux';
-import { pushPost } from '../../redux/posts/postActions';
+import { pushPost } from '../../../../redux/posts/postActions';
 
-import loadingdots from '../../imgs/loadingdots.gif';
+import loadingdots from '../../../../imgs/loadingdots.gif';
 
 import './PostForm.scss';
 

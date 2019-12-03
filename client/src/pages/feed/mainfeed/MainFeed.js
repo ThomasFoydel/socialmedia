@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { connect } from 'react-redux';
-import FeedPost from '../feedpost/FeedPost';
-import PostForm from '../postform/PostForm';
-import { useSpring, animated, config } from 'react-spring';
+import FeedPost from './feedpost/FeedPost';
+import PostForm from './postform/PostForm';
+import { useSpring, animated } from 'react-spring';
 
-import { setPosts } from '../../redux/posts/postActions';
+import { setPosts } from '../../../redux/posts/postActions';
 
 import './MainFeed.scss';
 

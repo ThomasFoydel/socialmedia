@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import { connect } from 'react-redux';
-import FeedPost from '../../components/feedpost/FeedPost';
+import FeedPost from '../feed/mainfeed/feedpost/FeedPost';
 
 const IndividualPost = ({ match, token }) => {
   const [foundPost, setFoundPost] = useState({});

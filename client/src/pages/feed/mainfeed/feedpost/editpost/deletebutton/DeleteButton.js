@@ -2,7 +2,7 @@ import React from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { deletePost } from '../../redux/posts/postActions';
+import { deletePost } from '../../../../../../redux/posts/postActions';
 
 import './DeleteButton.scss';
 

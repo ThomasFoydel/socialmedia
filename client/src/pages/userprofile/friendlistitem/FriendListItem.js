@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
-import UnfriendButton from '../unfriendbutton/UnfriendButton';
+import UnfriendButton from './unfriendbutton/UnfriendButton';
 import { Link } from 'react-router-dom';
 
 import './FriendListItem.scss';

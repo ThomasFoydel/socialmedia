@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import CommentForm from '../commentform/CommentForm';
+import CommentForm from './commentform/CommentForm';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Axios from 'axios';
@@ -7,10 +7,10 @@ import PostLikeDislikeButtons from './postlikedislikebuttons/PostLikeDislikeButt
 import { Spring } from 'react-spring/renderprops';
 import { useSpring, config, animated } from 'react-spring';
 
-import cloudloading from '../../imgs/cloudloading2.svg';
+import cloudloading from '../../../../imgs/cloudloading2.svg';
 
 import './FeedPost.scss';
-import EditPost from '../../components/editpost/EditPost';
+import EditPost from './editpost/EditPost';
 import FeedPostCommentSection from './FeedPostCommentSection';
 
 const FeedPost = ({ post, token, userId, profilePicId, page, isLoggedIn }) => {
