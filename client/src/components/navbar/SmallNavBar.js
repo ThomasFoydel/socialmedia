@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogOutButton from '../logoutbutton/LogOutButton';
 import FriendRequests from '../friendrequests/FriendRequests';
 import SearchBar from '../searchbar/SearchBar';
-import { useSpring, animated, config } from 'react-spring';
+import { useSpring, animated } from 'react-spring';
 
 const SmallNavBar = ({
   isLoggedIn,

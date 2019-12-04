@@ -33,6 +33,7 @@ const Chat = ({
     return () => {
       if (socket) {
         socket.emit('disconnect', socket.id);
+        socket.removeAllListeners();
         socket.off();
       }
     };

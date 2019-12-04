@@ -84,7 +84,6 @@ const UserProfile = ({ match, userId, token, isLoggedIn, friendList }) => {
               }
               alt='profile cover'
               onLoad={() => setCoverPhotoLoading(false)}
-              className='coverpicture'
               className={
                 coverPhotoLoading ? 'feedposthiddenimage' : 'coverpicture'
               }

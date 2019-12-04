@@ -59,7 +59,11 @@ const UploadCoverPic = ({ setCurrentUserCoverPic, coverPicId, token }) => {
       )}
 
       {currentlyUploading ? (
-        <img src={LoadingDots} className='uploadcoverpic-loadingdots' />
+        <img
+          src={LoadingDots}
+          className='uploadcoverpic-loadingdots'
+          alt='upload in progress'
+        />
       ) : (
         <>
           <input

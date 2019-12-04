@@ -12,9 +12,9 @@ import './MainFeed.scss';
 
 const MainFeed = ({ setReduxPosts, reduxPosts, token, isLoggedIn }) => {
   const [postFormOpen, setPostFormOpen] = useState(false);
-  const [count, setCount] = useState(5);
-  const [start, setStart] = useState(1);
   const [morePostsExist, setMorePostsExist] = useState(true);
+  const [start, setStart] = useState(1);
+  const count = 5;
 
   useEffect(() => {
     const getPosts = async () => {
@@ -31,7 +31,7 @@ const MainFeed = ({ setReduxPosts, reduxPosts, token, isLoggedIn }) => {
     getPosts().then(result => {
       setReduxPosts([...result.data]);
     });
-  }, [setReduxPosts, token]);
+  }, [setReduxPosts, token, count, start]);
 
   const fetchMorePosts = () => {
     const updateStartPromise = new Promise((resolve, reject) => {

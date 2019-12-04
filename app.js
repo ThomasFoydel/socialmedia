@@ -145,16 +145,29 @@ mongoose
           participants: [message.senderId, message.currentFriend.friendId],
           content: message.message
         });
-        newPrivateMessage.save().then(result => {
+        newPrivateMessage.save().then(async result => {
           // console.log('newPrivateMessage: ', result);
 
-          //to friend
-          io.to(`${friendSocketId}`).emit('privateMessageFromServer', result);
+          const privateMessagesArray = await PrivateMessage.find({
+            $and: [
+              { participants: { $in: [friendId] } },
+              { participants: { $in: [message.senderId] } }
+            ]
+          })
+            .sort({ createdAt: 1 })
+            .limit(100);
 
+          //to friend
+          io.to(`${friendSocketId}`).emit(
+            'privateMessageFromServer',
+            privateMessagesArray
+          );
           //to sender
           const userSocketId = onlineUsers[message.senderId].socketId;
-          // console.log('USER SOCKET ID: ', userSocketId);
-          io.to(`${userSocketId}`).emit('ownPrivateMessageFromServer', result);
+          io.to(`${userSocketId}`).emit(
+            'ownPrivateMessageFromServer',
+            privateMessagesArray
+          );
         });
       });
 
@@ -185,16 +198,9 @@ mongoose
           const token = socket.handshake.query.token;
           const decoded = jwt.verify(token, process.env.SECRET);
           const userId = decoded.tokenUser.userId;
-          // console.log(
-          //   'DISCONNECT, socket id: ',
-          //   socketId,
-          //   'decoded.tokenUser.userId: ',
-          //   decoded.tokenUser.userId
-          // );
           delete onlineUsers[userId];
-          // console.log('updated online users after disconnect: ', onlineUsers);
         } catch (err) {
-          // console.log(err);
+          console.log('socket disconnection error: ', err);
         }
       });
     });

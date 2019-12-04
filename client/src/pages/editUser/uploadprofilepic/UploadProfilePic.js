@@ -61,7 +61,11 @@ const UploadProfilePic = ({
       />
 
       {currentlyUploading ? (
-        <img src={LoadingDots} className='uploadprofilepic-loadingdots' />
+        <img
+          src={LoadingDots}
+          className='uploadprofilepic-loadingdots'
+          alt='upload in progress'
+        />
       ) : (
         <>
           <input

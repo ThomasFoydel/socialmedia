@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import Axios from 'axios';
 import { connect } from 'react-redux';
-import { useSpring, animated, config } from 'react-spring';
+import { useSpring, animated } from 'react-spring';
 
 import Chat from './Chat';
 
@@ -15,19 +15,19 @@ const ChatContainer = ({ isLoggedIn, token, userName, friendList }) => {
   const [messages, setMessages] = useState([]);
   const [updatedFriendList, setUpdatedFriendList] = useState([]);
 
-  const ENDPOINT = `http://localhost:8000?token=${token}`;
-
-  socket = io(ENDPOINT);
-
-  socket.on('privateMessageFromServer', message => {
-    setMessages([...messages, message]);
-  });
-
-  socket.on('ownPrivateMessageFromServer', ownMessage => {
-    setMessages([...messages, ownMessage]);
-  });
-
   useEffect(() => {
+    const ENDPOINT = `?token=${token}`;
+
+    socket = io(ENDPOINT);
+
+    socket.on('privateMessageFromServer', messagesArray => {
+      setMessages(messagesArray);
+    });
+
+    socket.on('ownPrivateMessageFromServer', messagesArray => {
+      setMessages(messagesArray);
+    });
+
     let isSubscribed = true;
     setMainSocket(socket);
 
@@ -45,7 +45,7 @@ const ChatContainer = ({ isLoggedIn, token, userName, friendList }) => {
         socket.off();
       }
     };
-  }, []);
+  }, [token]);
 
   const updateCurrentUser = async newUser => {
     if (newUser) {
@@ -95,22 +95,24 @@ const ChatContainer = ({ isLoggedIn, token, userName, friendList }) => {
             }}
           >
             <animated.div style={animationProps}>
-              <Chat
-                userName={userName}
-                token={token}
-                setChatOpen={setChatOpen}
-                className='chat'
-                socket={socket}
-                currentFriend={currentFriend}
-                mainSocket={mainSocket}
-                messages={messages}
-                setMessages={setMessages}
-                modifiedFriendList={updatedFriendList}
-                setCurrentFriend={setCurrentFriend}
-                updateCurrentUser={updateCurrentUser}
-                setUpdatedFriendList={setUpdatedFriendList}
-                setMainSocket={setMainSocket}
-              />
+              {socket && (
+                <Chat
+                  userName={userName}
+                  token={token}
+                  setChatOpen={setChatOpen}
+                  className='chat'
+                  socket={socket}
+                  currentFriend={currentFriend}
+                  mainSocket={mainSocket}
+                  messages={messages}
+                  setMessages={setMessages}
+                  modifiedFriendList={updatedFriendList}
+                  setCurrentFriend={setCurrentFriend}
+                  updateCurrentUser={updateCurrentUser}
+                  setUpdatedFriendList={setUpdatedFriendList}
+                  setMainSocket={setMainSocket}
+                />
+              )}
             </animated.div>
           </div>
 

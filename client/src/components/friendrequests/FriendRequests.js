@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { useTransition, animated, config } from 'react-spring';
+import { config } from 'react-spring';
 import { Spring } from 'react-spring/renderprops';
 import Axios from 'axios';
 
