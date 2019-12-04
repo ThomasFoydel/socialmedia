@@ -24,16 +24,20 @@ const Chat = ({
   updateCurrentUser
 }) => {
   useEffect(() => {
+    let isSubscribed = true;
     setMainSocket(socket);
 
     socket.on('friendList', modifiedFriendList => {
-      setUpdatedFriendList(modifiedFriendList);
+      if (isSubscribed) {
+        setUpdatedFriendList(modifiedFriendList);
+      }
     });
 
     return () => {
       if (socket) {
-        socket.emit('disconnect', socket.id);
+        isSubscribed = false;
         socket.removeAllListeners();
+        socket.emit('disconnect', socket.id);
         socket.off();
       }
     };

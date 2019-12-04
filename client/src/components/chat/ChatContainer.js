@@ -16,32 +16,35 @@ const ChatContainer = ({ isLoggedIn, token, userName, friendList }) => {
   const [updatedFriendList, setUpdatedFriendList] = useState([]);
 
   useEffect(() => {
-    const ENDPOINT = `?token=${token}`;
+    let isSubscribed = true;
+    const ENDPOINT = `http://localhost:8000?token=${token}`;
 
     socket = io(ENDPOINT);
+    setMainSocket(socket);
 
     socket.on('privateMessageFromServer', messagesArray => {
-      setMessages(messagesArray);
+      if (isSubscribed) {
+        setMessages(messagesArray);
+      }
     });
 
     socket.on('ownPrivateMessageFromServer', messagesArray => {
-      setMessages(messagesArray);
+      if (isSubscribed) {
+        setMessages(messagesArray);
+      }
     });
 
-    let isSubscribed = true;
-    setMainSocket(socket);
-
-    if (isSubscribed) {
-      socket.on('friendList', modifiedFriendList => {
+    socket.on('friendList', modifiedFriendList => {
+      if (isSubscribed) {
         setUpdatedFriendList(modifiedFriendList);
-      });
-    }
+      }
+    });
 
     return () => {
       isSubscribed = false;
       if (socket) {
-        socket.emit('disconnect', socket.id);
         socket.removeAllListeners();
+        socket.emit('disconnect', socket.id);
         socket.off();
       }
     };
@@ -95,7 +98,7 @@ const ChatContainer = ({ isLoggedIn, token, userName, friendList }) => {
             }}
           >
             <animated.div style={animationProps}>
-              {socket && (
+              {mainSocket && (
                 <Chat
                   userName={userName}
                   token={token}
