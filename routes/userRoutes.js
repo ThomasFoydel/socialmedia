@@ -58,13 +58,13 @@ const upload = multer({ storage });
 // USER ROUTES
 
 // get all users
-router.get('/users', async (req, res, next) => {
+router.get('/users', async (req, res) => {
   const allUsers = await User.find().select('-password');
   res.send(allUsers);
 });
 
 // get user by id
-router.get('/getuser/:userid', async (req, res, next) => {
+router.get('/getuser/:userid', async (req, res) => {
   const userById = await User.findOne({
     _id: req.params.userid.toString()
   }).select('-password');
@@ -83,76 +83,66 @@ router.get('/getauth', auth, async (req, res) => {
 });
 
 // register new user
-router.post(
-  '/register',
-  [
-    check('email').isEmail(),
-    check('password').isLength({ min: 5 }),
-    body('confirmPassword').custom((value, { req }) => {
-      if (value !== req.body.password) {
-        throw new Error('Passwords do not match');
-      }
-      return true;
-    }),
-    body('email').custom(value => {
-      return User.findOne({ email: value }).then(user => {
-        if (user) {
-          return Promise.reject('Email already in use');
-        }
-      });
-    }),
-    checkSchema({
-      name: {
-        isLength: {
-          errorMessage: 'Name should be at least 5 characters long',
-          options: { min: 5 }
-        }
-      }
-    })
-  ],
-  async (req, res, next) => {
-    let errors;
-
-    errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(422).json({ errors: errors.array() });
-    }
-
-    // hash password
-    const hashedPw = await bcrypt.hash(req.body.password, 12);
-
-    // create new user, plug registration form data into mongoose model
-    const newUser = new User({
-      name: req.body.name,
-      email: req.body.email,
-      city: req.body.city,
-      age: req.body.age,
-      password: hashedPw,
-      profilePicId: req.body.profilePicId
-    });
-
-    // save new user to mongo
-
-    newUser
-      .save()
-      .then(result => {
-        res.status(201).send(result);
-      })
-      .catch(err => {
-        res.status(400).send(err);
-      });
+router.post('/register', async (req, res) => {
+  if (req.body.password.length < 6) {
+    return res.json({ err: 'Password must be at least 6 characters' });
   }
-);
+  if (req.body.name.length < 4 || req.body.name.length > 12) {
+    return res.json({ err: 'Name must be between 4 and 12 characters' });
+  }
+  if (req.body.password !== req.body.confirmPassword) {
+    return res.json({ err: 'Passwords do not match' });
+  }
+  if (!req.body.email.includes('@') || !req.body.email.includes('.')) {
+    return res.json({ err: 'Email input invalid' });
+  }
+  if (req.body.city.length > 15) {
+    return res.json({ err: 'City must be 14 characters or less' });
+  }
+
+  const existingUser = await User.findOne({ email: req.body.email });
+  if (existingUser) {
+    return res.json({ err: 'Profile with this email already exists' });
+  }
+
+  // hash password
+  const hashedPw = await bcrypt.hash(req.body.password, 12);
+
+  // create new user, plug registration form data into mongoose model
+  const newUser = new User({
+    name: req.body.name,
+    email: req.body.email.toLowerCase(),
+    city: req.body.city,
+    age: req.body.age,
+    password: hashedPw,
+    profilePicId: req.body.profilePicId
+  });
+
+  // save new user to mongo
+
+  newUser
+    .save()
+    .then(result => {
+      res.status(201).send(result);
+    })
+    .catch(err => {
+      res.status(400).send(err);
+    });
+});
 
 // user login
 
-router.post('/login', async (req, res, next) => {
+router.post('/login', async (req, res) => {
   User.findOne({ email: req.body.email }, async function(err, user) {
     if (err) {
-      const error = new Error('No user found with this email');
-      error.code = 401;
-      throw error;
+      return res.json({
+        err:
+          'Sorry, there is an issue with connecting to the database. We are working on fixing this.'
+      });
     } else {
+      if (!user) {
+        return res.json({ err: 'No user found with this email' });
+      }
       const passwordsMatch = await bcrypt.compare(
         req.body.password,
         user.password
@@ -187,6 +177,8 @@ router.post('/login', async (req, res, next) => {
             token
           }
         });
+      } else {
+        return res.json({ err: 'Incorrect password' });
       }
     }
   });
@@ -200,7 +192,7 @@ router.post('/login', async (req, res, next) => {
 //
 /////////
 
-router.post('/edituser', auth, async (req, res, next) => {
+router.post('/edituser', auth, async (req, res) => {
   const { name, email, city, age, password, bio } = req.body;
   const { userId } = req.tokenUser;
 
@@ -217,7 +209,15 @@ router.post('/edituser', auth, async (req, res, next) => {
       {
         _id: mongoose.Types.ObjectId(userId)
       },
-      { $set: { name: name, email: email, city: city, age: age, bio: bio } },
+      {
+        $set: {
+          name: name,
+          email: email.toLowerCase(),
+          city: city,
+          age: age,
+          bio: bio
+        }
+      },
       { new: true }
     ).then(result => {
       res.send(result);
@@ -231,7 +231,7 @@ router.post('/edituser', auth, async (req, res, next) => {
 //
 //
 
-router.get('/user/:id', async (req, res, next) => {
+router.get('/user/:id', async (req, res) => {
   const userId = req.params;
   const foundUser = await User.findOne({ _id: userId });
   if (!foundUser) {

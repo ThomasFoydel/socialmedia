@@ -13,10 +13,17 @@ export default function Register() {
   const [ageValue, setAgeValue] = useState('');
   const [cityValue, setCityValue] = useState('');
   const [formSubmitSuccess, setFormSubmitSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     setFormSubmitSuccess(false);
   }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setErrorMessage('');
+    }, 4000);
+  }, [errorMessage, setErrorMessage]);
 
   const handleChange = e => {
     switch (e.target.name) {
@@ -24,7 +31,7 @@ export default function Register() {
         setNameValue(e.target.value);
         break;
       case 'email':
-        setEmailValue(e.target.value);
+        setEmailValue(e.target.value.toLowerCase());
         break;
       case 'password':
         setPasswordValue(e.target.value);
@@ -59,8 +66,12 @@ export default function Register() {
       { headers: { 'Content-Type': 'application/json' } }
     )
       .then(response => {
+        console.log('response: ', response);
         if (response.status === 201) {
           setFormSubmitSuccess(true);
+        }
+        if (response.data.err) {
+          setErrorMessage(response.data.err);
         }
       })
       .catch(err => {
@@ -139,7 +150,7 @@ export default function Register() {
               onChange={handleChange}
             />
           </label>
-
+          {errorMessage && <h6 style={{ color: 'red' }}>{errorMessage}</h6>}
           <input type='submit' className='registerbutton' value='Register' />
         </div>
         <div style={{ height: '10rem' }} />

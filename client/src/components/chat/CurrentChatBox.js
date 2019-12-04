@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import IndividualPrivateMessage from './IndividualPrivateMessage';
 import onlineIcon from '../../imgs/online.png';
 import Axios from 'axios';
@@ -36,7 +37,9 @@ const CurrentChatBox = ({
 
   return (
     <>
-      <span className='currentchatfriendname'>{currentFriend.name}</span>
+      <Link to={`/userprofile/${currentFriend.friendId}`}>
+        <span className='currentchatfriendname'>{currentFriend.name}</span>{' '}
+      </Link>
       {currentFriendIsOnline && (
         <img
           src={onlineIcon}

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { setCurrentPage } from '../../redux/currentPage/currentPageActions';
+
 import UserProfileUnfriendButton from './userprofileunfriendbutton/UserProfileUnfriendButton';
 import UserProfileStatusContainer from './userprofilestatuses/UserProfileStatusContainer';
 
@@ -13,7 +15,14 @@ import cloudloading from '../../imgs/cloudloading2.svg';
 
 import './UserProfile.scss';
 
-const UserProfile = ({ match, userId, token, isLoggedIn, friendList }) => {
+const UserProfile = ({
+  match,
+  userId,
+  token,
+  isLoggedIn,
+  friendList,
+  setCurrentPage
+}) => {
   // 'userId' (current user) -different from- 'userid' (profile user)
 
   const { userid } = match.params;
@@ -25,12 +34,14 @@ const UserProfile = ({ match, userId, token, isLoggedIn, friendList }) => {
   const [coverPhotoLoading, setCoverPhotoLoading] = useState(true);
 
   useEffect(() => {
+    setCoverPhotoLoading(true);
     let isSubscribed = true;
     if (isSubscribed) {
       const getProfileUser = async () => {
         const foundUser = await Axios.get(`/user/getuser/${profileUserId}`);
         setProfileUser(foundUser.data);
         if (foundUser.data._id === userId) {
+          setCurrentPage('profile');
           setIsCurrentUser(true);
         } else if (foundUser.data.friendList.includes(userId)) {
           setIsFriend(true);
@@ -195,4 +206,8 @@ const mapStateToProps = state => ({
   isLoggedIn: state.auth.isLoggedIn,
   friendList: state.currentUser.friendList
 });
-export default connect(mapStateToProps)(UserProfile);
+const mapDispatchToProps = dispatch => ({
+  setCurrentPage: page => dispatch(setCurrentPage(page))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);

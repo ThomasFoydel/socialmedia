@@ -9,17 +9,21 @@ import SmallNavBar from './SmallNavBar';
 
 import './NavBar.scss';
 
-const NavBar = ({ isLoggedIn, userId }) => {
+const NavBar = ({ isLoggedIn, userId, currentPage }) => {
   const [friendRequestsOpen, setFriendRequestsOpen] = useState(false);
   const [fullNavBarOpen, setFullNavBarOpen] = useState(false);
+  console.log('currentPage: ', currentPage);
 
   return (
     <>
       <div className='navbarcontainer'>
-        <ul className='mainnavbar'>
+        <ul className={`mainnavbar`}>
           {isLoggedIn ? (
             <>
-              <li className='mainnavbaritem navbarhomelink'>
+              <li
+                className={`mainnavbaritem navbarhomelink ${currentPage ===
+                  'home' && 'navbar-currentpagelink'}`}
+              >
                 <NavLink to='/'>
                   <i
                     className='fa fa-cloud navbarcloudicon'
@@ -28,13 +32,22 @@ const NavBar = ({ isLoggedIn, userId }) => {
                   Home
                 </NavLink>
               </li>
-              <li className='mainnavbaritem'>
+              <li
+                className='mainnavbaritem'
+                className={`mainnavbaritem  ${currentPage === 'feed' &&
+                  'navbar-currentpagelink'}`}
+              >
                 <NavLink to='/feed'>Feed</NavLink>
               </li>
-              <li className='mainnavbaritem'>
+              <li
+                className={`mainnavbaritem  ${currentPage === 'profile' &&
+                  'navbar-currentpagelink'}`}
+              >
                 <NavLink to={`/userprofile/${userId}`}>Profile</NavLink>
               </li>
-              <li className={`friendrequestopenbutton${friendRequestsOpen}`}>
+              <li
+                className={`mainnavbaritem friendrequestopenbutton${friendRequestsOpen}`}
+              >
                 <div
                   className={`frobutton${friendRequestsOpen}`}
                   onClick={() => setFriendRequestsOpen(!friendRequestsOpen)}
@@ -97,7 +110,8 @@ const NavBar = ({ isLoggedIn, userId }) => {
 const mapStateToProps = state => {
   return {
     isLoggedIn: state.auth.isLoggedIn,
-    userId: state.auth.userId
+    userId: state.auth.userId,
+    currentPage: state.currentPage.currentPage
   };
 };
 

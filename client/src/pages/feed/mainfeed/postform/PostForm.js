@@ -69,6 +69,7 @@ function PostForm({
 
         setPostValue('');
         setTitleValue('');
+        setSubmitButtonPressed(false);
         setSelectedFile(null);
         setPostFormOpen(false);
       } else if (selectedFile === null) {
@@ -94,6 +95,7 @@ function PostForm({
         setPostValue('');
         setTitleValue('');
         setSelectedFile(null);
+        setSubmitButtonPressed(false);
         setPostFormOpen(false);
       }
     } else {
@@ -117,6 +119,7 @@ function PostForm({
             value={titleValue}
             onChange={handleChange}
             placeholder='title...'
+            maxLength='10'
           />
 
           <textarea
@@ -126,6 +129,7 @@ function PostForm({
             value={postValue}
             onChange={handleChange}
             placeholder='post...'
+            maxLength='350'
           />
 
           <input
@@ -135,6 +139,7 @@ function PostForm({
             value={tagsValue}
             onChange={handleChange}
             placeholder='tags...'
+            maxLength='20'
           />
           <div className='postformbuttons'>
             <input
@@ -160,7 +165,7 @@ function PostForm({
             </label>
             {submitButtonPressed ? (
               <img
-                alt='loading dots'
+                alt='upload in progress'
                 className='loadingdots'
                 src={loadingdots}
               />

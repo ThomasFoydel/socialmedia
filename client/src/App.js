@@ -93,12 +93,13 @@ const App = ({
             )}
           />
         </Switch>
+
+        <ChatContainer
+          isLoggedIn={isLoggedIn}
+          token={token}
+          userName={userName}
+        />
       </Router>
-      <ChatContainer
-        isLoggedIn={isLoggedIn}
-        token={token}
-        userName={userName}
-      />
     </div>
   );
 };

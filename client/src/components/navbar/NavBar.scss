@@ -28,17 +28,15 @@ $break-small: 414px;
   margin-top: 0.4rem;
   padding: 5px;
   list-style: none;
+  cursor: pointer;
 }
 
 .friendrequestopenbuttontrue {
   white-space: nowrap;
-  color: rgb(128, 186, 253);
-  margin-top: 0.9rem;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+  color: #c9c3ff;
   list-style: none;
 
-  transition: margin-top 0.4s ease-in-out;
+  transition: color 0.4s ease-in-out;
   &:hover {
     cursor: pointer;
   }
@@ -46,9 +44,6 @@ $break-small: 414px;
 
 .friendrequestopenbuttonfalse {
   white-space: nowrap;
-  margin-top: 0.9rem;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
   list-style: none;
   &:hover {
     cursor: pointer;
@@ -83,6 +78,10 @@ $break-small: 414px;
 
 .navbarhomelink {
   white-space: nowrap;
+}
+
+.navbar-currentpagelink {
+  color: #c9c3ff;
 }
 
 ///////// MEDIUM

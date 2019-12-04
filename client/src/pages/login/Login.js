@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import { connect } from 'react-redux';
 import { setLoginSession } from '../../redux/auth/authActions';
@@ -23,16 +23,22 @@ function Login({
 }) {
   const [emailValue, setEmailValue] = useState('');
   const [passwordValue, setPasswordValue] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  useEffect(() => {
+    setTimeout(() => {
+      setErrorMessage('');
+    }, 4000);
+  }, [errorMessage, setErrorMessage]);
 
   const handleChange = e => {
     switch (e.target.name) {
       case 'email':
-        setEmailValue(e.target.value);
+        setEmailValue(e.target.value.toLowerCase());
         break;
       case 'password':
         setPasswordValue(e.target.value);
         break;
-
       default:
         break;
     }
@@ -40,31 +46,37 @@ function Login({
 
   const handleSubmit = async e => {
     e.preventDefault();
-    Axios.post(
-      '/user/login',
-      {
-        email: emailValue,
-        password: passwordValue
-      },
-      { headers: { 'Content-Type': 'application/json' } }
-    )
-      .then(response => {
-        setCurrentUserInfo({
-          userName: response.data.data.user.name,
-          email: response.data.data.user.email,
-          city: response.data.data.user.city,
-          age: response.data.data.user.age
+    if (emailValue.length > 0 && passwordValue.length > 0) {
+      Axios.post(
+        '/user/login',
+        {
+          email: emailValue,
+          password: passwordValue
+        },
+        { headers: { 'Content-Type': 'application/json' } }
+      )
+        .then(response => {
+          if (response.data.err) {
+            setErrorMessage(response.data.err);
+          } else {
+            setCurrentUserInfo({
+              userName: response.data.data.user.name,
+              email: response.data.data.user.email,
+              city: response.data.data.user.city,
+              age: response.data.data.user.age
+            });
+            setCurrentUserCoverPic(response.data.data.user.coverPicId);
+            setCurrentUserProfilePic(response.data.data.user.profilePicId);
+            setLoginSession({
+              token: response.data.data.token,
+              userId: response.data.data.user._id
+            });
+          }
+        })
+        .catch(err => {
+          console.log('login error: ', err);
         });
-        setCurrentUserCoverPic(response.data.data.user.coverPicId);
-        setCurrentUserProfilePic(response.data.data.user.profilePicId);
-        setLoginSession({
-          token: response.data.data.token,
-          userId: response.data.data.user._id
-        });
-      })
-      .catch(err => {
-        console.log('login error: ', err);
-      });
+    }
   };
 
   const conditionalRenderComponentOrRedirect = isLoggedIn ? (
@@ -99,6 +111,9 @@ function Login({
               email: address@gmail.com <br />
               password: password
             </h6>
+            {errorMessage && (
+              <h6 style={{ color: 'red', float: 'right' }}>{errorMessage}</h6>
+            )}
             <input type='submit' className='loginbutton' value='login' />
           </div>
         </div>

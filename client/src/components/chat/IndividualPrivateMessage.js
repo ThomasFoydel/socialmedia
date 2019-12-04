@@ -1,13 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const IndividualPrivateMessage = ({
   message,
   senderId,
   currentUserId,
-  currentFriendName,
-  currentFriendProfilePicId,
-  createdAt,
-  currentFriendId
+  currentFriendProfilePicId
 }) => {
   const senderIsSelf = senderId === currentUserId;
   const conditionalStyleTag = senderIsSelf
@@ -22,11 +20,13 @@ const IndividualPrivateMessage = ({
               <span className='ownprivatemessagecontent'>{`${message}`}</span>
             ) : (
               <>
-                <img
-                  src={`/user/image/${currentFriendProfilePicId}`}
-                  alt='friend profile'
-                  className='privatemessagefriendporfilepic'
-                />
+                <Link to={`/userprofile/${senderId}`}>
+                  <img
+                    src={`/user/image/${currentFriendProfilePicId}`}
+                    alt='friend profile'
+                    className='privatemessagefriendporfilepic'
+                  />
+                </Link>
                 <span className='privatemessagecontent'>{`${message}`}</span>
               </>
             )}

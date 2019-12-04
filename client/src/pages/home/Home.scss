@@ -65,6 +65,7 @@ $break-small: 414px;
   animation-name: slideUp;
   animation-duration: 0.8s;
   animation-timing-function: ease-out;
+  cursor: default;
   @media screen and (max-width: $break-small) {
     font-size: 4rem;
     font-weight: 700;

@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import MainFeed from './mainfeed/MainFeed';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { setCurrentPage } from '../../redux/currentPage/currentPageActions';
 
-function Feed({ token, isLoggedIn }) {
+function Feed({ token, isLoggedIn, setCurrentPage }) {
+  useEffect(() => {
+    setCurrentPage('feed');
+  }, []);
+
   const conditionalRenderOrRedirect = token ? (
     <>
       <MainFeed isLoggedIn={isLoggedIn} />
@@ -19,4 +24,8 @@ const mapStateToProps = state => ({
   isLoggedIn: state.auth.isLoggedIn
 });
 
-export default connect(mapStateToProps)(Feed);
+const mapDispatchToProps = dispatch => ({
+  setCurrentPage: page => dispatch(setCurrentPage(page))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Feed);

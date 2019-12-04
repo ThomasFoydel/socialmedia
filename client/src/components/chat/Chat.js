@@ -34,8 +34,8 @@ const Chat = ({
     });
 
     return () => {
+      isSubscribed = false;
       if (socket) {
-        isSubscribed = false;
         socket.removeAllListeners();
         socket.emit('disconnect', socket.id);
         socket.off();
