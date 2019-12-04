@@ -305,9 +305,13 @@ router.post(
 //
 
 router.get('/image/:id', async (req, res) => {
-  if (req.params.id === undefined) {
-    return res.status(404).send('undefined)');
-  } else if (req.params.id !== 'undefined') {
+  if (
+    req.params.id === undefined ||
+    req.params.id === 'null' ||
+    req.params.id === 'undefined'
+  ) {
+    return null;
+  } else {
     try {
       const file = await gfs.files.findOne({
         _id: mongoose.Types.ObjectId(req.params.id)

@@ -7,7 +7,7 @@ import { setCurrentPage } from '../../redux/currentPage/currentPageActions';
 function Feed({ token, isLoggedIn, setCurrentPage }) {
   useEffect(() => {
     setCurrentPage('feed');
-  }, []);
+  }, [setCurrentPage]);
 
   const conditionalRenderOrRedirect = token ? (
     <>

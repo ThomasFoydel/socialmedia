@@ -14,12 +14,13 @@ const MainFeed = ({ setReduxPosts, reduxPosts, token, isLoggedIn }) => {
   const [postFormOpen, setPostFormOpen] = useState(false);
   const [morePostsExist, setMorePostsExist] = useState(true);
   const [start, setStart] = useState(1);
-  const count = 5;
+  const [count] = useState(10);
+  const [loadingMorePosts, setLoadingMorePosts] = useState(false);
 
   useEffect(() => {
     const getPosts = async () => {
       const fetchedPosts = await Axios.get(
-        `/post/scrollposts?count=${count}&start=${start}`,
+        `/post/scrollposts?count=${10}&start=${1}`,
 
         {
           headers: { 'x-auth-token': token }
@@ -31,24 +32,30 @@ const MainFeed = ({ setReduxPosts, reduxPosts, token, isLoggedIn }) => {
     getPosts().then(result => {
       setReduxPosts([...result.data]);
     });
-  }, [setReduxPosts, token, count, start]);
+  }, [setReduxPosts, token]);
 
   const fetchMorePosts = () => {
-    const updateStartPromise = new Promise((resolve, reject) => {
-      setStart(start + 1);
-      resolve(start + 1);
-    });
+    if (!loadingMorePosts) {
+      setLoadingMorePosts(true);
+      const updateStartPromise = new Promise((resolve, reject) => {
+        setStart(start + 1);
+        resolve(start + 1);
+      });
 
-    updateStartPromise.then(result => {
-      Axios.get(`/post/scrollposts?count=${count}&start=${result}`).then(
-        result => {
-          if (result.data.length !== count) {
-            setMorePostsExist(false);
+      updateStartPromise.then(result => {
+        Axios.get(`/post/scrollposts?count=${count}&start=${result}`).then(
+          result => {
+            if (result.data.length !== count) {
+              setMorePostsExist(false);
+            }
+            if (result.data.length > 0) {
+              setReduxPosts(reduxPosts.concat(result.data));
+            }
+            setLoadingMorePosts(false);
           }
-          setReduxPosts(reduxPosts.concat(result.data));
-        }
-      );
-    });
+        );
+      });
+    }
   };
 
   const animationProps = useSpring({

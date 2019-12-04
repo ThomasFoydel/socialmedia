@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { setCurrentPage } from '../../redux/currentPage/currentPageActions';
 import { logoutSession } from '../../redux/auth/authActions';
 import NavBar from '../../components/navbar/NavBar';
 import Login from '../login/Login';
 import HomeStatusFeed from './HomeStatusFeed';
+
 import './Home.scss';
 
-const Home = ({ userId, profilePicId, isLoggedIn, token, friendList }) => {
+const Home = ({
+  userId,
+  profilePicId,
+  isLoggedIn,
+  token,
+  friendList,
+  currentPage,
+  setCurrentPage
+}) => {
+  useEffect(() => {
+    setCurrentPage('home');
+  }, [currentPage, setCurrentPage]);
   return (
     <>
       {isLoggedIn ? (
@@ -60,7 +73,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  logoutSession: () => dispatch(logoutSession())
+  logoutSession: () => dispatch(logoutSession()),
+  setCurrentPage: page => dispatch(setCurrentPage(page))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -32,6 +32,7 @@ const FeedPost = ({ post, token, userId, profilePicId, page, isLoggedIn }) => {
     lastEditedAt,
     _id
   } = currentPost;
+
   useEffect(() => {
     let isSubscribed = true;
     Axios.get(`/user/getuser/${authorId}`, {

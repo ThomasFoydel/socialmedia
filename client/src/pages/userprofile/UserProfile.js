@@ -67,7 +67,7 @@ const UserProfile = ({
       getExistingAdd();
     }
     return () => (isSubscribed = false);
-  }, [userId, profileUserId, token, match, friendList]);
+  }, [userId, profileUserId, token, match, friendList, setCurrentPage]);
 
   const sendFriendRequest = () => {
     Axios.post(

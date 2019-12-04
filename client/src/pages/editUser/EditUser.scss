@@ -23,7 +23,7 @@ $break-small: 414px;
   height: 67rem;
   border-radius: 1rem;
   background: rgb(255, 255, 255);
-  box-shadow: 0.2rem 0.2rem 0.2rem #999;
+  box-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.466);
   width: 80rem;
   margin-left: 50%;
   transform: translateX(-50%);
@@ -144,7 +144,7 @@ $break-small: 414px;
   transform: translateX(-50%);
   margin-left: 50%;
   transition: color 0.2s, background 0.2s, transform 0.2s;
-  box-shadow: 0.2rem 0.2rem 0.2rem #999;
+  box-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.466);
   &:hover {
     background-color: rgb(82, 94, 255);
     color: white;
@@ -182,7 +182,7 @@ $break-small: 414px;
   transform: translateX(-50%);
   margin-left: 50%;
   transition: color 0.2s, background 0.2s, transform 0.2s;
-  box-shadow: 0.2rem 0.2rem 0.2rem #999;
+  box-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.466);
   &:hover {
     background-color: rgb(82, 94, 255);
     color: white;
@@ -214,7 +214,7 @@ $break-small: 414px;
   margin-left: 1rem;
   margin-right: 1rem;
   margin-bottom: 1rem;
-  box-shadow: 0.2rem 0.2rem 0.2rem #999;
+  box-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.466);
   @media screen and (max-width: $break-medium) {
     width: 17rem;
     height: 17rem;
@@ -232,7 +232,7 @@ $break-small: 414px;
   border-radius: 0.3rem;
   margin-left: 1rem;
   margin-bottom: 1rem;
-  box-shadow: 0.2rem 0.2rem 0.2rem #999;
+  box-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.466);
   @media screen and (max-width: $break-medium) {
     width: 17rem;
     height: 17rem;

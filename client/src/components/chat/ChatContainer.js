@@ -17,7 +17,7 @@ const ChatContainer = ({ isLoggedIn, token, userName, friendList }) => {
 
   useEffect(() => {
     let isSubscribed = true;
-    const ENDPOINT = `?token=${token}`;
+    const ENDPOINT = `http://localhost:8000?token=${token}`;
 
     socket = io(ENDPOINT);
     setMainSocket(socket);

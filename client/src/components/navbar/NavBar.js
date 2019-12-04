@@ -12,7 +12,6 @@ import './NavBar.scss';
 const NavBar = ({ isLoggedIn, userId, currentPage }) => {
   const [friendRequestsOpen, setFriendRequestsOpen] = useState(false);
   const [fullNavBarOpen, setFullNavBarOpen] = useState(false);
-  console.log('currentPage: ', currentPage);
 
   return (
     <>
@@ -33,7 +32,6 @@ const NavBar = ({ isLoggedIn, userId, currentPage }) => {
                 </NavLink>
               </li>
               <li
-                className='mainnavbaritem'
                 className={`mainnavbaritem  ${currentPage === 'feed' &&
                   'navbar-currentpagelink'}`}
               >
