@@ -106,11 +106,21 @@ function Login({
               value={passwordValue}
               onChange={handleChange}
             />
-            <h6 style={{ color: 'red', marginBottom: '-3rem' }}>
-              test login <br />
-              email: address@gmail.com <br />
-              password: password
-            </h6>
+            <div
+              style={{
+                letterSpacing: '.1rem',
+                color: 'rgb(11, 65, 116)',
+                marginBottom: '-3rem',
+                width: '27.3rem',
+                textAlign: 'center',
+                marginLeft: '50%',
+                transform: 'translateX(-50%)',
+                fontSize: '1.1rem'
+              }}
+            >
+              for testing: <br />
+              email: address@gmail.com, password: password
+            </div>
             {errorMessage && (
               <h6 style={{ color: 'red', float: 'right' }}>{errorMessage}</h6>
             )}

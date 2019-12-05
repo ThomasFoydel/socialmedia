@@ -13,11 +13,12 @@ import UserProfile from './pages/userprofile/UserProfile';
 import SearchResult from './pages/searchresult/SearchResult';
 import IndividualPost from './pages/individualpost/IndividualPost';
 import IndividualImage from './pages/individualimage/IndividualImage';
-
 import NavBar from './components/navbar/NavBar';
 import ChatContainer from './components/chat/ChatContainer';
+import PortfolioLink from './components/portfoliolink/PortfolioLink';
 
 import './App.scss';
+
 import { setCurrentUserInfo } from './redux/currentUser/currentUserActions';
 import { setIsLoggedIn } from './redux/auth/authActions';
 
@@ -67,7 +68,7 @@ const App = ({
     <div className='App'>
       <Router>
         <NavBar setIsLoggedIn={setIsLoggedIn} isAuthenticated={setIsLoggedIn} />
-
+        <PortfolioLink />
         <Switch>
           <Route exact path='/' component={Home} />
           <Route path='/feed' component={Feed} />
