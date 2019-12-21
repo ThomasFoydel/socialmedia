@@ -1,5 +1,5 @@
 import React from 'react';
-import Comment from './commentform/CommentForm';
+import Comment from './comment/Comment';
 import { useTransition, animated, config } from 'react-spring';
 
 const FeedPostCommentSection = ({
