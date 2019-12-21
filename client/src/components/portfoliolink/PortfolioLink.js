@@ -12,6 +12,7 @@ const PortfolioLink = () => {
 
   const animationProps = useSpring({
     position: 'absolute',
+    zIndex: '4',
     opacity: displayLink ? 1 : 0,
     right: displayLink ? 0 : -300,
     config: config.wobbly
@@ -20,6 +21,7 @@ const PortfolioLink = () => {
   const reverseAnimationProps = useSpring({
     top: '6rem',
     position: 'absolute',
+    zIndex: '4',
     right: displayLink ? -300 : 0,
     opacity: displayLink ? 0 : 1,
     config: config.wobbly
