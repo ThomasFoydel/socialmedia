@@ -135,7 +135,8 @@ $break-small: 414px;
 }
 
 .homeindividualstatus {
-  box-shadow: 0.7rem 0.7rem 0.7rem rgba(0, 0, 0, 0.123);
+  box-shadow: 0.7rem 0.7rem 0.7rem rgba(0, 0, 0, 0.123),
+    -0.7rem -0.7rem 0.7rem rgba(255, 255, 255, 0.123);
   min-width: 44rem;
   width: 50%;
   background: rgb(231, 231, 231);
