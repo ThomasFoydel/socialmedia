@@ -37,6 +37,7 @@ const UserProfile = ({
     setCoverPhotoLoading(true);
     let isSubscribed = true;
     if (isSubscribed) {
+      setCurrentPage('');
       const getProfileUser = async () => {
         const foundUser = await Axios.get(`/user/getuser/${profileUserId}`);
         setProfileUser(foundUser.data);
