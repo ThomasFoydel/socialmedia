@@ -1,6 +1,14 @@
 $break-medium: 850px;
 $break-small: 414px;
 
+.portfolio-fixed {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 30rem;
+  z-index: 100;
+}
+
 .app-portfoliolink {
   display: flex;
   font-size: 1rem;

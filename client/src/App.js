@@ -68,7 +68,9 @@ const App = ({
     <div className='App'>
       <Router>
         <NavBar setIsLoggedIn={setIsLoggedIn} isAuthenticated={setIsLoggedIn} />
-        <PortfolioLink />
+        <div className='portfolio-fixed'>
+          <PortfolioLink />
+        </div>
         <Switch>
           <Route exact path='/' component={Home} />
           <Route path='/feed' component={Feed} />
