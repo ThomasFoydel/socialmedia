@@ -18,7 +18,8 @@ $break-small: 414px;
   max-width: 60rem;
   border-radius: 1rem;
   background: rgb(255, 255, 255);
-  box-shadow: 0.2rem 0.2rem 0.2rem #999;
+  box-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.212),
+    -0.2rem -0.2rem 0.2rem rgba(255, 255, 255, 0.212);
   @media screen and (max-width: $break-medium) {
     padding: 2rem 2rem 0 2rem;
     min-width: 34rem;
