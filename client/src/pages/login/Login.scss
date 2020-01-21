@@ -10,6 +10,7 @@ $break-small: 414px;
 .titletext {
   text-align: center;
   font-size: 6.8rem;
+  color: #0470c6;
 }
 
 .loginforminsidecontainer {
@@ -67,26 +68,26 @@ $break-small: 414px;
 
 .loginbutton {
   margin-top: 4rem !important;
-  color: rgb(82, 157, 250);
   padding: 0.5rem 1rem !important;
   border-radius: 0.8rem;
   width: 50%;
-  background: rgb(232, 239, 248) !important;
+  color: rgb(39, 106, 187);
+  background: rgb(222, 233, 248) !important;
   border: none;
-  box-shadow: 0.1rem 0.1rem 0.1rem rgba(153, 153, 153, 0.808);
+  box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.329);
   transition: background 0.1s, transform 0.1s, color 0.1s;
   @media screen and (min-width: $break-medium) {
     &:hover {
-      background: rgb(160, 202, 253) !important;
-      transform: translateY(-0.2rem);
-      box-shadow: 0.2rem 0.2rem 0.2rem rgba(153, 153, 153, 0.568);
+      background: rgb(81, 158, 253) !important;
       color: white;
+      transform: translateY(-0.2rem);
+      box-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.24);
     }
     &:active {
       transform: translateY(0.1rem);
       background: white !important;
       color: rgb(70, 70, 70);
-      box-shadow: 0.14rem 0.14rem 0.14rem rgba(153, 153, 153, 0.808);
+      box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.208);
     }
   }
   @media screen and (max-width: $break-medium) {

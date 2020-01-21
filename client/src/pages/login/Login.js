@@ -109,7 +109,7 @@ function Login({
             <div
               style={{
                 letterSpacing: '.1rem',
-                color: 'rgb(11, 65, 116)',
+                color: 'rgba(11, 65, 116, 0.6)',
                 marginBottom: '-3rem',
                 width: '27.3rem',
                 textAlign: 'center',
@@ -124,7 +124,7 @@ function Login({
             {errorMessage && (
               <h6 style={{ color: 'red', float: 'right' }}>{errorMessage}</h6>
             )}
-            <input type='submit' className='loginbutton' value='login' />
+            <input type='submit' className='loginbutton' value='log in' />
           </div>
         </div>
       </form>
