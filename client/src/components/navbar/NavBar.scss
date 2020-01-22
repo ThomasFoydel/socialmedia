@@ -140,7 +140,13 @@ $break-small: 414px;
 
 .mediumnavbaropenbottomcontainer {
   margin-top: -1rem;
+  background: linear-gradient(
+    180deg,
+    rgba(31, 107, 242, 1) 0%,
+    rgb(68, 48, 247) 100%
+  );
 }
+// rgb(105, 64, 255) 94%
 
 .closefullnavbarbutton,
 .openfullnavbarbutton {
@@ -265,8 +271,13 @@ $break-small: 414px;
 }
 
 .smallnavbaropenbottomcontainer {
-  margin-top: -1rem;
+  margin-top: 0.5rem;
   height: 21.5rem;
+  background: linear-gradient(
+    180deg,
+    rgba(31, 107, 242, 1) 0%,
+    rgb(68, 48, 247) 100%
+  );
 }
 
 .closefullnavbarbutton,
