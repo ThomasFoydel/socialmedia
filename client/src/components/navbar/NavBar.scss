@@ -14,10 +14,18 @@ $break-small: 414px;
   @media screen and (min-width: $break-medium) {
     padding-top: 0.3rem;
     display: flex;
-    background: rgb(10, 125, 255);
+    background: rgb(39, 140, 255);
+    background: linear-gradient(
+      180deg,
+      rgba(39, 140, 255, 1) 0%,
+      rgba(10, 125, 255, 1) 35%,
+      rgba(10, 125, 255, 1) 48%,
+      rgba(31, 107, 242, 1) 100%
+    );
     color: white;
     height: 4.7rem;
     margin-bottom: 0;
+    box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.1);
     a:hover {
       color: rgb(196, 196, 255);
     }
