@@ -71,23 +71,20 @@ $break-small: 414px;
   padding: 0.5rem 1rem !important;
   border-radius: 0.8rem;
   width: 50%;
-  color: rgb(39, 106, 187);
-  background: rgb(222, 233, 248) !important;
+  background: rgb(81, 158, 253) !important;
+  color: white;
   border: none;
-  box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.329);
-  transition: background 0.1s, transform 0.1s, color 0.1s;
+  transition: all 0.2s ease;
   @media screen and (min-width: $break-medium) {
     &:hover {
-      background: rgb(81, 158, 253) !important;
-      color: white;
+      color: rgb(0, 87, 194) !important;
+      background: rgb(172, 209, 255) !important;
       transform: translateY(-0.2rem);
-      box-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.24);
     }
     &:active {
-      transform: translateY(0.1rem);
-      background: white !important;
-      color: rgb(70, 70, 70);
-      box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.208);
+      transform: translateY(0rem);
+      background: rgb(238, 238, 238) !important;
+      color: rgb(53, 53, 53) !important;
     }
   }
   @media screen and (max-width: $break-medium) {
