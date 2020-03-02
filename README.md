@@ -15,7 +15,7 @@ I created this project to build fluency in the MERN stack, particularly in build
 To run on your machine:
 
 1. clone or download and unzip
-2. open terminal from the root folder of the project and run `npm i`
+2. open terminal from the root folder of the project and run `npm i` then `cd client` then `npm i` again and then `cd ..`
 3. start the project with `npm run dev` or, alternatively, first start the backend server with `npm start` and then open a second terminal and run `cd client` followed by `npm start`
 4. project front-end should be running at http://localhost:3000 and back-end running at http://localhost:8000
 5. socketio chat connection string in client/src/components/chat/chatcontainer must be changed to the url that backend is running on, it is currently set to `` `?token=${token}` `` for production so it needs to be set to `` `http://localhost:8000?token=${token}` `` for use in a local environment
