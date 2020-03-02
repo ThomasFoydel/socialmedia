@@ -1,4 +1,4 @@
-<center> <h1>social media</h1> </center>
+<div align="center"> <h1>social media</h1> </div>
 
 ### A MERN stack app with basic social media functionality! [live demo here](http://mernsocialmedia.xyz/)
 
