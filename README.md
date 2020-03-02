@@ -6,11 +6,12 @@ MERN Social Media allows users to create accounts, manage profiles, make posts, 
 
 <img src="/client/src/imgs/screenshot.jpg" width="100%" >
 
-I created this project to build fluency in the MERN stack, particularly in building and consuming RESTful APIs for CRUD functionality. I also wanted to work on authentication, animation, and web socket live chat features. The two obstacles I ran into ended up being
+I created this project to build fluency in the MERN stack, particularly in building and consuming RESTful APIs for CRUD functionality. I also wanted to work on authentication, animation, and web socket live chat features. The two obstacles I ran into ended up being:
 
-1. uploading and storing images, solved by storing them in binary using mongodb's gridFS
-2. getting the integrationg of socketio chat features with react components right to avoid infinite rerenders/maximum depth exceeded errors
-   These challenges inspired my next project, http://socketchat.xyz, which focused primarily on chat features and images uploads.
+1. Uploading and storing images, solved by storing them in binary using mongodb's gridFS
+2. Getting the integrationg of socketio chat features with react components right to avoid infinite rerenders/maximum depth exceeded errors
+
+These challenges inspired my next project, http://socketchat.xyz, which focused primarily on chat features and images uploads.
 
 To run on your machine:
 
