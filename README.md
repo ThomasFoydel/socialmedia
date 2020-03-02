@@ -1,8 +1,8 @@
-# social media
+<center> <h1>social media</h1> </center>
 
 ### A MERN stack app with basic social media functionality! [live demo here](http://mernsocialmedia.xyz/)
 
-MERN Social Media allows users to create accounts, manage profiles, make posts, like and comment, send/accet/reject friend requests, send live chat messages to friends. This project is built with node/express, mongodb, socketio, react, and the react-spring animation library. This project uses a bcrypt and json web token based authentication flow.
+MERNSocialMedia.xyz allows users to create accounts, manage profiles, make posts, like and comment, send/accet/reject friend requests, send live chat messages to friends. This project is built with node/express, mongodb, socketio, react, and the react-spring animation library. This project uses a bcrypt and json web token based authentication flow and a redux state management flow.
 
 <img src="/client/src/imgs/screenshot.jpg" width="100%" >
 
@@ -13,7 +13,7 @@ I created this project to build fluency in the MERN stack, particularly in build
 
 These challenges inspired my next project, http://socketchat.xyz, which focused primarily on chat features and images uploads.
 
-To run on your machine:
+### To run on your machine:
 
 1. clone or download and unzip
 2. open terminal from the root folder of the project and run `npm i` then `cd client` then `npm i` again and then `cd ..`
