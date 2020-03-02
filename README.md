@@ -4,7 +4,7 @@
 
 ### [live demo here](http://mernsocialmedia.xyz/)
 
-<img src="/src/imgs/screenshot.jpg" width="100%" >
+<img src="/client/src/imgs/screenshot.jpg" width="100%" >
 
 MERN Social Media allows users to create accounts, manage profiles, make posts, like and comment, send/accet/reject friend requests, send live chat messages to friends. This project is built with node/express, mongodb, socketio, react, and the react-spring animation library. This project uses a bcrypt and json web token based authentication flow.
 
