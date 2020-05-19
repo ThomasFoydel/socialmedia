@@ -10,7 +10,7 @@ const {
   check,
   validationResult,
   body,
-  checkSchema
+  checkSchema,
 } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -46,12 +46,12 @@ const storage = new GridFsStorage({
         const filename = buf.toString('hex') + path.extname(file.originalname);
         const fileInfo = {
           filename: filename,
-          bucketName: 'uploads'
+          bucketName: 'uploads',
         };
         resolve(fileInfo);
       });
     });
-  }
+  },
 });
 const upload = multer({ storage });
 
@@ -66,7 +66,7 @@ router.get('/users', async (req, res) => {
 // get user by id
 router.get('/getuser/:userid', async (req, res) => {
   const userById = await User.findOne({
-    _id: req.params.userid.toString()
+    _id: req.params.userid.toString(),
   }).select('-password');
   res.send(userById);
 });
@@ -74,10 +74,10 @@ router.get('/getuser/:userid', async (req, res) => {
 // get auth info
 router.get('/getauth', auth, async (req, res) => {
   User.findOne({ _id: mongoose.Types.ObjectId(req.tokenUser.userId) })
-    .then(result => {
+    .then((result) => {
       res.status(200).send(result);
     })
-    .catch(error => {
+    .catch((error) => {
       res.status(444).send(error);
     });
 });
@@ -115,17 +115,17 @@ router.post('/register', async (req, res) => {
     city: req.body.city,
     age: req.body.age,
     password: hashedPw,
-    profilePicId: req.body.profilePicId
+    profilePicId: req.body.profilePicId,
   });
 
   // save new user to mongo
 
   newUser
     .save()
-    .then(result => {
+    .then((result) => {
       res.status(201).send(result);
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(400).send(err);
     });
 });
@@ -133,11 +133,14 @@ router.post('/register', async (req, res) => {
 // user login
 
 router.post('/login', async (req, res) => {
-  User.findOne({ email: req.body.email }, async function(err, user) {
+  if (!req.body.email || !req.body.password) {
+    return res.send({ err: 'all fields required' });
+  }
+  User.findOne({ email: req.body.email }, async function (err, user) {
     if (err) {
       return res.json({
         err:
-          'Sorry, there is an issue with connecting to the database. We are working on fixing this.'
+          'Sorry, there is an issue with connecting to the database. We are working on fixing this.',
       });
     } else {
       if (!user) {
@@ -152,8 +155,8 @@ router.post('/login', async (req, res) => {
           {
             tokenUser: {
               userId: user._id,
-              email: user.email
-            }
+              email: user.email,
+            },
           },
           process.env.SECRET,
           { expiresIn: '3hr' }
@@ -166,7 +169,7 @@ router.post('/login', async (req, res) => {
           email: user.email,
           profilePicId: user.profilePicId,
           coverPicId: user.coverPicId,
-          _id: user._id
+          _id: user._id,
         };
 
         res.json({
@@ -174,8 +177,8 @@ router.post('/login', async (req, res) => {
           message: 'Login successful',
           data: {
             user: userInfo,
-            token
-          }
+            token,
+          },
         });
       } else {
         return res.json({ err: 'Incorrect password' });
@@ -197,7 +200,7 @@ router.post('/edituser', auth, async (req, res) => {
   const { userId } = req.tokenUser;
 
   const foundUser = await User.findOne({
-    _id: mongoose.Types.ObjectId(userId)
+    _id: mongoose.Types.ObjectId(userId),
   });
   const passwordsMatch = await bcrypt.compare(password, foundUser.password);
   if (!passwordsMatch) {
@@ -207,7 +210,7 @@ router.post('/edituser', auth, async (req, res) => {
   } else if (passwordsMatch) {
     User.findOneAndUpdate(
       {
-        _id: mongoose.Types.ObjectId(userId)
+        _id: mongoose.Types.ObjectId(userId),
       },
       {
         $set: {
@@ -215,11 +218,11 @@ router.post('/edituser', auth, async (req, res) => {
           email: email.toLowerCase(),
           city: city,
           age: age,
-          bio: bio
-        }
+          bio: bio,
+        },
       },
       { new: true }
-    ).then(result => {
+    ).then((result) => {
       res.send(result);
     });
   }
@@ -263,7 +266,7 @@ router.post(
       const updatedUser = await User.findOneAndUpdate(
         { _id: req.tokenUser.userId },
         {
-          profilePicId: file._id
+          profilePicId: file._id,
         },
         { new: true }
       );
@@ -291,7 +294,7 @@ router.post(
       const updatedUser = await User.findOneAndUpdate(
         { _id: req.tokenUser.userId },
         {
-          coverPicId: file._id
+          coverPicId: file._id,
         },
         { new: true }
       );
@@ -314,7 +317,7 @@ router.get('/image/:id', async (req, res) => {
   } else {
     try {
       const file = await gfs.files.findOne({
-        _id: mongoose.Types.ObjectId(req.params.id)
+        _id: mongoose.Types.ObjectId(req.params.id),
       });
       if (!file || file.length === 0) {
         return res.status(404).json({ err: 'no file exists' });
@@ -332,7 +335,7 @@ router.get('/image/:id', async (req, res) => {
 router.get('/authorprofilepic/:authorId', async (req, res) => {
   const foundUser = await User.findOne({ _id: req.params.authorId });
   const file = await gfs.files.findOne({
-    _id: mongoose.Types.ObjectId(foundUser.profilePicId)
+    _id: mongoose.Types.ObjectId(foundUser.profilePicId),
   });
   if (!file || file.length === 0) {
     return res.status(404).json({ err: 'no file exists' });
@@ -349,7 +352,7 @@ router.post('/sendfriendrequest', auth, async (req, res) => {
 
   const foundFriendRequest = await FriendRequest.findOne({
     sender: userId,
-    recipient: recipientId
+    recipient: recipientId,
   });
   if (foundFriendRequest) {
     return res.status(400).send();
@@ -358,15 +361,15 @@ router.post('/sendfriendrequest', auth, async (req, res) => {
   const newFriendRequest = new FriendRequest({
     sender: userId,
     recipient: recipientId,
-    status: 'pending'
+    status: 'pending',
   });
 
   newFriendRequest
     .save()
-    .then(result => {
+    .then((result) => {
       res.status(201).send(result);
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(400).send(err);
     });
 });
@@ -374,7 +377,7 @@ router.post('/sendfriendrequest', auth, async (req, res) => {
 // get friend requests of current user
 router.get('/getfriendrequests/:id', async (req, res) => {
   const requests = await FriendRequest.find({
-    recipient: req.params.id
+    recipient: req.params.id,
   });
   res.status(200).send(requests);
 });
@@ -388,11 +391,11 @@ router.get('/getfriendrequest/', auth, async (req, res) => {
 
   const foundFriendRequest1 = await FriendRequest.findOne({
     sender: userId,
-    recipient: profileUserId
+    recipient: profileUserId,
   });
   const foundFriendRequest2 = await FriendRequest.findOne({
     sender: profileUserId,
-    recipient: userId
+    recipient: userId,
   });
   let friendRequestAlreadyExists = false;
   if (foundFriendRequest1 || foundFriendRequest2) {
@@ -412,7 +415,7 @@ router.post('/acceptfriendrequest', auth, async (req, res) => {
   const updatedRecipient = await User.findOneAndUpdate(
     { _id: recipientId, friendList: { $nin: [senderId] } },
     {
-      $push: { friendList: senderId }
+      $push: { friendList: senderId },
     },
     { new: true }
   );
@@ -420,22 +423,22 @@ router.post('/acceptfriendrequest', auth, async (req, res) => {
     const updatedFriendRequest = await FriendRequest.findOneAndUpdate(
       {
         sender: senderId,
-        recipient: recipientId
+        recipient: recipientId,
       },
       {
         $set: { status: 'accepted' },
-        $push: { friendshipParticipants: [senderId, recipientId] }
+        $push: { friendshipParticipants: [senderId, recipientId] },
       },
       { new: true }
     );
 
     const updatedRequests = await FriendRequest.find({
       recipient: req.tokenUser.userId,
-      status: 'pending'
+      status: 'pending',
     });
     res.status(200).send({
       updatedRequests: updatedRequests,
-      updatedUserFriendList: updatedRecipient.friendList
+      updatedUserFriendList: updatedRecipient.friendList,
     });
   }
 });
@@ -445,16 +448,16 @@ router.post('/rejectfriendrequest', auth, async (req, res) => {
   const senderId = req.body.sender;
   const deletedFriendRequest = await FriendRequest.findOneAndDelete({
     sender: senderId,
-    recipient: recipientId
+    recipient: recipientId,
   });
 
   const updatedRequests = await FriendRequest.find({
     recipient: req.tokenUser.userId,
-    status: 'pending'
+    status: 'pending',
   });
 
   res.status(200).send({
-    updatedRequests: updatedRequests
+    updatedRequests: updatedRequests,
   });
 });
 
@@ -476,8 +479,8 @@ router.post('/unfriend', auth, async (req, res) => {
   const deletedFriendRequest = await FriendRequest.findOneAndDelete({
     $and: [
       { friendshipParticipants: { $in: [friendId] } },
-      { friendshipParticipants: { $in: [userId] } }
-    ]
+      { friendshipParticipants: { $in: [userId] } },
+    ],
   });
 
   res.status(200).send({ updatedUser, updatedFriend });
