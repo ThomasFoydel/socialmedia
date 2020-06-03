@@ -1,6 +1,6 @@
 <div align="center"> <h1>social media</h1> </div>
 
-### A MERN stack app with basic social media functionality! [live demo here](http://mernsocialmedia.xyz/)
+<div align="center"><h3>A MERN stack app with basic social media functionality!<a href="http://mernsocialmedia.xyz/">live demo here</a></h3></div>
 
 MERNSocialMedia.xyz allows users to create accounts, manage profiles, make posts, like and comment, send/accet/reject friend requests, send live chat messages to friends. This project is built with node/express, mongodb, socketio, react, and the react-spring animation library. This project uses a bcrypt and json web token based authentication flow and a redux state management flow.
 

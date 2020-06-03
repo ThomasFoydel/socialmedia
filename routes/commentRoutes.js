@@ -17,25 +17,25 @@ router.post('/newcomment', auth, async (req, res) => {
     postId,
     authorName,
     authorId: userId,
-    lastEditedAt: null
+    lastEditedAt: null,
   });
 
   newComment
     .save()
-    .then(result => {
+    .then((result) => {
       Post.findOneAndUpdate(
         { _id: postId },
         { $push: { comments: result._id } },
         { new: true }
       )
-        .then(result => {
+        .then((result) => {
           res.status(201).send(result);
         })
-        .catch(err =>
+        .catch((err) =>
           console.log('newcomment post update failed. error: ', err)
         );
     })
-    .catch(err => console.log('newcomment save failed. error: ', err));
+    .catch((err) => console.log('newcomment save failed. error: ', err));
 });
 
 //get comment by id
@@ -83,7 +83,7 @@ router.post('/likecomment/:id', auth, async (req, res) => {
   const updatedComment = await Comment.findOneAndUpdate(
     {
       _id: commentId,
-      likes: { $nin: [mongoose.Types.ObjectId(req.tokenUser.userId)] }
+      likes: { $nin: [mongoose.Types.ObjectId(req.tokenUser.userId)] },
     },
     { $push: { likes: req.tokenUser.userId } },
     { new: true }
@@ -103,7 +103,7 @@ router.post('/dislikecomment/:id', auth, async (req, res) => {
   const updatedComment = await Comment.findOneAndUpdate(
     {
       _id: commentId,
-      dislikes: { $nin: [mongoose.Types.ObjectId(req.tokenUser.userId)] }
+      dislikes: { $nin: [mongoose.Types.ObjectId(req.tokenUser.userId)] },
     },
     { $push: { dislikes: [req.tokenUser.userId] } },
     { new: true }
@@ -126,7 +126,7 @@ router.post('/removelikecomment/:id', auth, async (req, res) => {
   const updatedComment = await Comment.findOneAndUpdate(
     {
       _id: commentId,
-      likes: { $in: [mongoose.Types.ObjectId(req.tokenUser.userId)] }
+      likes: { $in: [mongoose.Types.ObjectId(req.tokenUser.userId)] },
     },
     { $pullAll: { likes: [req.tokenUser.userId] } },
     { new: true }
@@ -144,7 +144,7 @@ router.post('/removedislikecomment/:id', auth, async (req, res) => {
   const updatedComment = await Comment.findOneAndUpdate(
     {
       _id: commentId,
-      dislikes: { $in: [mongoose.Types.ObjectId(req.tokenUser.userId)] }
+      dislikes: { $in: [mongoose.Types.ObjectId(req.tokenUser.userId)] },
     },
     { $pullAll: { dislikes: [req.tokenUser.userId] } },
     { new: true }
