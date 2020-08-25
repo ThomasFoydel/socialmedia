@@ -8,12 +8,12 @@
     "start": "node app.js",
     "server": "nodemon app.js",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run app\" \"npm run client\"",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "engines": {
-    "node": "10.15.3",
-    "npm": "6.9.0"
+    "node": "12.18.3",
+    "npm": "6.14.6"
   },
   "author": "Thomas",
   "license": "MIT",

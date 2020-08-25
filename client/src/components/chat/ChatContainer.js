@@ -17,24 +17,26 @@ const ChatContainer = ({ isLoggedIn, token, userName, friendList }) => {
 
   useEffect(() => {
     let isSubscribed = true;
-    const ENDPOINT = `?token=${token}`;
+    const baseUrl =
+      process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8000';
+    const ENDPOINT = baseUrl + `?token=${token}`;
 
     socket = io(ENDPOINT);
     setMainSocket(socket);
 
-    socket.on('privateMessageFromServer', messagesArray => {
+    socket.on('privateMessageFromServer', (messagesArray) => {
       if (isSubscribed) {
         setMessages(messagesArray);
       }
     });
 
-    socket.on('ownPrivateMessageFromServer', messagesArray => {
+    socket.on('ownPrivateMessageFromServer', (messagesArray) => {
       if (isSubscribed) {
         setMessages(messagesArray);
       }
     });
 
-    socket.on('friendList', modifiedFriendList => {
+    socket.on('friendList', (modifiedFriendList) => {
       if (isSubscribed) {
         setUpdatedFriendList(modifiedFriendList);
       }
@@ -50,13 +52,13 @@ const ChatContainer = ({ isLoggedIn, token, userName, friendList }) => {
     };
   }, [token]);
 
-  const updateCurrentUser = async newUser => {
+  const updateCurrentUser = async (newUser) => {
     if (newUser) {
       setCurrentFriend(newUser);
       const foundMessages = await Axios.get(
         `/message/getmessages/${newUser.friendId}`,
         {
-          headers: { 'x-auth-token': token }
+          headers: { 'x-auth-token': token },
         }
       );
       setMessages(foundMessages.data);
@@ -74,7 +76,7 @@ const ChatContainer = ({ isLoggedIn, token, userName, friendList }) => {
     right: chatOpen ? 0 : -200,
     position: chatOpen ? 'fixed' : 'inherit',
     maxHeight: chatOpen ? '45rem' : '0.1rem',
-    config: { mass: 0.8, tension: 300, friction: 40 }
+    config: { mass: 0.8, tension: 300, friction: 40 },
   });
 
   const reverseAnimationProps = useSpring({
@@ -83,7 +85,7 @@ const ChatContainer = ({ isLoggedIn, token, userName, friendList }) => {
     right: chatOpen ? -200 : 0,
     position: chatOpen ? 'inherit' : 'fixed',
     display: chatOpen ? 'none' : 'block',
-    config: { mass: 0.8, tension: 300, friction: 40 }
+    config: { mass: 0.8, tension: 300, friction: 40 },
   });
 
   return (
@@ -94,7 +96,7 @@ const ChatContainer = ({ isLoggedIn, token, userName, friendList }) => {
             style={{
               overflow: chatOpen ? 'visible' : 'hidden',
               maxHeight: chatOpen ? '45rem' : '0.1rem',
-              display: chatOpen ? 'inherit' : 'none'
+              display: chatOpen ? 'inherit' : 'none',
             }}
           >
             <animated.div style={animationProps}>
@@ -129,7 +131,7 @@ const ChatContainer = ({ isLoggedIn, token, userName, friendList }) => {
     </div>
   );
 };
-const mapStateToProps = state => ({
-  friendList: state.currentUser.friendList
+const mapStateToProps = (state) => ({
+  friendList: state.currentUser.friendList,
 });
 export default connect(mapStateToProps)(ChatContainer);
